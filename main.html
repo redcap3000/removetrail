@@ -1,0 +1,786 @@
+<html>
+<head>
+	<title>reMoveTrail</title>
+	   <script src="https://maps.googleapis.com/maps/api/js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	   <style>
+	   body{
+	   	background-color:gray;
+	   }
+	   .legend {
+	   	min-width:120px;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      .legend h3 {
+        margin-top: 0;
+      }
+      .legend img {
+        vertical-align: middle;
+      }
+	   </style>
+
+</head>
+<body>
+   
+   <div id="controls">
+   		<iframe id="iframe" src="http://global-mind.org/gcpdot/gcp.html" height="48" width="48" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="z-index:10000;"></iframe>
+   		<button onClick="toggleAbout()">About</button>
+
+	   	<button onClick="toggle('chakras')">Chakras</button>
+
+	   	<button onClick="toggle('fires')">Fires</button>
+
+	   	<button onClick="toggle('quakes')">Quakes</button>
+	    	<button onClick="toggle('connections')">Connections</button>
+	   	<button style="float:right" onClick='toggleQuakeTimeline()'>Toggle Quake Timeframe</button>
+
+	</div>
+    <div id="map_canvas" class="ui-corner-all" style="z-index: 200000000 !IMPORTANT; width:100%;height:100%"></div>
+ 
+ 	</div>
+ 	<div id="legend2" class='legend'><h3>EGG Color Values</h3></div>
+
+ 	<div id="legend" class='legend'><h3>Map Markers</h3></div>
+ 	
+ 	<div id="legend3" style="display:none;" class='legend'><h3>Chakra Colors</h3></div>
+ 	<div id="about" style="width:35%;" class='legend'>
+ 		<h1>Remove Trail</h1>
+ 		<p>A project that uses realtime, to the second, RNG data from the Global Consciousness project displayed as a animated point on a map (where the RNG is stationed) along
+ 			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
+ 			are places of interest such as universities and places of worship in addition to color coded (to the zodiac) chakra points.
+
+ 		<h2>Whats an RNG</h2>
+ 		<p>RNG stands for 'Random Number Generator' and is a specialized device that generates streams of random numbers.</p>
+
+ 		<h2>CPU Intensive</h2>
+ 		<p> This visualization can be CPU/memory intensive, warning. To improve speed zoom in on various parts of the map, 
+ 		and do not use the 'Connections' feature if your computer is from the last ceuntry.</p>
+
+ 		<h3>Why?</h3>
+ 		<p>Removetrail is a continuation of a much older and discontinued project called 'Trail.' I am fascinated with randomness, but am also fascinated with the little I know about quantum physics, so one of
+ 		my personal uses of this applications is primary for event predictions, but could be used as a platform to test various quantum phenomon</p>
+
+ 		<h3>The future?</h3>
+ 		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
+ 		<button onClick="toggleAbout()">Close</button>
+ 	</div>
+ 	<div id="help" style="width:25%;display:none;">
+ 		<h2>Chakras</h2>
+ 		<h2>Fires</h2>
+ 		<h2>Quakes</h2>
+ 		<h2>Connections</h2>
+
+ 	</div>
+<script>
+// self executing function here
+
+(function() {
+	
+	
+	cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
+					 'CERN LHC Point 2' : [46.250839, 6.021515],
+					 'CERN LHC Point 3' : [46.277450, 6.012687],
+					 'CERN LHC Point 4' : [46.304269, 6.037311],
+					 'CERN LHC Point 5' : [46.310071, 6.077340],
+					 'CERN LHC Point 6' : [46.293415, 6.111510],
+					 'CERN LHC Point 7' : [46.266307, 6.114354],
+					 'CERN LHC Point 8' : [46.241716, 6.096901]}
+
+	quakeTimeline = 'quake'
+    trackedQuakes = {};
+    // this isnt working very well .... 
+	toggleQuakeTimeline = function(){
+		if(typeof trackedQuakes != "undefined"){
+			for(var key in trackedQuakes){
+					trackedQuakes[key].setMap(null);
+				}
+		}
+		if(quakeTimeline == 'quake'){
+			quakeTimeline = 'quake30'
+		}else{
+			// should clear quakes before requerying.... 
+			quakeTimeline = 'quake'
+
+		}
+		//console.log(quakeTimeline)
+		//return queryQuakes(quakeTimeline)
+	}
+	toggleAbout= function(){
+		var about = document.getElementById('about')
+		if(about.style.display != 'none'){
+			document.getElementById('about').style.display = 'none'
+		}else{
+			document.getElementById('about').style.display = 'block'
+		}
+	}
+	  map = {};
+	  queryQuakes = function(timeline){
+	  	if(typeof timeline == 'undefined'){
+	  		timeline = 'quake'
+	  	}
+		var theUrl = window.location.origin + "/"+quakeTimeline;
+
+		 $.ajax({
+		 	url: theUrl, success: function(result){
+		 		for(var k in result){
+		 			var r = result[k];
+		 			if(typeof trackedQuakes[k] != "undefined"){
+		 				trackedQuakes[k].setMap(null);
+		 			}
+		 			//console.log(r);
+		 			//{mag: 2.2, dept: 8.69, rms: 0.27, lat: 32.8926667, lng: -115.5206667}dept: 8.69lat: 32.8926667lng: -115.5206667mag: 2.2rms: 0.27__proto__: Object
+		 			trackedQuakes[k] = new google.maps.Marker({
+	        			    position: {lat: r.lat, lng: r.lng},
+						    map: map,
+						    title:  (r.mag != null && typeof r.mag.toString == 'function' ? r.mag.toString() : '') + ' @' + r.dept.toString() + 'km',
+						     icon: {
+						      path: google.maps.SymbolPath.CIRCLE,
+						      scale: r.mag * r.rms * 4,
+						      fillColor: '#663300',
+						      fillOpacity: r.rms,
+						      strokeWeight : r.mag / r.dept + r.mag *2
+						    }
+	        			});
+
+		 		}
+		    }
+			});
+	}
+	
+	  $.ajax({
+		 	url: '/eegSites', success: function(result){
+		 		var markers = JSON.parse(result);
+			    eegMarkers = [];
+	    		eegLocations = {};
+		    	markers.filter(function(o,i){
+		    		var location = {
+		    			lat : parseFloat(o.lat),
+		    			lon : parseFloat(o.lng)
+		    		};
+		    		var parsedId = o.id[0].split('-');
+		    		parsedId = parsedId[0];
+		    		eegLocations[parsedId]= new google.maps.Marker({
+						        			    position: {lat: location.lat, lng: location.lon},
+											    map: map, title:  o.number[0],
+											    icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, scale: 2}
+						        			});
+
+		    		if(i == markers.length -1){
+		    			// the last one
+		    			var theUrl = '/eegData';
+		    			setInterval(function(){
+		        		 $.ajax({
+		        		 	url: theUrl, success: function(result){
+						        //$("#div1").html(result);
+						        for(var key in result){
+						        	if(typeof eegLocations[key] != "undefined"){
+						        		// get old location to swap out?
+						        		var oldPos = {lat : eegLocations[key].position.lat(), lng : eegLocations[key].position.lng()};
+						        		eegLocations[key].setMap(null);
+						        		var animation;
+						        		/*
+						        		100-103 green, 
+						        		103-107 yellowish green, 
+						        		107-114, reddish yellow, 
+						        		114 and greater, red
+										97-100 green, 
+										93-197 bluish-green, 
+										86-83 blue, 
+										86 and smaller, purplish or dark blue
+						        		*/
+						        		eggValue = result[key]
+						        		if(eggValue > 100 && eggValue < 103){	
+						        			animation = 'green';
+						        		}else if(eggValue >  102 && eggValue < 108){
+						        			animation = 'yellowgreen';
+						        		}else if(eggValue > 107 && eggValue < 115){
+						        			// redish yellow
+						        			animation = '#ECB176';
+						        		}else if(eggValue > 114 && eggValue < 146){
+						        			animation = 'red';
+						        		}else if(eggValue < 101 && eggValue > 96){
+						        			animation = 'green';
+						        		}else if(eggValue > 89 && eggValue < 98 ){
+						        			animation = '#0d98ba';
+						        		}else if(eggValue < 90 && eggValue > 82){
+						        			animation = 'blue'
+						        		}else if(eggValue < 83){
+						        			animation = 'darkblue'
+						        		}else{
+						        			// error???
+						        			console.log("Error value : " + eggValue)
+						        			animation = 'pink'
+						        		}
+						        		eegLocations[key] = new google.maps.Marker({
+									    	position: oldPos,
+										    map: map,
+										    icon: {
+										      path: google.maps.SymbolPath.CIRCLE,
+										      scale: 4,
+										      strokeColor: animation
+										    }
+										  });
+										if(toggleStates['connections']){
+											fetchVisibleEEG()
+										}
+
+						        	}else{
+						        		;
+						        	}
+						      
+						        }
+				
+						    }
+						})},1000);
+						
+		    		}
+    		})
+		}
+	});
+
+	var styles = [
+	  {
+	    "featureType": "poi",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "poi",
+	    "elementType": "geometry",
+	    "stylers": [
+	      { "invert_lightness": true },
+	      { "color": "#d9eada" },
+	      { "visibility": "on" }
+	    ]
+	  },{
+	    "featureType": "road.local",
+	    "stylers": [
+	      { "invert_lightness": true },
+	      { "color": "#808080" },
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "transit.line",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "transit.station",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "landscape.natural.landcover",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "road.highway",
+	    "elementType": "labels",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "road.arterial",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "administrative",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "poi.place_of_worship",
+	    "stylers": [
+	      { "weight": 1.1 },
+	      { "visibility": "on" },
+	      { "invert_lightness": true }
+	    ]
+	  },{
+	    "featureType": "poi.medical",
+	    "stylers": [
+	      { "visibility": "on" },
+	      { "invert_lightness": true },
+	      { "weight": 1.5 }
+	    ]
+	  },{
+	    "featureType": "water",
+	    "stylers": [
+	      { "visibility": "simplified" }
+	    ]
+	  }
+	];
+	var styledMap = new google.maps.StyledMapType(styles,
+	    {name: "Styled Map"});
+
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+      center: {lat: 0, lng: 0},
+      zoom: 3
+	  //mapTypeId: google.maps.MapTypeId.ROADMAP,
+    });
+
+    map.mapTypes.set('map_style', styledMap);
+  	map.setMapTypeId('map_style');
+
+
+
+// ledgend, need to do f/r for references of eeg to change to egg 
+	  var iconBase = 'https://developers.google.com/maps/documentation/javascript/images/';
+        var icons = {
+          eeg: {
+            name: 'EGG Site',
+            icon: iconBase + 'symbol_circle.png'
+          },
+          eegDisabled: {
+            name: 'Inactive EGG Site',
+            icon: iconBase + 'symbol_back_close.png'
+          },
+          chakra: {
+            name: 'Chakra',
+            icon: iconBase + 'symbol_fore_open.png'
+          }
+        };
+	 var legend = document.getElementById('legend');
+        for (var key in icons) {
+        	var type = icons[key]
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+
+
+
+
+
+        var colors ={
+        	'0' : {
+        		name : "> 100",
+        		color : 'green'
+        	},
+        	'1' : {
+        		name : "> 102",
+        		color : 'yellowgreen'
+        	},
+        	'2' : {
+        		name : "> 107",
+        		color : '#ECB176'
+        	},
+        	'3' : {
+        		name : "> 114",
+        		color : 'red'
+        	},
+        	'4' : {
+        		name : "< 101",
+        		color : 'green'
+        	},
+            '5' : {
+        		name : "> 89",
+        		color : '#0d98ba'
+        	},
+			'6' : {
+        		name : "> 82",
+        		color : 'blue'
+        	},
+        	'7' : {
+        		name : "< 83",
+        		color : 'darkblue'
+        	},
+        	'-1' : {
+        		name :"Errant Value",
+        		color : 'pink'
+        	}
+        }
+
+        var legend2 = document.getElementById('legend2')
+        for(var key in colors){
+        	var type = colors[key]
+        	var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+
+          div.innerHTML = '<div style="float:left;clear:both"><div style="width:25px;height:25px;float:left;background-color:'+type.color+'"></div>&nbsp;' + name+'</div>';
+          legend2.appendChild(div);
+        }
+
+        var chakraColors = {
+
+			'Aries' : { 'color' : 'red' },
+			"Taurus" : { 'color' : 'green'},
+			"Gemini" : { 'color' : 'orange'},
+			"Cancer" : { 'color' : 'violet'},
+			"Leo" : { 'color' : 'gold'},
+			"Virgo" :{ 'color' : 'blue'},
+			"Libra" :{ 'color' : 'green' },
+			"Scorpio" :{ 'color' : 'red' },
+			"Sagittarius" : { 'color' : 'violet' },
+			"Capricorn" : { 'color' : '#4B0082' },
+			"Aquarius" : { 'color' : 'violet' },
+			"Pisces" : { 'color' : '#4B0082' }
+		    			
+        }
+        var legend3 = document.getElementById('legend3')
+        for(var key in chakraColors){
+        	var type = chakraColors[key];
+        	var name = key;
+        	var icon = type.color
+        	 var div = document.createElement('div');
+        	div.innerHTML = '<div style="float:left;clear:both"><div style="width:25px;height:25px;float:left;background-color:'+type.color+'"></div>&nbsp;' + name+'</div>';
+            legend3.appendChild(div);
+
+        }
+        // make ledgend two for color codes
+        /*
+			if(result[key] < 80){
+				animation = 'orange'
+			}
+			else if(result[key] < 90){
+				animation = 'blue';
+			}else if(result[key] < 100){
+				animation = 'green';
+			}else if(result[key] < 110){
+				animation = 'gold';
+			}else if(result[key] > 110){
+				animation = 'red';
+			}else if(value === 110){
+				// value IS 110?
+				animation = 'gold';
+			}else{
+				animation = 'pink';
+
+			}
+        */
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend2);
+        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend3);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('about'))
+    //map.controls[google.maps.ControlPosition.LEFT_TOP] =[document.getElementById("controls")];
+    map.controls[google.maps.ControlPosition.LEFT_CENTER] =[document.getElementById("iframe")];
+    //map.controls[google.maps.ControlPosition.RIGHT_TOP] =[document.getElementById('div1')];
+    // https://fsapps.nwcg.gov/afm/googleearth.php
+    chakraMarkers = []
+
+    cernPoints = []
+    showCERNPoints = function(){
+    	for(var key in cernLHCPoints){
+    		var point = cernLHCPoints[key]
+    		var location = {
+		    			lat : parseFloat(point[0]),
+		    			lon : parseFloat(point[1])
+		    		};
+		    		//var parsedId = o.id[0].split('-');
+		    		//parsedId = parsedId[0];
+		    		cernPoints.push(new google.maps.Marker({
+						        			    position: {lat: location.lat, lng: location.lon},
+											    map: map, title: key,
+											    icon: { path: google.maps.SymbolPath.CIRCLE, scale: 2}
+						        			}))
+    	}
+
+
+
+
+cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
+					 'CERN LHC Point 2' : [46.250839, 6.021515],
+					 'CERN LHC Point 3' : [46.277450, 6.012687],
+					 'CERN LHC Point 4' : [46.304269, 6.037311],
+					 'CERN LHC Point 5' : [46.310071, 6.077340],
+					 'CERN LHC Point 6' : [46.293415, 6.111510],
+					 'CERN LHC Point 7' : [46.266307, 6.114354],
+					 'CERN LHC Point 8' : [46.241716, 6.096901]}
+
+
+
+    	 var cernSquare1 = [
+          {lat: 46.234745, lng: 6.053495},
+          {lat: 46.277450, lng: 6.012687},
+          {lat: 46.310071, lng: 6.077340},
+          {lat: 46.266307, lng: 6.114354},
+          {lat: 46.234745, lng: 6.053495}
+        ];
+
+
+    	 var cernSquare2 = [
+          {lat: 46.250839, lng: 6.021515},
+          {lat: 46.304269, lng: 6.037311},
+          {lat: 46.293415, lng: 6.111510},
+          {lat: 46.241716, lng: 6.096901},
+          {lat: 46.250839, lng: 6.021515}
+        ];
+        var cernSquare1Line = new google.maps.Polyline({
+          path: cernSquare1,
+          geodesic: true,
+          strokeColor: 'red',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        var cernSquare2Line = new google.maps.Polyline({
+          path: cernSquare2,
+          geodesic: true,
+          strokeColor: 'green',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        cernSquare1Line.setMap(map)
+
+        cernSquare2Line.setMap(map)
+    }
+    showCERNPoints();
+	// this is inefficent. reloads the json each time toggle on occurs ?
+	showChakras = function(){
+		 $.ajax({
+			 	url: '/chakras', 
+			 	dataType: "json", 
+			 	success: 
+			 		function(result){
+			 			var theZodiac = {
+		    				'Aries' : { 'color' : 'red' },
+		    				"Taurus" : { 'color' : 'green'},
+		    				"Gemini" : { 'color' : 'orange'},
+		    				"Cancer" : { 'color' : 'violet'},
+		    				"Leo" : { 'color' : 'gold'},
+		    				"Virgo" :{ 'color' : 'blue'},
+		    				"Libra" :{ 'color' : 'green' },
+		    				"Scorpio" :{ 'color' : 'red' },
+		    				"Sagittarius" : { 'color' : 'violet' },
+		    				"Capricorn" : { 'color' : '#4B0082' },
+		    				"Aquarius" : { 'color' : 'violet' },
+		    				"Pisces" : { 'color' : '#4B0082' }
+		    			};
+		    			var chakraDetail = {
+		    				"13" : "Galatic Male",
+		    				"12" : "Galatic Female",
+		    				"11" : "Crown",
+		    				"10" : "Pineal",
+		    				"9" : "Pituitary",
+		    				"8" : "Well of Dreams",
+		    				"7" : "Throat",
+		    				"6" : "Thymus",
+		    				"5" : "Heart",
+		    				"4" : "Diaphragm",
+		    				"3" : "Solar Plexus",
+		    				"2" : "Sex",
+		    				"1" : "Root"
+		    			};
+
+			 			result.filter(function(r){
+			 				var co = r.coords.split(',');
+			 			
+			 				var color = 'gray';
+			 				var scale = 2;
+			 				var cValue = parseFloat(r.Chakra);
+			 				if(typeof r.Zodiac != "undefined" && r.Zodiac != ' ' && typeof theZodiac[r.Zodiac] != "undefined"){
+			 					color = theZodiac[r.Zodiac].color;
+			 					scale = 3;
+			 				}
+			 				if(typeof chakraDetail[r.Chakra] != "undefined"){
+			 					scale = 6;
+			 				}
+			 				chakraMarkers.push(
+			 					new google.maps.Marker({
+			        			    position: {lat: (typeof co[0] == 'string' ? parseFloat(co[0]) : 0), lng: (typeof co[0] == 'string' ? parseFloat(co[1]) : 0)},
+								    map: map,
+								    title:  (r.Chakra) + " " + r.Location + (typeof chakraDetail[r.Chakra] != "undefined" ? chakraDetail[r.Chakra] :''),
+								     icon: {
+								      path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+								      scale: scale,
+								      strokeColor: color
+
+								    }
+			        			})
+			        		)
+			 			})
+		    	
+				}
+		});
+	}
+    /*
+      var kmlUrl = 'https://removetrail.herokuapp.com/fire.kml';
+		var kmlOptions = {
+		  suppressInfoWindows: false,
+		  preserveViewport: false
+		};
+		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		kmlLayer.setMap(map);
+		console.log(kmlLayer);
+	*/
+ 	checkOption = function(option){
+ 		if(typeof option == 'undefined' || !option || option ==''){
+ 			return false
+ 		}
+ 		if(option == 'quakes'){
+ 			return document.getElementById(option).value
+ 		}
+
+ 	}
+ 	toggleStates = {
+ 		'chakras' : false,
+ 		'fires' : false,
+ 		'quakes' : true,
+ 		'connections' : false
+ 	}
+ 	quakeInterval = setInterval(function(){console.log('q interval');queryQuakes()},1000 * 60)
+ 	queryQuakes()
+ 	visibleEEG = []
+ 	fetchVisibleEEG = function(){
+ 		visibleEEG = []
+ 		for(var eeg in eegLocations){
+			if( map.getBounds().contains(eegLocations[eeg].getPosition()) ){
+		        // code for showing your object, associated with markers[i]
+		        visibleEEG.push(eegLocations[eeg])
+
+		    }
+ 		}
+ 		if(visibleEEG.length > 0){
+ 			evaluateVisibleEEG()
+ 		}
+
+ 	}
+ 	// check if the values have similar values then draw poly line connecting them...
+ 	lines = []
+ 	evaluateVisibleEEG = function(){
+ 		// recurse?
+ 		if(typeof lines != 'undefined' && lines.length > 0){
+ 			for (i=0; i<lines.length; i++) 
+			{                           
+			  lines[i].setMap(null);
+			}
+ 			
+ 		}
+ 		var colors = []
+ 		visibleEEG.filter(function(e,i){
+ 			if(typeof e.icon.strokeColor != 'undefined'){
+ 				colors.push([e.icon.strokeColor,i])
+ 			}else{
+ 				//colors.push(false)
+ 			}	
+ 		})
+	 	var matches = []
+ 		if(colors.length > 0){
+	 		colors.filter(function(c,idx){
+	 			if(idx > 0){
+	 				if(c &&  c[0] === colors[idx-1][0]){
+	 					matches.push(visibleEEG[c[1]])
+	 				}
+	 			}
+	 		})
+ 		}
+ 		// do the lines?
+
+ 		if(matches.length > 0){
+ 			var matchingPolys= []
+ 			var paths = {}
+ 			matches.filter(function(m){
+ 				var pathColor = m.icon.strokeColor
+ 				if(typeof paths[pathColor] == 'undefined'){
+ 					paths[pathColor] = []
+ 				}else{
+ 					paths[pathColor].push(m.position)
+
+ 				}
+ 				
+
+ 			})
+ 			for(var key in paths){
+	 			l = new google.maps.Polyline({
+		        	  path: paths[key],
+		    	      geodesic: true,
+			          strokeColor: key,
+		        	  strokeOpacity: 1.0,
+		    	      strokeWeight: 3
+			        });
+	 			lines.push(l)
+			    l.setMap(map)
+
+ 			}
+
+ 		}
+ 		// remove dupes ?
+ 		// compare colors if two points adjacent to each other match then draw a poly line connecting them?
+
+ 	}
+
+ 	toggle = function(el){
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			var newState =  !toggleStates[el]
+ 			toggleStates[el] = newState
+
+ 			switch(el) {
+ 				case 'connections' :
+ 					if(typeof lines != 'undefined' && lines.length > 0){
+			 			for (i=0; i<lines.length; i++) 
+						{                           
+						  lines[i].setMap(null);
+						}
+			 			
+			 		}
+	 				break;
+			    case 'chakras':
+			    	var legend3 = document.getElementById('legend3')
+
+			    	if(newState){
+			    		showChakras();
+			    		legend3.style.display = "block";
+			    	}else{
+			    		chakraMarkers.filter(function(r){
+			    			r.setMap(null)
+			    		})
+			    		legend3.style.display = 'none'
+			    	}
+			        break;
+			    case 'fires':
+			        if(newState){
+			        	 ctaLayer = new google.maps.KmlLayer({
+				          url: 'https://fsapps.nwcg.gov/afm/data/kml/conus_latest_lg_incidents.kml',
+				          map: map
+				        });
+			        }else{
+			        	ctaLayer.setMap(null);
+			        }
+			        break;
+			    case 'quakes':
+			        if(newState){
+			        	if(typeof quakeInterval == 'undefined' || !quakeInterval){
+			        		quakeInterval = setInterval(function(){queryQuakes()},1000 * 60)
+			        	}
+			        	
+			        }else{
+			        	if(typeof quakeInterval != 'undefined'){
+			        		clearInterval(quakeInterval)
+			        	}
+
+			        	if(typeof trackedQuakes != "undefined"){
+			        		for(var key in trackedQuakes){
+		 						trackedQuakes[key].setMap(null);
+		 					}
+		 				}
+			        }
+			        break;
+			    default:
+			        return false
+			}
+ 			if(newState){
+ 				// show
+
+ 			}else{
+ 				// hide
+ 			}
+ 		}
+ 		
+ 	}
+	quakeWindows = {};
+	
+
+
+})();
+</script>
+		
+</body>

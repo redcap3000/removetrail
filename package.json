@@ -1,0 +1,15 @@
+{
+  "name": "reMoveTrail",
+  "version": "1.0.0",
+  "description": "A google maps platform incoprorating EGG data from Consciousness Project, chakra locations, USGS earthquake data and USDA Forest service fire data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
+  },
+  "author": "Ronaldo Barbachano",
+  "license": "ISC"
+}

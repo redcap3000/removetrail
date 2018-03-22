@@ -1,0 +1,938 @@
+[
+  {
+    "Chakra": "1",
+    "Location": "Glastonbury(Tor) & Shaftesbury; England ",
+    "coords": "51,-2",
+    "Zodiac": "Leo"
+  },
+  {
+    "Chakra": "2",
+    "Location": "Brandenburg Gate; Berlin; Germany",
+    "coords": "521.3e+23",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "3",
+    "Location": "Montserrat-Placa de Catalunya; Barcelona; Spain",
+    "coords": "4120000000000",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "4",
+    "Location": "Island of the Sun; Lake Titicaca; Bolivia & Peru",
+    "coords": "-16,-69",
+    "Zodiac": "Cancer"
+  },
+  {
+    "Chakra": "5",
+    "Location": "Plaza Mayor; Lima; Peru",
+    "coords": "-12,-77",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "6",
+    "Location": "Rio Ucayli and Rio Maranon confluence; Iquitos; Peru ",
+    "coords": "-4,-73",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "7",
+    "Location": "Uluru & Kata Tjuta; Australia",
+    "coords": "-251.3e+61",
+    "Zodiac": "Capricorn"
+  },
+  {
+    "Chakra": "8",
+    "Location": "Nourlangie Rock; Kakadu; Northern Territory; Australia",
+    "coords": "-121.32e+50",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "9",
+    "Location": "Hamelin Pool; Gathaagudu (Shark Bay); Western Australia",
+    "coords": "-26114000000000000",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "10",
+    "Location": "Tirta Empul; Bali",
+    "coords": "-8115000000000000000000",
+    "Zodiac": "Sagittarius"
+  },
+  {
+    "Chakra": "11",
+    "Location": "Borobudur; Java; Indonesia",
+    "coords": "-7110000000000000",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "12",
+    "Location": "Mount Kinabalu; Sabah; Malaysia",
+    "coords": "61.16e+35",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "13",
+    "Location": "Mount Kailas; Tibet",
+    "coords": "3181000000000000000000",
+    "Zodiac": "Scorpio"
+  },
+  {
+    "Chakra": "14",
+    "Location": "Karakul Lake-Ismail Samani; Pamirs; Tajikistan",
+    "coords": "397.3e+30",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "15",
+    "Location": "Sundarbans-Sagar Island-Banyan Tree; Botanical Gardens; Kolkata; India/Bangladesh",
+    "coords": "228800000000000000000",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "16",
+    "Location": "Mount Shasta; California",
+    "coords": "41,-122",
+    "Zodiac": "Taurus"
+  },
+  {
+    "Chakra": "17",
+    "Location": "Kachina Peaks Wilderness; Arizona; USA",
+    "coords": "35,-111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "18",
+    "Location": "Golden Hinde; Strathcona Provincial Park; Vancouver Island; Canada",
+    "coords": "49,-125",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "19",
+    "Location": "El Tule-Palenque; Mexico",
+    "coords": "17,-91",
+    "Zodiac": "Gemini"
+  },
+  {
+    "Chakra": "20",
+    "Location": "Laguna Corcovado; Corcovado National Park; Costa Rica",
+    "coords": "8,-83",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "21",
+    "Location": "Cascada Cola de Caballo-Cerro de la Silla-Fuente de la Vida; Monterrey; Mexico",
+    "coords": "25,-100",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "22",
+    "Location": "Mount Fuji; Japan",
+    "coords": "351.38e+45",
+    "Zodiac": "Aquarius"
+  },
+  {
+    "Chakra": "23",
+    "Location": "Mani San; Ganghwa Island; North & South Korea",
+    "coords": "371.26e+28",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "24",
+    "Location": "Sefa Utaki; Nanjo City; Okinawa ",
+    "coords": "261.27e+48",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "25",
+    "Location": "Haleakala Crater; Hawaii",
+    "coords": "20,-156",
+    "Zodiac": "Aries"
+  },
+  {
+    "Chakra": "26",
+    "Location": "Pihemanu (Midway Atoll/Islands)",
+    "coords": "28177w23",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "27",
+    "Location": "Mauna Loa & Mauna Kea; Hawaii",
+    "coords": "19,-155",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "28",
+    "Location": "Lake Rotopounamu; New Zealand",
+    "coords": "-391.75e+46",
+    "Zodiac": "Pisces"
+  },
+  {
+    "Chakra": "29",
+    "Location": "Mount Panié; New Caledonia",
+    "coords": "-201.64e+48",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "30",
+    "Location": "Macquarie Island",
+    "coords": "-541.58e+55",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "31",
+    "Location": "Great Pyramid-Mount Sinai-Mount of Olives; Egypt-Israel-Palestine",
+    "coords": "29310000000",
+    "Zodiac": "Libra"
+  },
+  {
+    "Chakra": "32",
+    "Location": "Mecca; Saudi Arabia",
+    "coords": "21.427500000000002,39.81472222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "33",
+    "Location": "Takht-e Soleiman (Throne of Solomon); Iran",
+    "coords": "36.60333333333333,47.236111111111114",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "34",
+    "Location": "Table Mountain; Cape Town; South Africa",
+    "coords": "-33.92472222222222,18.43",
+    "Zodiac": "Virgo"
+  },
+  {
+    "Chakra": "35",
+    "Location": "The Pilansberg; South Africa",
+    "coords": "-25.229444444444443,27.03222222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "36",
+    "Location": "Mont-aux-Sources; Lesotho-South Africa",
+    "coords": "-28.759166666666665,28.884722222222223",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "37",
+    "Location": "Sergiev Posad-Danilov-Moscow; Russia",
+    "coords": "55.755833333333335,37.6175",
+    "Zodiac": "Leo"
+  },
+  {
+    "Chakra": "38",
+    "Location": "Mount Konzhakovsky Kamen; Central Ural Mountains; near Serov; Russian",
+    "coords": "59,60",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "39",
+    "Location": "Mount Elbrus; Caucasus; Russia-Republic of Georgia",
+    "coords": "43.355000000000004,42.439166666666665",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "40",
+    "Location": "The Buddha; Po Lin (Precious Lotus) Monastery; Lantau Island-Victoria Park; Hong Kong Island-Tai Mo Shan; New Territories; Hong Kong",
+    "coords": "22.255555555555556,113.90777777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "41",
+    "Location": "Emei Shan-Gongga Shan-Leshan Buddha; Sichuan; China",
+    "coords": "30.65111111111111,104.07555555555555",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "42",
+    "Location": "Mt. Pulag; Luzon Island; Philippines",
+    "coords": "16.58361111111111,120.88361111111112",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "43",
+    "Location": "Niagara Falls; USA/Canada",
+    "coords": "43.09027777777778,-79.08611111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "44",
+    "Location": "Pilot Knob State Park; Iowa; USA",
+    "coords": "43.25277777777778,-93.55333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "45",
+    "Location": "Akimiski Island; James Bay; Canada",
+    "coords": "52.98722222222222,-81.31722222222221",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "46",
+    "Location": "Mount Dimlang; Shebshi Mountains; Adamwa Plateau; Nigeria",
+    "coords": "8.5,11.75",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "47",
+    "Location": "Kaalom; Lake Chad; Chad",
+    "coords": "13.330277777777777,14.1",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "48",
+    "Location": "Isangila Falls; Democratic Republic of Congo (Zaire)",
+    "coords": "-6,12",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "49",
+    "Location": "Marco Zero-Praca da Republica-Golden Chapel; Recife and Nova Jerusalem; Fazenda Nova; Brazil",
+    "coords": "-8,-40",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "50",
+    "Location": "Peter & Paul Rocks; Brazil; Atlantic Ocean",
+    "coords": "-0.9169444444444445,-29.335277777777776",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "51",
+    "Location": "Parnaiba River Headwaters National Park-Capivara Mountain National Park-Confusion Mountains National Park; Piaui; Brazil",
+    "coords": "-8.323055555555555,-43.17472222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "52",
+    "Location": "Plaza de Mayo; Buenos Aires; Argentina",
+    "coords": "-34.608333333333334,-58.37222222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "53",
+    "Location": "Iguazu Falls; Argentina-Brazil-Paraguay; Concepcion; Paraguay and Parque Nacional Cerro Cora; Paraguay",
+    "coords": "-25.68027777777778,-54.445277777777775",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "54",
+    "Location": "Plaza de Armas-Cerro Santa Lucia-Cerro San Cristobal- Parque Forestal; Santiago; Chile",
+    "coords": "-33.59305555555556,-70.61861111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "55",
+    "Location": "Jebel Toubkal; High Atlas Mountains; Morocco",
+    "coords": "31.061944444444446,-7.916111111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "56",
+    "Location": "Pico de Teide; Tenerife; Canary Islands",
+    "coords": "28.266666666666666,-16.633333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "57",
+    "Location": "Chott el Djerid; Tunisia",
+    "coords": "33.886944444444445,9.5375",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "58",
+    "Location": "Teatro Amazonas; Manaus and confluence of Rio Negro and Rio Solimoes; Brazil",
+    "coords": "-3.1305555555555555,-60.02305555555555",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "59",
+    "Location": "Angel Falls; Venezuela",
+    "coords": "5.9675,-62.535555555555554",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "60",
+    "Location": "Lago Arari; Ilha de Marajo; Brazil",
+    "coords": "-3.4166666666666665,-58.75",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "61",
+    "Location": "Christ the Redeemer; Corcovado Mountain; Rio de Janeiro; Brazil",
+    "coords": "-22.90361111111111,-43.209722222222226",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "62",
+    "Location": "Praca dos Tres Poderes; Brasilia; Brazil",
+    "coords": "-23.84472222222222,-50.18888888888888",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "63",
+    "Location": "Terreiro de Jesus; Pelourinho; Cidade Alta; Salvador; Brazil",
+    "coords": "-12.973333333333333,-38.51",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "64",
+    "Location": "High Tatra; Poland & Slovak Republic",
+    "coords": "49.166666666666664,20",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "65",
+    "Location": "Stortorget; Gamla Stan; Stockholm; Sweden",
+    "coords": "59.325,18.070833333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "66",
+    "Location": "Mytikas-Plateau of the Muses; Mount Olympus; Greece",
+    "coords": "40.083333333333336,22.35",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "67",
+    "Location": "Arunachala Hill; southwest of Chennai; India",
+    "coords": "13.075277777777778,80.27027777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "68",
+    "Location": "Piram Island; Gulf of Cambay-Narmada River; Gujarat; India",
+    "coords": "21.6,72.35",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "69",
+    "Location": "Adam’s Peak; Sri Lanka",
+    "coords": "6.809166666666666,80.49972222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "70",
+    "Location": "Uhuru Peak; Kibo; Kilimanjaro; Tanzania",
+    "coords": "-3.0758333333333336,37.35333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "71",
+    "Location": "Ukerewe Island; Tanzania-Mfangano Island; Kenya-Bugala Island; Uganda and Source of the Nile; Jinga; Uganda; Lake Victoria",
+    "coords": "-0.9833333333333333,32.9",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "72",
+    "Location": "Mt. Nkungwe; Mahale Mountains National Park; Lake Tanganyika; Tanzania",
+    "coords": "-6.116666666666666,29.8",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "73",
+    "Location": "Mount Belukha; Siberia & Tabun Bogdo; Altais; Mongolia",
+    "coords": "48.5,88.9",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "74",
+    "Location": "Uzynaral Strait; Ortasu; Sarymsek Peninsula; Lake Balkash; Kazakhstan",
+    "coords": "46.6,75.5",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "75",
+    "Location": "Cape Khoboy; Olkhon Island; Lake Baikal; Russia",
+    "coords": "53.166666666666664,107.66666666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "76",
+    "Location": "The Hall of Supreme Harmony; Forbidden City; Beijing; China",
+    "coords": "39.90416666666667,116.4075",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "77",
+    "Location": "Tai Shan; Shandong Province; China",
+    "coords": "36.5,117.33333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "78",
+    "Location": "Karakorum; Gobi Desert; Mongolia",
+    "coords": "47.197222222222216,102.82388888888889",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "79",
+    "Location": "Boulder; Colorado USA",
+    "coords": "40.015,-105.27055555555556",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "80",
+    "Location": "Mount Whitney; Death Valley",
+    "coords": "36.22,-116.88166666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "81",
+    "Location": "Cahokia Mounds; Illinois; USA",
+    "coords": "38.650277777777774,-90.06777777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "82",
+    "Location": "Three Sisters; Blue Mountains & Sydney; Australia",
+    "coords": "33.733333333333334150,0",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "83",
+    "Location": "Mount Picton area; southwest Tasmania; Australia",
+    "coords": "-43.1575,146.6075",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "84",
+    "Location": "Fraser Island; Queensland; Australia",
+    "coords": "-25.3925,153.02944444444447",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "85",
+    "Location": "Cerro de Puntas; Arecebo source; Puerto Rico",
+    "coords": "18.35611111111111,-67.26388888888889",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "86",
+    "Location": "Great Exuma Island; Bahamas",
+    "coords": "23.516666666666666,-75.81666666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "87",
+    "Location": "Montego Bay; Jamaica",
+    "coords": "18.466666666666665,-77.91666666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "88",
+    "Location": "Mt Simpson-Mt Victoria; Owen Stanley Range; Papua New Guinea",
+    "coords": "9,0147,0",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "89",
+    "Location": "Popomanaseu; Guadalcanal; Solomon Islands",
+    "coords": "-9.7,160.06666666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "90",
+    "Location": "Puncak Jaya-Danau Paniai; Pegunungan Maoke (Snow Mountains); Papua; Indonesia",
+    "coords": "4,0138",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "91",
+    "Location": "Dakar; Senegal",
+    "coords": "14.75,-17.333333333333332",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "92",
+    "Location": "Timbuktu; Lake Faguibine; Niger River; Mali",
+    "coords": "14,03,0",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "93",
+    "Location": "Fogo; Cape Verde Islands",
+    "coords": "14.913333333333334,-24.381666666666668",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "94",
+    "Location": "Tsodilo Hill; Botswana",
+    "coords": "-18.75,21.766666666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "95",
+    "Location": "Kgalagadi Transfrontier Park; South Africa-Botswana",
+    "coords": "-25.287222222222223,20.71222222222222",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "96",
+    "Location": "Great Zimbabwe Ruins; Zimbabwe",
+    "coords": "-20.26722222222222,30.927500000000002",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "97",
+    "Location": "Khao Nan Mia; Surat Thani; Thailand",
+    "coords": "8.85,99.58333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "98",
+    "Location": "Lake Toba; Sumatra; Indonesia",
+    "coords": "-0.5897222222222223,101.34305555555555",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "99",
+    "Location": "Angkor Wat; Cambodia",
+    "coords": "13.425555555555555,103.86",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "100",
+    "Location": "Mount Tomaniivi; Vita Levu; Fiji",
+    "coords": "-17.616666666666667,178.01666666666668",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "101",
+    "Location": "Tarawa Island; Gilbert Islands; Kiribati",
+    "coords": "1.4402777777777778,173.07638888888889",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "102",
+    "Location": "Mount Silisili; Western Samoa",
+    "coords": "-13.618333333333334,-172.48583333333332",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "103",
+    "Location": "Denali (Mount McKinley); Alaska",
+    "coords": "63.825833333333335,-149.73166666666665",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "104",
+    "Location": "Great Bear Lake; Canada",
+    "coords": "66.11972222222222,-120.38333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "105",
+    "Location": "Fox Islands; Aleutian Islands",
+    "coords": "53.766666666666666,-166.58333333333334",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "106",
+    "Location": "Mount Maromokotro; Massif de Tsoratanana; Madagascar",
+    "coords": "-13.018333333333334,49.484722222222224",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "107",
+    "Location": "Piton des Neiges; Reunion Island",
+    "coords": "-21.316666666666666,55.733333333333334",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "108",
+    "Location": "Morne Seychellois; Victoria; Seychelles",
+    "coords": "-4.616666666666667,55.45",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "109",
+    "Location": "Mount Damavand; Iran",
+    "coords": "35.95472222222222,52.109722222222224",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "110",
+    "Location": "Vozrozhdeniya Island (Renaissance Island) in Aral Sea; Uzbekistan-Kazakhstan",
+    "coords": "45.09166666666667,59.14194444444444",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "111",
+    "Location": "Malek Siah Kuh; Zahedan; Iran",
+    "coords": "29.489166666666666,60.86361111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "112",
+    "Location": "Klyuchevskaya Sopka; Kamchatka Peninsula; Russia",
+    "coords": "-31.724.8",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "113",
+    "Location": "Sakhalin Island; from Terpeniya Bay to mountain north; near Poronaysk; Russia",
+    "coords": "50.224722222222226,143.00277777777777",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "114",
+    "Location": "Cherskiy; near juncture of Kolyma and Omolon Rivers; Siberia",
+    "coords": "34.62722222222222,-115.98722222222223",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "115",
+    "Location": "Easter Island",
+    "coords": "-27.121111111111112,-109.36638888888888",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "116",
+    "Location": "Rano Aroi; Easter Island",
+    "coords": "-27.092222222222222,-109.36749999999999",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "117",
+    "Location": "Rano Koi; Easter Island",
+    "coords": "-27.186944444444446,-109.435",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "118",
+    "Location": "Reykjavik; Lake Thingvallavatn; Thingvellir; Iceland",
+    "coords": "64.13527777777779,-21.89527777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "119",
+    "Location": "Callanish; Isle of Lewis; Hebrides; Scotland",
+    "coords": "58.19972222222222,-6.736666666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "120",
+    "Location": "Nuuk; Greenland",
+    "coords": "64.18361111111112,-51.72138888888889",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "121",
+    "Location": "Port Stanley; Falkland Islands",
+    "coords": "-51.70111111111111,-57.84916666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "122",
+    "Location": "South Georgia(Island)",
+    "coords": "-54.25,-36.75",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "123",
+    "Location": "Lake Buenos Aires; Argentina",
+    "coords": "-46.50333333333333,-71.36749999999999",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "124",
+    "Location": "Wood Buffalo National Park; Alberta; Canada",
+    "coords": "58°55'26\",-112.85416666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "125",
+    "Location": "Adelaide Peninsula",
+    "coords": "-34.92861111111111,138.60000000000002",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "126",
+    "Location": "Bay of God’s Mercy; Southampton Island; Canada",
+    "coords": "64.6,-84.13333333333334",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "127",
+    "Location": "Ascension Island; Atlantic Ocean",
+    "coords": "-7.946666666666667,-14.355833333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "128",
+    "Location": "St. Helena Island; Atlantic Ocean",
+    "coords": "-15.933333333333334,-5.716666666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "129",
+    "Location": "Mount Loma; Sierra Leone",
+    "coords": "9.217,-11.117",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "130",
+    "Location": "Lena-Muna juncture; Siberia",
+    "coords": "68.01666666666667,123.28333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "131",
+    "Location": "Lake Ozero Taymyr; north of central Siberian plateau",
+    "coords": "74.51666666666667,101.71666666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "132",
+    "Location": "Tunguska; Russia",
+    "coords": "52.65277777777778,102.78611111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "133",
+    "Location": "Mount Ross; Kerguelen Islands; south Indian Ocean",
+    "coords": "-49.583333333333336,69.5",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "134",
+    "Location": "Big Ben; Heard Island",
+    "coords": "-53.108333333333334,73.525",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "135",
+    "Location": "Prydz Bay; Ingrid Christensen Coast of Antarctica",
+    "coords": "-69,75",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "136",
+    "Location": "Mount Lamlam; Guam",
+    "coords": "13.338611111111112,144.6627777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "137",
+    "Location": "Yap Island",
+    "coords": "-2.55,134.38333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "138",
+    "Location": "Nan Madol; Pohnpei (Ponape); Micronesia",
+    "coords": "6.844444444444444,158.33583333333334",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "139",
+    "Location": "Mount Orohena; Tahiti",
+    "coords": "-17.619722222222222,-149.48416666666665",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "140",
+    "Location": "Hivaoa Island; Marquesas",
+    "coords": "-9.754722222222222,-139.0211111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "141",
+    "Location": "Kiritimati (Christmas Island); Line Islands; Kiribati",
+    "coords": "1.8722222222222222,-157.42777777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "142",
+    "Location": "Graciosa; The Azores",
+    "coords": "39.052499999999995,-28.006944444444443",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "143",
+    "Location": "St. George’s Island; Bermuda",
+    "coords": "32.28111111111111,-64.7786111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "144",
+    "Location": "Lisbon; Portugal ",
+    "coords": "38.706944444444446,-9.135555555555555",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "145",
+    "Location": "Longyearbyen; Spitsbergen",
+    "coords": "78.64805555555556,18.164166666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "146",
+    "Location": "Independence Fjord; northeast Greenland",
+    "coords": "81.92472222222223,-28.272499999999997",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "147",
+    "Location": "Yuzhny; Novaya Zemlya; Russia",
+    "coords": "73.48333333333333,80.36666666666666",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "148",
+    "Location": "Mount Hope; Eternity Mountains; Antarctic Peninsula",
+    "coords": "-83.75,171",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "149",
+    "Location": "Bear Island; Antarctica",
+    "coords": "NaN,-67.06",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "150",
+    "Location": "Elephant Island",
+    "coords": "-61.13333333333333,-55.11666666666667",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "151",
+    "Location": "The South Pole",
+    "coords": "-900",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "152",
+    "Location": "South Magnetic Pole; Antarctica",
+    "coords": "-67,138",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "153",
+    "Location": "Sanae area; Antarctica",
+    "coords": "-71.67277777777778,127.52333333333333",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "154",
+    "Location": "Somerset Island; Bermuda",
+    "coords": "32.28111111111111,-64.7786111111111",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "155",
+    "Location": "Halifax; Nova Scotia; with link to Hamilton on Bermuda",
+    "coords": "44.64888888888889,-63.57527777777778",
+    "Zodiac": " "
+  },
+  {
+    "Chakra": "156",
+    "Location": "Washington DC; USA",
+    "coords": "38.894999999999996,-77.0363888888889",
+    "Zodiac": " "
+  }
+]

@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>reMoveTrail-mobile</title>
+	   
+</head>
+<body>
+<img id="main" src=""/>
+<script>
+	var googleStatic = 'https://maps.googleapis.com/maps/api/staticmap?';
+      var query = {
+        'center' : [61.2181,149.9003],
+        'zoom' : 10,
+        'size' : '200x200',
+        'maptype' : 'roadmap',
+        //'markers' :[ 0
+        //]
+      };
+      var count = 0;
+      for(var k in query){
+        googleStatic += k + '=' + query[k] + (count < 5 ? '&' : '');
+        count++;
+        console.log('count : ' + count)
+      }
+     // console.log(token);
+      console.log(googleStatic);
+      document.getElementById("main").src = googleStatic;
+
+      
+</script>
+   </body>

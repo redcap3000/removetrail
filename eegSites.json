@@ -1,0 +1,4250 @@
+[
+    {
+      "number": [
+        "1"
+      ],
+      "id": [
+        "1-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "40.364"
+      ],
+      "lng": [
+        "-74.656"
+      ],
+      "state": [
+        "Princeton, NJ, USA"
+      ],
+      "contact": [
+        "Roger Nelson"
+      ],
+      "start": [
+        "1998-08-02"
+      ],
+      "comments": [
+        "was PEAR to 010810"
+      ]
+    },
+    {
+      "number": [
+        "2"
+      ],
+      "id": [
+        "37-ETH"
+      ],
+      "device": [
+        "PEAR"
+      ],
+      "lat": [
+        "47.079"
+      ],
+      "lng": [
+        "7.062"
+      ],
+      "state": [
+        "Neuchatel, Switzerland"
+      ],
+      "contact": [
+        "John Walker"
+      ],
+      "start": [
+        "1998-08-02"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "3"
+      ],
+      "id": [
+        "1245-ETH"
+      ],
+      "device": [
+        "ORION 245"
+      ],
+      "lat": [
+        "40.35"
+      ],
+      "lng": [
+        "-74.659"
+      ],
+      "state": [
+        "Princeton, NJ, USA"
+      ],
+      "contact": [
+        "Roger Nelson"
+      ],
+      "start": [
+        "1998-08-04"
+      ],
+      "comments": [
+        "was PEAR to 020822, MINDSONG to 090717"
+      ]
+    },
+    {
+      "number": [
+        "4"
+      ],
+      "id": [
+        "112-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "47.079"
+      ],
+      "lng": [
+        "7.062"
+      ],
+      "state": [
+        "Neuchatel, Switzerland"
+      ],
+      "contact": [
+        "John Walker"
+      ],
+      "start": [
+        "1998-08-10"
+      ],
+      "comments": [
+        "was 1003"
+      ]
+    },
+    {
+      "number": [
+        "5"
+      ],
+      "id": [
+        "33"
+      ],
+      "device": [
+        "PEAR"
+      ],
+      "lat": [
+        "35.989"
+      ],
+      "lng": [
+        "-84.225"
+      ],
+      "state": [
+        "USA Knoxville, TN, USA"
+      ],
+      "contact": [
+        "Greg Nelson"
+      ],
+      "start": [
+        "1998-08-26"
+      ],
+      "end": [
+        "XXXX-XX-XX"
+      ],
+      "comments": [
+        "OFF; Packets offtime"
+      ]
+    },
+    {
+      "number": [
+        "5"
+      ],
+      "id": [
+        "34-ETH"
+      ],
+      "device": [
+        "PEAR"
+      ],
+      "lat": [
+        "40.4"
+      ],
+      "lng": [
+        "-74.6395"
+      ],
+      "state": [
+        "Rocky Hill, NJ"
+      ],
+      "contact": [
+        "Greg Nelson"
+      ],
+      "start": [
+        "2001-05-11"
+      ],
+      "end": [
+        "XXXX-XX-XX"
+      ],
+      "comments": [
+        "OFF; Packets offtime"
+      ]
+    },
+    {
+      "number": [
+        "6"
+      ],
+      "id": [
+        "1000-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "52.35"
+      ],
+      "lng": [
+        "4.867"
+      ],
+      "state": [
+        "Amsterdam, The Netherlands"
+      ],
+      "contact": [
+        "Dick Bierman"
+      ],
+      "start": [
+        "1998-09-02"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "7"
+      ],
+      "id": [
+        "1005-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "37.783"
+      ],
+      "lng": [
+        "-122.455"
+      ],
+      "state": [
+        "San Francisco, CA, USA"
+      ],
+      "contact": [
+        "Steven Foster, Jim Fournier, Doug Piercy, Rob Miller"
+      ],
+      "start": [
+        "1998-10-14"
+      ],
+      "end": [
+        "2007?"
+      ],
+      "comments": [
+        "Changing to Gosney"
+      ]
+    },
+    {
+      "number": [
+        "8"
+      ],
+      "id": [
+        "1021-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "37.365"
+      ],
+      "lng": [
+        "-121.967"
+      ],
+      "state": [
+        "Santa Clara, CA, USA"
+      ],
+      "contact": [
+        "Mike Cheponis"
+      ],
+      "start": [
+        "1998-12-15"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "9"
+      ],
+      "id": [
+        "1022-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "52.274"
+      ],
+      "lng": [
+        "10.528"
+      ],
+      "state": [
+        "Braunschweig, Germany"
+      ],
+      "contact": [
+        "Reinhard Caspary, Udo Unrau"
+      ],
+      "start": [
+        "1998-12-23"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "10"
+      ],
+      "id": [
+        "1023"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "35.981"
+      ],
+      "lng": [
+        "-78.915"
+      ],
+      "state": [
+        "Durham, NC, USA"
+      ],
+      "contact": [
+        "Richard Broughton"
+      ],
+      "start": [
+        "1998-12-29"
+      ],
+      "end": [
+        "XXXX-00-00"
+      ],
+      "comments": [
+        "OFF"
+      ]
+    },
+    {
+      "number": [
+        "10"
+      ],
+      "id": [
+        "1029-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "35.981"
+      ],
+      "lng": [
+        "-78.915"
+      ],
+      "state": [
+        "Durham, NC, USA"
+      ],
+      "contact": [
+        "John Palmer, Bob Bourgeois"
+      ],
+      "start": [
+        "2003-02-03"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "11"
+      ],
+      "id": [
+        "101-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "55.95"
+      ],
+      "lng": [
+        "-3.167"
+      ],
+      "state": [
+        "Edinburgh, Scotland"
+      ],
+      "contact": [
+        "Paul Stevens"
+      ],
+      "start": [
+        "1999-03-16"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "12"
+      ],
+      "id": [
+        "103-DD"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "30.306"
+      ],
+      "lng": [
+        "-97.751"
+      ],
+      "state": [
+        "Austin, TX, USA (was San Antonio)"
+      ],
+      "contact": [
+        "Gary Heseltine (was Rick Berger)"
+      ],
+      "start": [
+        "1999-03-19"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "13"
+      ],
+      "id": [
+        "102-DD"
+      ],
+      "device": [
+        "MINDSONG Win98, 200101"
+      ],
+      "lat": [
+        "48.217"
+      ],
+      "lng": [
+        "16.367"
+      ],
+      "state": [
+        "Wien, Austria"
+      ],
+      "contact": [
+        "Peter Mulacz"
+      ],
+      "start": [
+        "1999-04-17"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "14"
+      ],
+      "id": [
+        "100-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "-17.75"
+      ],
+      "lng": [
+        "177.45"
+      ],
+      "state": [
+        "Suva, Fiji"
+      ],
+      "contact": [
+        "Robin Taylor, Simon Greaves"
+      ],
+      "start": [
+        "1999-04-27"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "15"
+      ],
+      "id": [
+        "110-ETH"
+      ],
+      "device": [
+        "MINDSONG Debian"
+      ],
+      "lat": [
+        "39.02"
+      ],
+      "lng": [
+        "-104.75"
+      ],
+      "state": [
+        "Black Forest, CO, USA"
+      ],
+      "contact": [
+        "Bdale Garbee"
+      ],
+      "start": [
+        "1999-04-30"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "16"
+      ],
+      "id": [
+        "109-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "33.527"
+      ],
+      "lng": [
+        "-117.704"
+      ],
+      "state": [
+        "Laguna Niguel, CA, USA"
+      ],
+      "contact": [
+        "George deBeaumont"
+      ],
+      "start": [
+        "1999-05-02"
+      ],
+      "comments": [
+        "OFF; lost contact"
+      ]
+    },
+    {
+      "number": [
+        "17"
+      ],
+      "id": [
+        "106-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "43.171"
+      ],
+      "lng": [
+        "-77.562"
+      ],
+      "state": [
+        "Rochester, NY, USA"
+      ],
+      "contact": [
+        "Ryan Tucker"
+      ],
+      "start": [
+        "1999-05-21"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "18"
+      ],
+      "id": [
+        "115-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "53.5"
+      ],
+      "lng": [
+        "-113.5"
+      ],
+      "state": [
+        "Edmonton, AB, Canada"
+      ],
+      "contact": [
+        "Ed Boraas"
+      ],
+      "start": [
+        "1999-05-21"
+      ],
+      "end": [
+        "late 2010, early 2011"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "19"
+      ],
+      "id": [
+        "107-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "48.03"
+      ],
+      "lng": [
+        "7.833"
+      ],
+      "state": [
+        "Freiburg, Germany"
+      ],
+      "contact": [
+        "Jiri Wackermann"
+      ],
+      "start": [
+        "1999-05-28"
+      ],
+      "end": [
+        "2002-02-28"
+      ],
+      "comments": [
+        "OFF"
+      ]
+    },
+    {
+      "number": [
+        "20"
+      ],
+      "id": [
+        "114-DD"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "13"
+      ],
+      "lng": [
+        "80.183"
+      ],
+      "state": [
+        "Chennai (Madras), India"
+      ],
+      "contact": [
+        "Chino Srinivasan, Anand Krishnan, Srikanth"
+      ],
+      "start": [
+        "1999-07-07"
+      ],
+      "comments": [
+        "OFF 2007, ISP block"
+      ]
+    },
+    {
+      "number": [
+        "21"
+      ],
+      "id": [
+        "111-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "-36.73"
+      ],
+      "lng": [
+        "174.74"
+      ],
+      "state": [
+        "Auckland, New Zealand"
+      ],
+      "contact": [
+        "Barry Fenn, Bryan Roberts"
+      ],
+      "start": [
+        "1999-07-13"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "22"
+      ],
+      "id": [
+        "1027-ETH"
+      ],
+      "device": [
+        "ORION-ORION"
+      ],
+      "lat": [
+        "39.202"
+      ],
+      "lng": [
+        "-84.404"
+      ],
+      "state": [
+        "Cincinnati, Ohio, USA, was State College, PA"
+      ],
+      "contact": [
+        "Doug Mast"
+      ],
+      "start": [
+        "1999-09-28"
+      ],
+      "end": [
+        "replaced with 1070"
+      ],
+      "comments": [
+        "was 40.791, -77.858"
+      ]
+    },
+    {
+      "number": [
+        "23"
+      ],
+      "id": [
+        "1025-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "-6.15"
+      ],
+      "lng": [
+        "106.85"
+      ],
+      "state": [
+        "Jakarta, Indonesia"
+      ],
+      "contact": [
+        "Jeroen Martinot"
+      ],
+      "start": [
+        "1999-10-30"
+      ],
+      "end": [
+        "2001-06-29"
+      ],
+      "comments": [
+        "OFF; contact moved from Jakarta"
+      ]
+    },
+    {
+      "number": [
+        "24"
+      ],
+      "id": [
+        "1024-ETH"
+      ],
+      "device": [
+        "ORION"
+      ],
+      "lat": [
+        "-36.83"
+      ],
+      "lng": [
+        "174.64"
+      ],
+      "state": [
+        "Auckland, New Zealand"
+      ],
+      "contact": [
+        "Sze Tan"
+      ],
+      "start": [
+        "1999-11-15"
+      ],
+      "comments": [
+        "OFF, retired"
+      ]
+    },
+    {
+      "number": [
+        "25"
+      ],
+      "id": [
+        "108-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "-23.265"
+      ],
+      "lng": [
+        "-45.856"
+      ],
+      "state": [
+        "Sao Paulo, Brazil - was Sao Jose dos Campos"
+      ],
+      "contact": [
+        "Pedro P.B. de Oliveira -> Carlos Cecanecchia Neto"
+      ],
+      "start": [
+        "1999-12-15"
+      ],
+      "comments": [
+        "Egg 108 transfered June 2013, 500 meters"
+      ]
+    },
+    {
+      "number": [
+        "26"
+      ],
+      "id": [
+        "116-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "48.217"
+      ],
+      "lng": [
+        "16.367"
+      ],
+      "state": [
+        "Wien, Austria"
+      ],
+      "contact": [
+        "Robert Pucher, Gerhard Hipfinger, Michael Braunstorfer, Alexander Nimmervoll"
+      ],
+      "start": [
+        "1999-12-22"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "27"
+      ],
+      "id": [
+        "105-DD"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "48.85"
+      ],
+      "lng": [
+        "2.333"
+      ],
+      "state": [
+        "Paris, France"
+      ],
+      "contact": [
+        "Mario Varvoglis, Laurent Briois, Gregory Gutierez, Pierre Macias"
+      ],
+      "start": [
+        "1999-12-26"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "28"
+      ],
+      "id": [
+        "118-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "37.951"
+      ],
+      "lng": [
+        "-122.361"
+      ],
+      "state": [
+        "Richmond, CA, USA"
+      ],
+      "contact": [
+        "Loren Carpenter"
+      ],
+      "start": [
+        "1999-12-29"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "29"
+      ],
+      "id": [
+        "1026-DD"
+      ],
+      "device": [
+        "ORION Win95, 200012"
+      ],
+      "lat": [
+        "13.8"
+      ],
+      "lng": [
+        "177.3"
+      ],
+      "state": [
+        "Bangalore, India"
+      ],
+      "contact": [
+        "Chino Srinivasan, Srikanth, Kishor"
+      ],
+      "start": [
+        "1999-12-30"
+      ],
+      "comments": [
+        "OFF 2007? ISP blk add 100 lng"
+      ]
+    },
+    {
+      "number": [
+        "30"
+      ],
+      "id": [
+        "119-ETH"
+      ],
+      "device": [
+        "MINDSONG"
+      ],
+      "lat": [
+        "-33.31"
+      ],
+      "lng": [
+        "26.52"
+      ],
+      "state": [
+        "Grahamstown, South Africa"
+      ],
+      "contact": [
+        "Richard Ragland, Chris Stones, Jacot Guillarmod"
+      ],
+      "start": [
+        "2000-04-26"
+      ],
+      "comments": [
+        "(move to #97)"
+      ]
+    },
+    {
+      "number": [
+        "31"
+      ],
+      "id": [
+        "134-ETH"
+      ],
+      "device": [
+        "MINDSONG Debian"
+      ],
+      "lat": [
+        "55.6"
+      ],
+      "lng": [
+        "13"
+      ],
+      "state": [
+        "Malmouml;, Sweden"
+      ],
+      "contact": [
+        "Isak Johnsson, Peter Eriksson til 2005)"
+      ],
+      "start": [
+        "2000-09-06"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "32"
+      ],
+      "id": [
+        "142-ETH"
+      ],
+      "device": [
+        "MINDSONG Debian to Win XP"
+      ],
+      "lat": [
+        "55.44"
+      ],
+      "lng": [
+        "12.529"
+      ],
+      "state": [
+        "Soeborg to Valby, Denmark"
+      ],
+      "contact": [
+        "Klaus A. Seistrup to Christian Andreasen"
+      ],
+      "start": [
+        "2005-02-28, was 2000-09-25"
+      ],
+      "comments": [
+        "was 55.733, 12.666"
+      ]
+    },
+    {
+      "number": [
+        "33"
+      ],
+      "id": [
+        "2000-ETH"
+      ],
+      "device": [
+        "ORION Win NT"
+      ],
+      "lat": [
+        "43.111"
+      ],
+      "lng": [
+        "-88.5"
+      ],
+      "state": [
+        "Oconomowoc, WI, USA"
+      ],
+      "contact": [
+        "Paul Bethke"
+      ],
+      "start": [
+        "2000-10-25"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "34"
+      ],
+      "id": [
+        "2001-ETH"
+      ],
+      "device": [
+        "ORION Win 2K"
+      ],
+      "lat": [
+        "37.299"
+      ],
+      "lng": [
+        "-121.994"
+      ],
+      "state": [
+        "San Jose, CA, USA"
+      ],
+      "contact": [
+        "Dean Radin, Dick Shoup"
+      ],
+      "start": [
+        "2000-11-02"
+      ],
+      "end": [
+        "2015-05-18"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "35"
+      ],
+      "id": [
+        "2002-ETH"
+      ],
+      "device": [
+        "ORION Win 2K"
+      ],
+      "lat": [
+        "41.314"
+      ],
+      "lng": [
+        "-81.835"
+      ],
+      "state": [
+        "Strongsville, OH, USA; was San Antonio, TX, USA"
+      ],
+      "contact": [
+        "Rick Berger"
+      ],
+      "start": [
+        "2005-10-15, was 2000-12-02"
+      ],
+      "comments": [
+        "was 29.493, -98.617"
+      ]
+    },
+    {
+      "number": [
+        "36"
+      ],
+      "id": [
+        "161-ETH"
+      ],
+      "device": [
+        "MINDSONG Debian"
+      ],
+      "lat": [
+        "-33.883"
+      ],
+      "lng": [
+        "151.201"
+      ],
+      "state": [
+        "Sydney, Australia"
+      ],
+      "contact": [
+        "Anand Kumria, Christian Kent"
+      ],
+      "start": [
+        "2000-12-12"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "37"
+      ],
+      "id": [
+        "2173-DD"
+      ],
+      "device": [
+        "MINDSONG Win 98"
+      ],
+      "lat": [
+        "43.62"
+      ],
+      "lng": [
+        "1.45"
+      ],
+      "state": [
+        "Toulouse, France"
+      ],
+      "contact": [
+        "Pierre Macias"
+      ],
+      "start": [
+        "2000-12-29"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "38"
+      ],
+      "id": [
+        "2165-ETH"
+      ],
+      "device": [
+        "MINDSONG Win 98"
+      ],
+      "lat": [
+        "-37.008"
+      ],
+      "lng": [
+        "174.792"
+      ],
+      "state": [
+        "Auckland, was Wellington, New Zealand"
+      ],
+      "contact": [
+        "Ross George, (was Miles Thompson)"
+      ],
+      "start": [
+        "2002-05-13; was 2001-02-06"
+      ],
+      "comments": [
+        "was -41.25, 174.75"
+      ]
+    },
+    {
+      "number": [
+        "39"
+      ],
+      "id": [
+        "1013-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "-23.3"
+      ],
+      "lng": [
+        "-46.3"
+      ],
+      "state": [
+        "Mogi das Cruzes, Brazil"
+      ],
+      "contact": [
+        "Agostinho Serrano de Andrade Neto"
+      ],
+      "start": [
+        "2001-02-13"
+      ],
+      "comments": [
+        "OFF; to Cuba as 2013"
+      ]
+    },
+    {
+      "number": [
+        "40"
+      ],
+      "id": [
+        "1223-ETH"
+      ],
+      "device": [
+        "ORION, Debian on Mac"
+      ],
+      "lat": [
+        "35.57"
+      ],
+      "lng": [
+        "-82.55"
+      ],
+      "state": [
+        "Asheville, NC, USA"
+      ],
+      "contact": [
+        "Richard Wallace"
+      ],
+      "start": [
+        "2001-05-20"
+      ],
+      "comments": [
+        "was 223, 1st tried MINDSONG; 051113 -> Gentoo Linux on PC"
+      ]
+    },
+    {
+      "number": [
+        "41"
+      ],
+      "id": [
+        "2006-ETH"
+      ],
+      "device": [
+        "ORION Win 2K"
+      ],
+      "lat": [
+        "51.5"
+      ],
+      "lng": [
+        "-0.116"
+      ],
+      "state": [
+        "London, England, UK"
+      ],
+      "contact": [
+        "Sina Morawej"
+      ],
+      "start": [
+        "2001-05-25"
+      ],
+      "comments": [
+        "Transfer to 98"
+      ]
+    },
+    {
+      "number": [
+        "42"
+      ],
+      "id": [
+        "2222-DD"
+      ],
+      "device": [
+        "MINDSONG Win2K"
+      ],
+      "lat": [
+        "41.903"
+      ],
+      "lng": [
+        "-87.634"
+      ],
+      "state": [
+        "Chicago, IL, USA"
+      ],
+      "contact": [
+        "Fred Bosick"
+      ],
+      "start": [
+        "2001-05-31"
+      ],
+      "comments": [
+        "1) Ann Arbor, 2) 201103 Southgate, MI; 3) 201408 Chicago, IL"
+      ]
+    },
+    {
+      "number": [
+        "43"
+      ],
+      "id": [
+        "226-ETH"
+      ],
+      "device": [
+        "MINDSONG Win2K"
+      ],
+      "lat": [
+        "43"
+      ],
+      "lng": [
+        "-81.25"
+      ],
+      "state": [
+        "London, Ontario, CA"
+      ],
+      "contact": [
+        "Robert Downie, transfer Quinn"
+      ],
+      "start": [
+        "2001-08-12"
+      ],
+      "comments": [
+        "becomes 85"
+      ]
+    },
+    {
+      "number": [
+        "44"
+      ],
+      "id": [
+        "2225-DD"
+      ],
+      "device": [
+        "MINDSONG Win2K"
+      ],
+      "lat": [
+        "31.25"
+      ],
+      "lng": [
+        "34.84"
+      ],
+      "state": [
+        "Beer-Sheva, Israel"
+      ],
+      "contact": [
+        "Yubal Masalker"
+      ],
+      "start": [
+        "2001-08-29"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "45"
+      ],
+      "id": [
+        "2221-ETH"
+      ],
+      "device": [
+        "MINDSONG-Orion WinME"
+      ],
+      "lat": [
+        "40.67"
+      ],
+      "lng": [
+        "-73.944"
+      ],
+      "state": [
+        "New York City, NY, USA"
+      ],
+      "contact": [
+        "Lisette Coly, Nancy Zingrone, Ian Clarke"
+      ],
+      "start": [
+        "2004-08-05, was 2001-09-29"
+      ],
+      "comments": [
+        "replace device #o050, 040805"
+      ]
+    },
+    {
+      "number": [
+        "46"
+      ],
+      "id": [
+        "2220-ETH"
+      ],
+      "device": [
+        "MINDSONG Win2k"
+      ],
+      "lat": [
+        "41.386"
+      ],
+      "lng": [
+        "-83.326"
+      ],
+      "state": [
+        "Gibsonburg, Ohio, USA"
+      ],
+      "contact": [
+        "Nick Reiter, Lori Schillig"
+      ],
+      "start": [
+        "2001-11-01"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "47"
+      ],
+      "id": [
+        "2231-ETH"
+      ],
+      "device": [
+        "MINDSONG Win98SE"
+      ],
+      "lat": [
+        "59.38"
+      ],
+      "lng": [
+        "18"
+      ],
+      "state": [
+        "V?sterhaninge, Sweden"
+      ],
+      "contact": [
+        "Henry Blom, transfer Thorsbro"
+      ],
+      "start": [
+        "2001-11-24"
+      ],
+      "comments": [
+        "Became 231, Same physical REG"
+      ]
+    },
+    {
+      "number": [
+        "48"
+      ],
+      "id": [
+        "227-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "43.59"
+      ],
+      "lng": [
+        "-79.46"
+      ],
+      "state": [
+        "Mississauga, Ontario, Canada"
+      ],
+      "contact": [
+        "Clifford Roche"
+      ],
+      "start": [
+        "2001-11-26"
+      ],
+      "comments": [
+        "OFF, transferred"
+      ]
+    },
+    {
+      "number": [
+        "48"
+      ],
+      "id": [
+        "227-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "44.67"
+      ],
+      "lng": [
+        "-63.58"
+      ],
+      "state": [
+        "Halifax, Nova Scotia, Canada"
+      ],
+      "contact": [
+        "Chris Hynes"
+      ],
+      "start": [
+        ""
+      ],
+      "comments": [
+        "OFF; transfer 2003-05-24, unsuccessful"
+      ]
+    },
+    {
+      "number": [
+        "49"
+      ],
+      "id": [
+        "228-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "62.821"
+      ],
+      "lng": [
+        "11.202"
+      ],
+      "state": [
+        "Hessdalen, Norway"
+      ],
+      "contact": [
+        "Erling Strand"
+      ],
+      "start": [
+        "2001-11-27"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "50"
+      ],
+      "id": [
+        "2007-ETH"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "26.86"
+      ],
+      "lng": [
+        "-80.065"
+      ],
+      "state": [
+        "Juno Beach, FL, USA"
+      ],
+      "contact": [
+        "Norman Hirsch"
+      ],
+      "start": [
+        "2001-12-07"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "51"
+      ],
+      "id": [
+        "2178-ETH"
+      ],
+      "device": [
+        "MINDSONG Win 98"
+      ],
+      "lat": [
+        "37.187"
+      ],
+      "lng": [
+        "-122.121"
+      ],
+      "state": [
+        "Boulder Creek, CA, USA"
+      ],
+      "contact": [
+        "Tom Beckman, Mike Atkinson"
+      ],
+      "start": [
+        "2001-12-10"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "52"
+      ],
+      "id": [
+        "233-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "-1.283"
+      ],
+      "lng": [
+        "36.817"
+      ],
+      "state": [
+        "Nairobi, Kenya, Africa"
+      ],
+      "contact": [
+        "Luke Ouko, Odhiambo"
+      ],
+      "start": [
+        "2001-12-19"
+      ],
+      "end": [
+        "XXXX-XX-XX"
+      ],
+      "comments": [
+        "OFF; lost contact"
+      ]
+    },
+    {
+      "number": [
+        "53"
+      ],
+      "id": [
+        "230-ETH"
+      ],
+      "device": [
+        "ORION was MINDSONG to 030620 Win ME"
+      ],
+      "lat": [
+        "46.067"
+      ],
+      "lng": [
+        "-118.334"
+      ],
+      "state": [
+        "Walla Walla, WA, USA"
+      ],
+      "contact": [
+        "Michael Breland, Martin Manny"
+      ],
+      "start": [
+        "2001-12-21"
+      ],
+      "comments": [
+        "becomes 2230, Different physical REGs"
+      ]
+    },
+    {
+      "number": [
+        "54"
+      ],
+      "id": [
+        "1101-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "35.694"
+      ],
+      "lng": [
+        "139.767"
+      ],
+      "state": [
+        "Tokyo, Japan"
+      ],
+      "contact": [
+        "Masato Ishikawa, Hideki Matsuzaki, Tatsu Hirukawa"
+      ],
+      "start": [
+        "2002-01-08"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "55"
+      ],
+      "id": [
+        "231-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "55.717"
+      ],
+      "lng": [
+        "12.45"
+      ],
+      "state": [
+        "Copenhagen, DK"
+      ],
+      "contact": [
+        "Brian Peter Thorsbro, was Henry Blom"
+      ],
+      "start": [
+        "2002-01-19"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "56"
+      ],
+      "id": [
+        "1004-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "64.795"
+      ],
+      "lng": [
+        "-147.386"
+      ],
+      "state": [
+        "AK, USA"
+      ],
+      "contact": [
+        "Michael Walker"
+      ],
+      "start": [
+        "2001-03-07"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "57"
+      ],
+      "id": [
+        "2236-DD"
+      ],
+      "device": [
+        "MINDSONG Win 98?"
+      ],
+      "lat": [
+        "31.242"
+      ],
+      "lng": [
+        "121.504"
+      ],
+      "state": [
+        "Shanghai, China"
+      ],
+      "contact": [
+        "Jammy Xie"
+      ],
+      "start": [
+        "2002-03-03"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "58"
+      ],
+      "id": [
+        "1237-ETH"
+      ],
+      "device": [
+        "MINDSONG Win98SE, was Linux"
+      ],
+      "lat": [
+        "55.75"
+      ],
+      "lng": [
+        "37.617"
+      ],
+      "state": [
+        "Moscow, Russia"
+      ],
+      "contact": [
+        "Sergey Medvedev, Ramil Yafizov"
+      ],
+      "start": [
+        "2002-02-05, on2 2004-02-27"
+      ],
+      "comments": [
+        "was OFF Stolen but recovered, return 040227"
+      ]
+    },
+    {
+      "number": [
+        "59"
+      ],
+      "id": [
+        "2235-ETH"
+      ],
+      "device": [
+        "MINDSONG Win 98?"
+      ],
+      "lat": [
+        "43.07"
+      ],
+      "lng": [
+        "131.54"
+      ],
+      "state": [
+        "Vladivostok, Russia"
+      ],
+      "contact": [
+        "Oleg Avchenko"
+      ],
+      "start": [
+        "2002-04-17"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "60"
+      ],
+      "id": [
+        "2008-ETH"
+      ],
+      "device": [
+        "ORION Win NT"
+      ],
+      "lat": [
+        "49.284"
+      ],
+      "lng": [
+        "-123.11"
+      ],
+      "state": [
+        "Vancouver, Canada"
+      ],
+      "contact": [
+        "Frank Ogden, Jim Semenick"
+      ],
+      "start": [
+        "2002-07-09"
+      ],
+      "comments": [
+        "Our only floating egg"
+      ]
+    },
+    {
+      "number": [
+        "61"
+      ],
+      "id": [
+        "2009-ETH"
+      ],
+      "device": [
+        "ORION Win 2K?"
+      ],
+      "lat": [
+        "41.2"
+      ],
+      "lng": [
+        "-8.6"
+      ],
+      "state": [
+        "Porto, Portugal"
+      ],
+      "contact": [
+        "Hugo Ferriera"
+      ],
+      "start": [
+        "2002-07-23"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "62"
+      ],
+      "id": [
+        "2239-ETH"
+      ],
+      "device": [
+        "ORION Win 98SE"
+      ],
+      "lat": [
+        "-38"
+      ],
+      "lng": [
+        "175"
+      ],
+      "state": [
+        "KihiKihi, New Zealand"
+      ],
+      "contact": [
+        "Duanne McMahon"
+      ],
+      "start": [
+        "2002-08-27 off 2002-08-30"
+      ],
+      "comments": [
+        "OFF"
+      ]
+    },
+    {
+      "number": [
+        "63"
+      ],
+      "id": [
+        "2024-ETH"
+      ],
+      "device": [
+        "ORION Win 98SE"
+      ],
+      "lat": [
+        "14.617"
+      ],
+      "lng": [
+        "121.05"
+      ],
+      "state": [
+        "Manila, Philippines"
+      ],
+      "contact": [
+        "Mike Mangubat, Beth McDonald, Chris Remoto, Jojo Jimenez"
+      ],
+      "start": [
+        "2002-10-01"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "64"
+      ],
+      "id": [
+        "2028-ETH"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "52.09"
+      ],
+      "lng": [
+        "5.18"
+      ],
+      "state": [
+        "Soest, The Netherlands"
+      ],
+      "contact": [
+        "Lex Sjoerds"
+      ],
+      "start": [
+        "2002-10-16"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "65"
+      ],
+      "id": [
+        "2044-ETH"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "9.5"
+      ],
+      "lng": [
+        "100.24"
+      ],
+      "state": [
+        "Koh Samui, Thailand"
+      ],
+      "contact": [
+        "John Robarge"
+      ],
+      "start": [
+        "2002-12-17"
+      ],
+      "comments": [
+        "OFF 2004?"
+      ]
+    },
+    {
+      "number": [
+        "66"
+      ],
+      "id": [
+        "2023-ETH"
+      ],
+      "device": [
+        "ORION Win 2000?"
+      ],
+      "lat": [
+        "50.933"
+      ],
+      "lng": [
+        "6.95"
+      ],
+      "state": [
+        "Cologne, Germany"
+      ],
+      "contact": [
+        "Johannes Hagel, Margot Tschapke"
+      ],
+      "start": [
+        "2003-01-18"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "67"
+      ],
+      "id": [
+        "2022-ETH"
+      ],
+      "device": [
+        "ORION Win NT"
+      ],
+      "lat": [
+        "4.9"
+      ],
+      "lng": [
+        "-52.5"
+      ],
+      "state": [
+        "Cayenne, French Guiana"
+      ],
+      "contact": [
+        "Olivier Guin"
+      ],
+      "start": [
+        "2003-01-29"
+      ],
+      "comments": [
+        "OFF 2005?"
+      ]
+    },
+    {
+      "number": [
+        "68"
+      ],
+      "id": [
+        "2027-PPP"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "38.027"
+      ],
+      "lng": [
+        "23.733"
+      ],
+      "state": [
+        "Athens, Greece"
+      ],
+      "contact": [
+        "Panos Axiomakaros"
+      ],
+      "start": [
+        "2003-04-02"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "69"
+      ],
+      "id": [
+        "2234-ETH"
+      ],
+      "device": [
+        "MINDSONG Windows"
+      ],
+      "lat": [
+        "37.567"
+      ],
+      "lng": [
+        "126.978"
+      ],
+      "state": [
+        "Seoul, Korea"
+      ],
+      "contact": [
+        "Yong Hwan Kim, Hojun Na"
+      ],
+      "start": [
+        "2003-05-05"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "70"
+      ],
+      "id": [
+        "2013-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "23.133"
+      ],
+      "lng": [
+        "-82.367"
+      ],
+      "state": [
+        "Havana, Cuba"
+      ],
+      "contact": [
+        "Carlos Delgado"
+      ],
+      "start": [
+        "2003-06-02"
+      ],
+      "comments": [
+        "was 39 1013, OFF 2007?"
+      ]
+    },
+    {
+      "number": [
+        "71"
+      ],
+      "id": [
+        "2026-ETH"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "50.083"
+      ],
+      "lng": [
+        "14.433"
+      ],
+      "state": [
+        "Prague, Czech Republic"
+      ],
+      "contact": [
+        "Vadim Petrov"
+      ],
+      "start": [
+        "2003-06-09"
+      ],
+      "comments": [
+        "OFF, becomes 79"
+      ]
+    },
+    {
+      "number": [
+        "72"
+      ],
+      "id": [
+        "1025-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "46.76"
+      ],
+      "lng": [
+        "23.591"
+      ],
+      "state": [
+        "Cluj-Napoca, Romania"
+      ],
+      "contact": [
+        "Adrian Patrut"
+      ],
+      "start": [
+        "2003-06-29"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "73"
+      ],
+      "id": [
+        "1113-ETH"
+      ],
+      "device": [
+        "PEAR Linux"
+      ],
+      "lat": [
+        "34.056"
+      ],
+      "lng": [
+        "-118.43"
+      ],
+      "state": [
+        "Los Angeles, CA, USA"
+      ],
+      "contact": [
+        "Ian Cook"
+      ],
+      "start": [
+        "2003-08-20"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "74"
+      ],
+      "id": [
+        "2040-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "55.803"
+      ],
+      "lng": [
+        "37.641"
+      ],
+      "state": [
+        "Moscow, Russia"
+      ],
+      "contact": [
+        "Vasiliy Malyshev (was Dmitriy Kulikov)"
+      ],
+      "start": [
+        "2006-10-25 (orig 2003-09-01)"
+      ],
+      "comments": [
+        "was 55.750, 37.617"
+      ]
+    },
+    {
+      "number": [
+        "75"
+      ],
+      "id": [
+        "2043-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "33.669"
+      ],
+      "lng": [
+        "-117.822"
+      ],
+      "state": [
+        "Irvine, CA, USA"
+      ],
+      "contact": [
+        "Dr. Jes"
+      ],
+      "start": [
+        "2003-10-29"
+      ],
+      "comments": [
+        "Transfer to Heiner 3043"
+      ]
+    },
+    {
+      "number": [
+        "76"
+      ],
+      "id": [
+        "2041-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "-34.767"
+      ],
+      "lng": [
+        "138.537"
+      ],
+      "state": [
+        "Adelaide, Australia"
+      ],
+      "contact": [
+        "Graham Andrew"
+      ],
+      "start": [
+        "2003-12-17"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "77"
+      ],
+      "id": [
+        "2046-ETH"
+      ],
+      "device": [
+        "ORION Win 2K"
+      ],
+      "lat": [
+        "-19.917"
+      ],
+      "lng": [
+        "-43.933"
+      ],
+      "state": [
+        "Belo Horizonte, Brazil"
+      ],
+      "contact": [
+        "Joao Vicente Dornas"
+      ],
+      "start": [
+        "2004-01-20"
+      ],
+      "comments": [
+        "OFF 2006? transfer to 92"
+      ]
+    },
+    {
+      "number": [
+        "78"
+      ],
+      "id": [
+        "2042-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "45.438"
+      ],
+      "lng": [
+        "9.97"
+      ],
+      "state": [
+        "Verona, Italia"
+      ],
+      "contact": [
+        "Matteo Mion"
+      ],
+      "start": [
+        "2004-02-17"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "79"
+      ],
+      "id": [
+        "2026-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "49.425"
+      ],
+      "lng": [
+        "12.825"
+      ],
+      "state": [
+        "Klenci pod Cerchovem, Czech Republic"
+      ],
+      "contact": [
+        "Dalibor Bartos"
+      ],
+      "start": [
+        "2004-02-20"
+      ],
+      "comments": [
+        "OFF 2005? transfer, was 71"
+      ]
+    },
+    {
+      "number": [
+        "80"
+      ],
+      "id": [
+        "2047-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "66"
+      ],
+      "lng": [
+        "16.647"
+      ],
+      "state": [
+        "Vuollerim, Sweden"
+      ],
+      "contact": [
+        "Annchristine Anderson, Audun Otterbech, Anders Y Larsson"
+      ],
+      "start": [
+        "2004-03-25"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "81"
+      ],
+      "id": [
+        "2045-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "21.317"
+      ],
+      "lng": [
+        "-157.805"
+      ],
+      "state": [
+        "Kaneohe, Hawaii"
+      ],
+      "contact": [
+        "Michiel Schotten, Karen Maruska"
+      ],
+      "start": [
+        "2004-04-14"
+      ],
+      "comments": [
+        "OFF 2007?"
+      ]
+    },
+    {
+      "number": [
+        "82"
+      ],
+      "id": [
+        "2073-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "34.53"
+      ],
+      "lng": [
+        "32.23"
+      ],
+      "state": [
+        "Peyia, Cyprus"
+      ],
+      "contact": [
+        "Linda LeBlanc, John Knowles, Geoff Rudge"
+      ],
+      "start": [
+        "2004-04-16"
+      ],
+      "comments": [
+        "hardware change, Oct 2007, 2048 defective"
+      ]
+    },
+    {
+      "number": [
+        "83"
+      ],
+      "id": [
+        "2049-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "38.316"
+      ],
+      "lng": [
+        "26.635"
+      ],
+      "state": [
+        "Izmir, Turkey"
+      ],
+      "contact": [
+        "Inci Erkin, Mustafa Haznedaroglu"
+      ],
+      "start": [
+        "2004-05-06"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "84"
+      ],
+      "id": [
+        "2052-ETH"
+      ],
+      "device": [
+        "ORION Win 2000"
+      ],
+      "lat": [
+        "37.873"
+      ],
+      "lng": [
+        "23.759"
+      ],
+      "state": [
+        "Athens, Greece"
+      ],
+      "contact": [
+        "John Piliounis"
+      ],
+      "start": [
+        "2004-06-15"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "85"
+      ],
+      "id": [
+        "226-ETH"
+      ],
+      "device": [
+        "MINDSONG Mandrake Linux"
+      ],
+      "lat": [
+        "43.683"
+      ],
+      "lng": [
+        "-79.767"
+      ],
+      "state": [
+        "Brampton, Ontario, Canada"
+      ],
+      "contact": [
+        "Steve Quinn"
+      ],
+      "start": [
+        "2004-09-29"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "86"
+      ],
+      "id": [
+        "2060-ETH"
+      ],
+      "device": [
+        "ORION Windows 2000"
+      ],
+      "lat": [
+        "38.71"
+      ],
+      "lng": [
+        "-9.13"
+      ],
+      "state": [
+        "Lisbon, Portugal"
+      ],
+      "contact": [
+        "Jaime Machado"
+      ],
+      "start": [
+        "2004-10-04"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "87"
+      ],
+      "id": [
+        "1051-ETH"
+      ],
+      "device": [
+        "ORION RedHat Linux"
+      ],
+      "lat": [
+        "35.733"
+      ],
+      "lng": [
+        "-78.883"
+      ],
+      "state": [
+        "Apex, NC, USA"
+      ],
+      "contact": [
+        "David Hinson"
+      ],
+      "start": [
+        "2004-10-21"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "88"
+      ],
+      "id": [
+        "2061-ETH"
+      ],
+      "device": [
+        "ORION Windows 98?"
+      ],
+      "lat": [
+        "19.467"
+      ],
+      "lng": [
+        "-99.15"
+      ],
+      "state": [
+        "Cuauht?moc, M?xico"
+      ],
+      "contact": [
+        "Natalie Larrod?"
+      ],
+      "start": [
+        "2004-11-23"
+      ],
+      "end": [
+        "2005?"
+      ],
+      "comments": [
+        "OFF 2006?"
+      ]
+    },
+    {
+      "number": [
+        "89"
+      ],
+      "id": [
+        "1063-ETH"
+      ],
+      "device": [
+        "ORION Fedora Linux"
+      ],
+      "lat": [
+        "58.367"
+      ],
+      "lng": [
+        "25.583"
+      ],
+      "state": [
+        "Tallinn, Estonia"
+      ],
+      "contact": [
+        "Henri Laupmaa"
+      ],
+      "start": [
+        "2004-12-10"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "90"
+      ],
+      "id": [
+        "2120-ETH"
+      ],
+      "device": [
+        "MINDSONG Windows XP"
+      ],
+      "lat": [
+        "5.983"
+      ],
+      "lng": [
+        "116.067"
+      ],
+      "state": [
+        "Penampang, Sabah Malaysia"
+      ],
+      "contact": [
+        "Arthur Eeckart"
+      ],
+      "start": [
+        "2005-02-14"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "91"
+      ],
+      "id": [
+        "2062-ETH"
+      ],
+      "device": [
+        "ORION Windows 98"
+      ],
+      "lat": [
+        "4.65"
+      ],
+      "lng": [
+        "-74.05"
+      ],
+      "state": [
+        "Bogota, Colombia, South America"
+      ],
+      "contact": [
+        "Sergio Carvajal"
+      ],
+      "start": [
+        "2005-03-16"
+      ],
+      "comments": [
+        "OFF 2006?"
+      ]
+    },
+    {
+      "number": [
+        "92"
+      ],
+      "id": [
+        "2046-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "-34.333"
+      ],
+      "lng": [
+        "-58.5"
+      ],
+      "state": [
+        "Buenos Aires, Argentina, South America"
+      ],
+      "contact": [
+        "Andres Kievsky"
+      ],
+      "start": [
+        "2005-05-12"
+      ],
+      "comments": [
+        "transfer, was 77, but No Data"
+      ]
+    },
+    {
+      "number": [
+        "93"
+      ],
+      "id": [
+        "2088-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "32.293"
+      ],
+      "lng": [
+        "-64.785"
+      ],
+      "state": [
+        "Hamilton, Bermuda"
+      ],
+      "contact": [
+        "Walter Cooke"
+      ],
+      "start": [
+        "2005-09-27"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "94"
+      ],
+      "id": [
+        "2064-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "24.77"
+      ],
+      "lng": [
+        "120.958"
+      ],
+      "state": [
+        "Hsinchu, Taiwan"
+      ],
+      "contact": [
+        "Phillip Adam Ward"
+      ],
+      "start": [
+        "2005-09-30"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "95"
+      ],
+      "id": [
+        "2083-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "25.078"
+      ],
+      "lng": [
+        "121.544"
+      ],
+      "state": [
+        "Hsin Chu City, Taiwan"
+      ],
+      "contact": [
+        "Tong-Miin Liou"
+      ],
+      "start": [
+        "2006-03-02"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "96"
+      ],
+      "id": [
+        "1066-ETH"
+      ],
+      "device": [
+        "ORION Debian Linux"
+      ],
+      "lat": [
+        "37.284"
+      ],
+      "lng": [
+        "-5.925"
+      ],
+      "state": [
+        "Sevilla, Spain"
+      ],
+      "contact": [
+        "Anonymous"
+      ],
+      "start": [
+        "2006-03-08"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "97"
+      ],
+      "id": [
+        "2006-ETH"
+      ],
+      "device": [
+        "ORION Windows 2000?"
+      ],
+      "lat": [
+        "53.682"
+      ],
+      "lng": [
+        "-2.165"
+      ],
+      "state": [
+        "Rochdale, England, UK"
+      ],
+      "contact": [
+        "J. Miles Heaton Cooper"
+      ],
+      "start": [
+        "2006-03-15"
+      ],
+      "comments": [
+        "was 41"
+      ]
+    },
+    {
+      "number": [
+        "98"
+      ],
+      "id": [
+        "224-ETH"
+      ],
+      "device": [
+        "MINDSONG Linux"
+      ],
+      "lat": [
+        "-26.1"
+      ],
+      "lng": [
+        "28.07"
+      ],
+      "state": [
+        "Sandton, South Africa"
+      ],
+      "contact": [
+        "Aurelian Duarte"
+      ],
+      "start": [
+        "2006-03-24"
+      ],
+      "comments": [
+        "was #30; RNG 224 replace 119 Mar 2012"
+      ]
+    },
+    {
+      "number": [
+        "99"
+      ],
+      "id": [
+        "2080-ETH"
+      ],
+      "device": [
+        "ORION Win XP"
+      ],
+      "lat": [
+        "-33.485"
+      ],
+      "lng": [
+        "-70.518"
+      ],
+      "state": [
+        "Santiago, Chile"
+      ],
+      "contact": [
+        "Fernando Erbetta Doyharcabal"
+      ],
+      "start": [
+        "2006-04-11"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "100"
+      ],
+      "id": [
+        "2070-ETH"
+      ],
+      "device": [
+        "ORION Windows XP"
+      ],
+      "lat": [
+        "9.403"
+      ],
+      "lng": [
+        "-84.158"
+      ],
+      "state": [
+        "Quepos, Costa Rica"
+      ],
+      "contact": [
+        "James Lindelien"
+      ],
+      "start": [
+        "2006-09-29"
+      ],
+      "comments": [
+        "OFF 2007?"
+      ]
+    },
+    {
+      "number": [
+        "101"
+      ],
+      "id": [
+        "2084-ETH"
+      ],
+      "device": [
+        "ORION Windows XP"
+      ],
+      "lat": [
+        "39.917"
+      ],
+      "lng": [
+        "116.417"
+      ],
+      "state": [
+        "Beijing, China"
+      ],
+      "contact": [
+        "Peter Sallade"
+      ],
+      "start": [
+        "2007-01-07"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "102"
+      ],
+      "id": [
+        "2069-ETH"
+      ],
+      "device": [
+        "ORION Windows XP"
+      ],
+      "lat": [
+        "-34.592"
+      ],
+      "lng": [
+        "-58.399"
+      ],
+      "state": [
+        "Buenos Aires, Argentina"
+      ],
+      "contact": [
+        "Kristen Neiling"
+      ],
+      "start": [
+        "2007-02-22"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "103"
+      ],
+      "id": [
+        "1082-ETH"
+      ],
+      "device": [
+        "ORION FreeBSD"
+      ],
+      "lat": [
+        "54.834"
+      ],
+      "lng": [
+        "83.11"
+      ],
+      "state": [
+        "Novosibirsk, Russia"
+      ],
+      "contact": [
+        "Ivan Avdeyev"
+      ],
+      "start": [
+        "2009-01-07"
+      ],
+      "comments": [
+        "Feb 2007, no success"
+      ]
+    },
+    {
+      "number": [
+        "104"
+      ],
+      "id": [
+        "2091-ETH"
+      ],
+      "device": [
+        "ORION Windows XP"
+      ],
+      "lat": [
+        "-12.07"
+      ],
+      "lng": [
+        "-77.15"
+      ],
+      "state": [
+        "Lima, Peru"
+      ],
+      "contact": [
+        "Vasco Masias, Yoel Celis Chlimper"
+      ],
+      "start": [
+        "2008-04-11"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "105"
+      ],
+      "id": [
+        "1092-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "60.218"
+      ],
+      "lng": [
+        "24.813"
+      ],
+      "state": [
+        "Helsinki, Finland"
+      ],
+      "contact": [
+        "Jyri Hovila"
+      ],
+      "start": [
+        "2008-04-25"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "106"
+      ],
+      "id": [
+        "3043-ETH"
+      ],
+      "device": [
+        "ORION Linux"
+      ],
+      "lat": [
+        "33.669"
+      ],
+      "lng": [
+        "-117.822"
+      ],
+      "state": [
+        "Irvine, CA, USA"
+      ],
+      "contact": [
+        "Chris Heiner"
+      ],
+      "start": [
+        "2008-04-28"
+      ],
+      "comments": [
+        "was 2043"
+      ]
+    },
+    {
+      "number": [
+        "107"
+      ],
+      "id": [
+        "2093-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "41.447"
+      ],
+      "lng": [
+        "-66.076"
+      ],
+      "state": [
+        "Saint John, NB, Canada"
+      ],
+      "contact": [
+        "Cheryl Horgan"
+      ],
+      "start": [
+        "2008-05-02"
+      ],
+      "comments": [
+        "No data"
+      ]
+    },
+    {
+      "number": [
+        "108"
+      ],
+      "id": [
+        "2094-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "43.205"
+      ],
+      "lng": [
+        "27.92"
+      ],
+      "state": [
+        "Varna, Bulgaria"
+      ],
+      "contact": [
+        "Filip V. Filipov"
+      ],
+      "start": [
+        "2008-11-12"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "109"
+      ],
+      "id": [
+        "2097-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "-34.61"
+      ],
+      "lng": [
+        "-58.427"
+      ],
+      "state": [
+        "Buenos Aires"
+      ],
+      "contact": [
+        "Maurice Taslik"
+      ],
+      "start": [
+        "2008-11-12"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "110"
+      ],
+      "id": [
+        "3045-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "22.095"
+      ],
+      "lng": [
+        "-159.351"
+      ],
+      "state": [
+        "Kapaa, Hawaii"
+      ],
+      "contact": [
+        "Michele Zina, Andre Zina"
+      ],
+      "start": [
+        "2009-02-23"
+      ],
+      "end": [
+        "end of 2010?"
+      ],
+      "comments": [
+        "device with Berrett, #129"
+      ]
+    },
+    {
+      "number": [
+        "111"
+      ],
+      "id": [
+        "3005-ETH"
+      ],
+      "device": [
+        "ORION, Win Serv 2003"
+      ],
+      "lat": [
+        "37.775"
+      ],
+      "lng": [
+        "-122.416"
+      ],
+      "state": [
+        "San Francisco"
+      ],
+      "contact": [
+        "Scott Ciliberti, Rich Glintenkamp"
+      ],
+      "start": [
+        "2009-03-05"
+      ],
+      "end": [
+        "a week later"
+      ],
+      "comments": [
+        "was geomeme egg 1005, could not get it up"
+      ]
+    },
+    {
+      "number": [
+        "112"
+      ],
+      "id": [
+        "2247-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "35.747"
+      ],
+      "lng": [
+        "-89.536"
+      ],
+      "state": [
+        "Ripley, Tennessee"
+      ],
+      "contact": [
+        "John Todd"
+      ],
+      "start": [
+        "2009-03-23"
+      ],
+      "end": [
+        "2011-08?"
+      ],
+      "comments": [
+        "RNG to Bercaw"
+      ]
+    },
+    {
+      "number": [
+        "113"
+      ],
+      "id": [
+        "2242-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "50.363"
+      ],
+      "lng": [
+        "-4.742"
+      ],
+      "state": [
+        "Eden Project, UK"
+      ],
+      "contact": [
+        "Lisa Cronin, Nick Argent, Martyn Fellows"
+      ],
+      "start": [
+        "2009-04-01"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "114"
+      ],
+      "id": [
+        "1095-ETH"
+      ],
+      "device": [
+        "ORION, CentOS Linux"
+      ],
+      "lat": [
+        "-28.072"
+      ],
+      "lng": [
+        "26.065"
+      ],
+      "state": [
+        "Northcliff, South Africa"
+      ],
+      "contact": [
+        "Brett Cave"
+      ],
+      "start": [
+        "2009-??-??"
+      ],
+      "end": [
+        "2011, uncertain"
+      ],
+      "comments": [
+        "RNG to Capetown, 1295"
+      ]
+    },
+    {
+      "number": [
+        "115"
+      ],
+      "id": [
+        "3023-ETH"
+      ],
+      "device": [
+        "ORION, DamnSmallLinux"
+      ],
+      "lat": [
+        "52.267"
+      ],
+      "lng": [
+        "8.05"
+      ],
+      "state": [
+        "Muenster, Germany"
+      ],
+      "contact": [
+        "Florian Gruenert, Tilman Schoeps"
+      ],
+      "start": [
+        "2009-06-11"
+      ],
+      "comments": [
+        "was 2023 Koeln"
+      ]
+    },
+    {
+      "number": [
+        "116"
+      ],
+      "id": [
+        "1096-ETH"
+      ],
+      "device": [
+        "ORION, Linux"
+      ],
+      "lat": [
+        "1.362"
+      ],
+      "lng": [
+        "103.878"
+      ],
+      "state": [
+        "Singapore"
+      ],
+      "contact": [
+        "Kartik Budhraja"
+      ],
+      "start": [
+        "2009-05-14"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "117"
+      ],
+      "id": [
+        "2250-ETH"
+      ],
+      "device": [
+        "ORION, Win 2000"
+      ],
+      "lat": [
+        "45.282"
+      ],
+      "lng": [
+        "-75.737"
+      ],
+      "state": [
+        "Ottawa, Canada"
+      ],
+      "contact": [
+        "William Treurniet"
+      ],
+      "start": [
+        "2009-04-23"
+      ],
+      "comments": [
+        "Potential experiments"
+      ]
+    },
+    {
+      "number": [
+        "118"
+      ],
+      "id": [
+        "2240-ETH"
+      ],
+      "device": [
+        "ORION, Win 2000"
+      ],
+      "lat": [
+        "47.964"
+      ],
+      "lng": [
+        "-114.189"
+      ],
+      "state": [
+        "Lakeside, Montana"
+      ],
+      "contact": [
+        "Jimmie Sue Reneau, Danae Hanson"
+      ],
+      "start": [
+        "2009-06-05"
+      ],
+      "end": [
+        "October 12? 2011"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "119"
+      ],
+      "id": [
+        "4251-ETH"
+      ],
+      "device": [
+        "ORION, Linux"
+      ],
+      "lat": [
+        "10.304"
+      ],
+      "lng": [
+        "-61.446"
+      ],
+      "state": [
+        "Marabella, Trinidad and Tobago"
+      ],
+      "contact": [
+        "Randall Maharaj"
+      ],
+      "start": [
+        "2009-07-28"
+      ],
+      "comments": [
+        "Change to TrueRNG Feb 15 2015"
+      ]
+    },
+    {
+      "number": [
+        "120"
+      ],
+      "id": [
+        "2243-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "33.69"
+      ],
+      "lng": [
+        "73.135"
+      ],
+      "state": [
+        "Islamabad, Pakistan"
+      ],
+      "contact": [
+        "Abdulsamad Khan"
+      ],
+      "start": [
+        "2009-12-17"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "121"
+      ],
+      "id": [
+        "2241-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "34.809"
+      ],
+      "lng": [
+        "-92.51"
+      ],
+      "state": [
+        "Little Rock, Arkansas"
+      ],
+      "contact": [
+        "Larry Flaxman"
+      ],
+      "start": [
+        "2010-01-19"
+      ],
+      "comments": [
+        "USB-Serial"
+      ]
+    },
+    {
+      "number": [
+        "122"
+      ],
+      "id": [
+        "2248-ETH"
+      ],
+      "device": [
+        "ORION, Windows 2000"
+      ],
+      "lat": [
+        "30.065"
+      ],
+      "lng": [
+        "31.25"
+      ],
+      "state": [
+        "Cairo, Egypt"
+      ],
+      "contact": [
+        "Dr. A M Fahmy"
+      ],
+      "start": [
+        "2010-03-03"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "123"
+      ],
+      "id": [
+        "2249-ETH"
+      ],
+      "device": [
+        "ORION, Windows XP"
+      ],
+      "lat": [
+        "52.232"
+      ],
+      "lng": [
+        "21.006"
+      ],
+      "state": [
+        "Warszawa, Poland"
+      ],
+      "contact": [
+        "Krzysztof Kasianiuk"
+      ],
+      "start": [
+        "2010-07-28"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "124"
+      ],
+      "id": [
+        "3101-ETH"
+      ],
+      "device": [
+        "Araneus Alea 1, Linux"
+      ],
+      "lat": [
+        "37.192"
+      ],
+      "lng": [
+        "-122.119"
+      ],
+      "state": [
+        "Boulder Creek, CA, USA"
+      ],
+      "contact": [
+        "Mike Atkinson"
+      ],
+      "start": [
+        "2011-02-23"
+      ],
+      "comments": [
+        "Bad RNG (3102) from 0205-0212 replaced 0223"
+      ]
+    },
+    {
+      "number": [
+        "125"
+      ],
+      "id": [
+        "3045-ETH"
+      ],
+      "device": [
+        "ORION, Windows 7"
+      ],
+      "lat": [
+        "22.103"
+      ],
+      "lng": [
+        "-159.324"
+      ],
+      "state": [
+        "Kauai, Hawaii"
+      ],
+      "contact": [
+        "Scott Berrett"
+      ],
+      "start": [
+        "2011-04-05"
+      ],
+      "end": [
+        "2011-05?"
+      ],
+      "comments": [
+        "RNG 3045, mv 2 mi, was Zina #110"
+      ]
+    },
+    {
+      "number": [
+        "126"
+      ],
+      "id": [
+        "3103-ETH"
+      ],
+      "device": [
+        "Araneus Alea 1, Linux"
+      ],
+      "lat": [
+        "50.8"
+      ],
+      "lng": [
+        "49.5"
+      ],
+      "state": [
+        "Al Hofuf, Saudi Arabia"
+      ],
+      "contact": [
+        "Mike Atkinson"
+      ],
+      "start": [
+        "2011-05-06"
+      ],
+      "end": [
+        "Never succeeded"
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "127"
+      ],
+      "id": [
+        "3104-ETH"
+      ],
+      "device": [
+        "Araneus Alea 1, Linux"
+      ],
+      "lat": [
+        "50.5"
+      ],
+      "lng": [
+        "0.1"
+      ],
+      "state": [
+        "Lewes, East Susses, UK"
+      ],
+      "contact": [
+        "Mike Atkinson"
+      ],
+      "start": [
+        "2011-05-25"
+      ],
+      "comments": [
+        "tested in CA 5 days"
+      ]
+    },
+    {
+      "number": [
+        "128"
+      ],
+      "id": [
+        "3247-ETH"
+      ],
+      "device": [
+        "Orion, Windows XP"
+      ],
+      "lat": [
+        "35.951"
+      ],
+      "lng": [
+        "-94.1"
+      ],
+      "state": [
+        "West Fork, AR, USA"
+      ],
+      "contact": [
+        "David Bercaw"
+      ],
+      "start": [
+        "2011-08-30"
+      ],
+      "comments": [
+        "Satellite link, RNG was 2247, was Ripley TN"
+      ]
+    },
+    {
+      "number": [
+        "129"
+      ],
+      "id": [
+        "4101-ETH"
+      ],
+      "device": [
+        "Araneus Alea 1, Linux"
+      ],
+      "lat": [
+        "20.183"
+      ],
+      "lng": [
+        "-150.669"
+      ],
+      "state": [
+        "Kamuela, HI, USA"
+      ],
+      "contact": [
+        "Christian Veillet, Kanoa Withington"
+      ],
+      "start": [
+        "2011-09-28"
+      ],
+      "comments": [
+        "at observatory"
+      ]
+    },
+    {
+      "number": [
+        "130"
+      ],
+      "id": [
+        "2201-ETH"
+      ],
+      "device": [
+        "Orion, Windows 7"
+      ],
+      "lat": [
+        "36.087"
+      ],
+      "lng": [
+        "140.119"
+      ],
+      "state": [
+        "Tsukuba, Japan"
+      ],
+      "contact": [
+        "Takeshi Shimizu"
+      ],
+      "start": [
+        "2011-10-08"
+      ],
+      "comments": [
+        "USB Conversion - no rdn calib"
+      ]
+    },
+    {
+      "number": [
+        "131"
+      ],
+      "id": [
+        "3115-ETH"
+      ],
+      "device": [
+        "Mindsong, Linux"
+      ],
+      "lat": [
+        "53.48"
+      ],
+      "lng": [
+        "-113.56"
+      ],
+      "state": [
+        "Edmonton, Alberta, Canada"
+      ],
+      "contact": [
+        "Gordon Nelson"
+      ],
+      "start": [
+        "2011-11-??"
+      ],
+      "comments": [
+        "Was Egg 115, Edmonton"
+      ]
+    },
+    {
+      "number": [
+        "132"
+      ],
+      "id": [
+        "2202-ETH"
+      ],
+      "device": [
+        "Orion, Windows XP"
+      ],
+      "lat": [
+        "35.785"
+      ],
+      "lng": [
+        "139.399"
+      ],
+      "state": [
+        "Tokorozawa, Japan"
+      ],
+      "contact": [
+        "Takeshi Shimizu"
+      ],
+      "start": [
+        "2011-10-21"
+      ],
+      "comments": [
+        "USB Conversion - no rdn calib"
+      ]
+    },
+    {
+      "number": [
+        "133"
+      ],
+      "id": [
+        "1295-ETH"
+      ],
+      "device": [
+        "Orion, Linux"
+      ],
+      "lat": [
+        "-34.58338"
+      ],
+      "lng": [
+        "18.288600"
+      ],
+      "state": [
+        "Capetown, South Africa"
+      ],
+      "contact": [
+        "Oliver McDermott"
+      ],
+      "start": [
+        "2012-03-20"
+      ],
+      "comments": [
+        "Was 1095, Northcliff,South Africa"
+      ]
+    },
+    {
+      "number": [
+        "134"
+      ],
+      "id": [
+        "2232-ETH"
+      ],
+      "device": [
+        "Orion, Windows XP"
+      ],
+      "contact": [
+        "Simon Collins"
+      ],
+      "state": [
+        "Perth, Western Australia"
+      ],
+      "lat": [
+        "-31.921"
+      ],
+      "lng": [
+        "115.892"
+      ],
+      "start": [
+        "2012-04-09,"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "135"
+      ],
+      "id": [
+        "1096-ETH"
+      ],
+      "device": [
+        "Orion, Linux"
+      ],
+      "contact": [
+        "Kartik Budhraja"
+      ],
+      "state": [
+        "Thanedhar, India"
+      ],
+      "lat": [
+        "31.297"
+      ],
+      "lng": [
+        "77.483"
+      ],
+      "start": [
+        "2009-05-14, 2012-07-28"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        "Egg 1086 moved from Singapore in 2012"
+      ]
+    },
+    {
+      "number": [
+        "136"
+      ],
+      "id": [
+        "3042-ETH"
+      ],
+      "device": [
+        "Orion, Windows"
+      ],
+      "contact": [
+        "Brett Burford"
+      ],
+      "state": [
+        "Flagstaff Hill, SA, Australia"
+      ],
+      "lat": [
+        "-34.767"
+      ],
+      "lng": [
+        "138.537"
+      ],
+      "start": [
+        "2012-11-03"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        ""
+      ]
+    },
+    {
+      "number": [
+        "137"
+      ],
+      "id": [
+        "3142-ETH"
+      ],
+      "device": [
+        "Mindsong, Linux"
+      ],
+      "contact": [
+        "Ruud Verwimp"
+      ],
+      "state": [
+        "Valkenswaard, Nederland"
+      ],
+      "lat": [
+        "51.356"
+      ],
+      "lng": [
+        "5.429"
+      ],
+      "start": [
+        "2012-10-18"
+      ],
+      "end": [
+        "2014-09-27"
+      ],
+      "comments": [
+        "Transfered 142 from Christian Andreason"
+      ]
+    },
+    {
+      "number": [
+        "138"
+      ],
+      "id": [
+        "3106-ETH"
+      ],
+      "device": [
+        "Araneus, Linux"
+      ],
+      "contact": [
+        "Mike Atkinson"
+      ],
+      "state": [
+        "Coronation, Alberta, CA"
+      ],
+      "lat": [
+        "52.091"
+      ],
+      "lng": [
+        "111.446"
+      ],
+      "start": [
+        "2013-?-?"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        "5th Global Coherence Egg"
+      ]
+    },
+    {
+      "number": [
+        "139"
+      ],
+      "id": [
+        "3066-ETH"
+      ],
+      "device": [
+        "Orion, Linux"
+      ],
+      "contact": [
+        "Carlos Gacimartin"
+      ],
+      "state": [
+        "Madrid, Spain "
+      ],
+      "lat": [
+        "40.483"
+      ],
+      "lng": [
+        "-2.705"
+      ],
+      "start": [
+        "2013-06-04"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        "Was 1066 in Sevilla"
+      ]
+    },
+    {
+      "number": [
+        "140"
+      ],
+      "id": [
+        "3107-ETH"
+      ],
+      "device": [
+        "Araneus, Linux"
+      ],
+      "contact": [
+        "Mike Atkinson"
+      ],
+      "state": [
+        "Peria, North Island, New Zealand"
+      ],
+      "start": [
+        "2014-05-? nominal"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        "6th GCI egg, 1105 not open"
+      ]
+    },
+    {
+      "number": [
+        "141"
+      ],
+      "id": [
+        "4002-ETH"
+      ],
+      "device": [
+        "TrueRNG, Windows"
+      ],
+      "contact": [
+        "A. John"
+      ],
+      "state": [
+        "Bangalore, India"
+      ],
+      "lat": [
+        "12.91"
+      ],
+      "lng": [
+        "77.61"
+      ],
+      "start": [
+        "2014-12-19"
+      ],
+      "end": [
+        ""
+      ],
+      "comments": [
+        "1st TrueRNG, on Raspberry PI, May 2016"
+      ]
+    }
+  ]
