@@ -253,15 +253,16 @@
 			    eegMarkers = [];
 	    		eegLocations = {};
 		    	markers.filter(function(o,i){
+		    		console.log(o)
 		    		var location = {
 		    			lat : parseFloat(o.lat),
 		    			lon : parseFloat(o.lng)
 		    		};
-		    		var parsedId = o.id[0].split('-');
+		    		var parsedId = o.id.split('-');
 		    		parsedId = parsedId[0];
 		    		eegLocations[parsedId]= new google.maps.Marker({
 						        			    position: {lat: location.lat, lng: location.lon},
-											    map: map, title:  o.number[0],
+											    map: map, title:  o.number,
 											    icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, scale: 2}
 						        			});
 
