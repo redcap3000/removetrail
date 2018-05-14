@@ -8,6 +8,7 @@
 	   body{
 	   	background-color:gray;
 	   }
+
 	   .legend {
 	   	min-width:120px;
         font-family: Arial, sans-serif;
@@ -15,7 +16,7 @@
         padding: 10px;
         margin: 10px;
         border: 3px solid #000;
-        overflow-x:scroll;
+        overflow-x:auto;
         max-height:40%;
       }
       .legend h3 {
@@ -72,30 +73,39 @@
 			right: 0;
 			bottom: 20px;
 		}
-
-
+		#controls button{
+			float:right;
+			clear:both;
+			width:120px;
+			height:50px;
+			font-size:16px;
+		}
+		#controls{
+	   	margin-left:1em;
+	   	margin-bottom:1em;
+	   	}
 	   </style>
 
 </head>
 <body>
-   
+
    <div id="controls">
    		<iframe id="iframe" src="http://global-mind.org/gcpdot/gcp.html" height="48" width="48" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="z-index:10000;"></iframe>
-   		<button onClick="toggleAbout()">About</button>
+   		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
 
-   		<button onClick="toggleInfo()">Info</button>
+   		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
 
-	   	<button onClick="toggle('chakras')">Chakras</button>
+	   	<button class="btn_toggle" id="btn_chakra" onClick="toggle('chakras')">Chakras</button>
 
-	   	<button onClick="toggle('fires')">Fires</button>
+	   	<button class="btn_toggle" id="btn_fires" onClick="toggle('fires')">Fires</button>
 
-	   	<button onClick="toggle('quakes')">Quakes</button>
+	   	<button class="btn_toggle" id="btn_quakes" onClick="toggle('quakes')">Quakes</button>
 	    
-	    <button onClick="toggle('connections')">Connections</button>
+	    <button class="btn_toggle" id="btn_connections" onClick="toggle('connections')">Connections</button>
 
-	   	<button onClick="toggle('siriwave')">Siriwave</button>
+	   	<button class="btn_toggle" id="btn_siriwave" onClick="toggle('siriwave')">Siriwave</button>
 	  
-	   	<button style="float:right" onClick='toggleQuakeTimeline()'>Toggle Quake Timeframe</button>
+	   	<!--<button style="float:right" onClick='toggleQuakeTimeline()'>Toggle Quake Timeframe</button>-->
 
 	</div>
     <div id="map_canvas" class="ui-corner-all" style="z-index: 200000000 !IMPORTANT; width:100%;height:100%"></div>
@@ -122,7 +132,7 @@
  	<div id="legend" class='legend'><h3>Map Markers</h3></div>
  	
  	<div id="legend3" style="display:none;" class='legend'><h3>Chakra Colors</h3></div>
- 	<div id="about" style="width:35%;" class='legend'>
+ 	<div id="about" style="width:55%;display:none;" class='legend'>
  		<h1>Remove Trail</h1>
  		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> displayed as a animated point on a map (where the RNG is stationed) along
  			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
@@ -143,7 +153,7 @@
  		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
  		<button onClick="toggleAbout()">Close</button>
  	</div>
- 	<div id="info" style="width:35%;display:none;" class='legend'>
+ 	<div id="info" style="width:55%;display:none;" class='legend'>
  		<h1>More Information</h1>
  		<h2>Source Code</h2>
  		<p>Removetrail is an open source project hosted on <a href="https://github.com/redcap3000/removetrail" alt='removetrail'>github.</a> Its messy. Thank you for your understanding.</p>
@@ -199,6 +209,7 @@
 	}
 	toggleAbout= function(){
 		var about = document.getElementById('about')
+		toggle('about')
 		if(about.style.display != 'none'){
 			document.getElementById('about').style.display = 'none'
 		}else{
@@ -207,6 +218,7 @@
 	}
 	toggleInfo= function(){
 		var about = document.getElementById('info')
+		toggle('info')
 		if(about.style.display != 'none'){
 			document.getElementById('info').style.display = 'none'
 		}else{
@@ -341,6 +353,20 @@
 		}
 	});
 
+	setToggleStates=function(){
+		// this needs a bit of work... 
+		//var 
+		var disabledButtons = ['btn_about','btn_info','btn_chakra','btn_fires','btn_connections','btn_siriwave']
+
+		for(var i =0 ; i < disabledButtons.length - 1; i++){
+			var button = document.getElementById(disabledButtons[i])
+			button.style.background =  "gray";
+			button.style.color =  "white";
+			//document.getElementById(disabledButtons[i]).css = true;
+		}
+		
+	}
+	setToggleStates();
 	var styles = [
 	  {
 	    "featureType": "poi",
@@ -853,11 +879,13 @@ if (typeof define === 'function' && define.amd) {
 
 			}
         */
+        var controls = document.getElementById('controls')
+        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(controls)
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
         map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend2);
         map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend3);
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('about'))
-        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('info'))
+        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(document.getElementById('info'))
     //map.controls[google.maps.ControlPosition.LEFT_TOP] =[document.getElementById("controls")];
 	    map.controls[google.maps.ControlPosition.LEFT_CENTER] =[document.getElementById("iframe")];
 
@@ -1052,6 +1080,8 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
 
  	}
  	toggleStates = {
+ 		'about' : false,
+ 		'info' : false,
  		'chakras' : false,
  		'fires' : false,
  		'quakes' : true,
@@ -1138,51 +1168,106 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  		// compare colors if two points adjacent to each other match then draw a poly line connecting them?
 
  	}
-
+ 	getToggleState=function(el){
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			return toggleStates[el]
+ 		}else{
+ 			// hmmm .... 
+ 			return undefined
+ 		}
+ 	}
  	toggle = function(el){
+ 		console.log(el)
  		if(typeof toggleStates[el] != 'undefined'){
  			var newState =  !toggleStates[el]
  			toggleStates[el] = newState
 
  			switch(el) {
+ 				case 'about' :
+			 		var button = document.getElementById('btn_about')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+			 	case 'info' :
+			 		var button = document.getElementById('btn_info')
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
  				case 'connections' :
+			 		var button = document.getElementById('btn_connections')
+
  					if(typeof lines != 'undefined' && lines.length > 0){
 			 			for (i=0; i<lines.length; i++) 
 						{                           
 						  lines[i].setMap(null);
 						}
-			 			
+						button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}else{
+			 			var button = document.getElementById('btn_connections')
+						button.style.background =  "white";
+						button.style.color =  "black";
 			 		}
 	 				break;
 			    case 'chakras':
+				    var button = document.getElementById('btn_chakra')
+
 			    	var legend3 = document.getElementById('legend3')
 
 			    	if(newState){
 			    		showChakras();
 			    		legend3.style.display = "block";
+			    		button.style.background =  "white";
+						button.style.color =  "black";
 			    	}else{
 			    		chakraMarkers.filter(function(r){
 			    			r.setMap(null)
 			    		})
 			    		legend3.style.display = 'none'
+			    		button.style.background =  "gray";
+						button.style.color =  "white";
 			    	}
 			        break;
 			    case 'fires':
+				     var button = document.getElementById('btn_fires')
+
 			        if(newState){
 			        	 ctaLayer = new google.maps.KmlLayer({
 				          url: 'https://fsapps.nwcg.gov/afm/data/kml/conus_latest_lg_incidents.kml',
 				          map: map
 				        });
+			        	button.style.background =  "white";
+						button.style.color =  "black";
 			        }else{
 			        	ctaLayer.setMap(null);
+			        	button.style.background =  "gray";
+						button.style.color =  "white";
 			        }
 			        break;
 			    case 'quakes':
+				    var button = document.getElementById('btn_quakes')
+
 			        if(newState){
 			        	if(typeof quakeInterval == 'undefined' || !quakeInterval){
+
 			        		quakeInterval = setInterval(function(){queryQuakes()},1000 * 60)
+			        	}else{
+			        		console.log("Hmmm....")
 			        	}
-			        	
+			        	queryQuakes()
+			        	button.style.background =  "white";
+						button.style.color =  "black";
 			        }else{
 			        	if(typeof quakeInterval != 'undefined'){
 			        		clearInterval(quakeInterval)
@@ -1193,16 +1278,24 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
 		 						trackedQuakes[key].setMap(null);
 		 					}
 		 				}
+		 				button.style.background =  "gray";
+						button.style.color =  "white";
 			        }
 			        break;
 			    case 'siriwave':
+				    var button = document.getElementById('btn_siriwave')
+
 			    	if(newState){
 			    		showSiri();
+				    	button.style.background =  "white";
+						button.style.color =  "black";
 			    	}else{
 			    		// clear the dom?
 			    		document.getElementById('container-classic-canvas').innerHTML = '';
 			    		SW = undefined;
 			    		map.controls[google.maps.ControlPosition.TOP_CENTER] = [];
+			    		button.style.background =  "gray";
+						button.style.color =  "white";
 			    	}
 			    default:
 			        return false
