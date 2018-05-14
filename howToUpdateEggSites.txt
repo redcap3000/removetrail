@@ -1,0 +1,14 @@
+Notes to self : Overview:
+
+Step 1 - convert XML (http://convertjson.com/xml-to-json.htm) to JSON.
+
+Step 2 - save output to file, move to repo folder
+
+Step 3 - run markers2.js (nodejs markers2.js) on output, maybe change a file name to reflect change. (should output markers.json)
+
+
+Step 4 - use tool ( http://jsonviewer.stack.hu ) to reformat output into human readable and save as eegSites.json 
+
+(probably not needed but just to be safe, because not always sure what I'm doing with XML /json conversions) 
+
+Notes: Commas may cause problems.... be patient; probably make a better CLI tool to automate steps, or read the xml file from the javascript directly (but this would not work if that server is down)
