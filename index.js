@@ -258,7 +258,43 @@ function handleRequest(req, res) {
             res.end();
         });
 
-    } else if (req.url == "/eegData") {
+    } else if (req.url == '/inactiveEgg'){
+
+        var markers = []
+        markers=JSON.parse(fs.readFileSync('eegSites.json', 'utf8'));
+        var inactive = [];
+        var all = [];
+        var active = [];
+        for(var key in markers){
+               all.push(parseInt(markers[key].id.split('-')[0]))
+        }
+        if(typeof eggJSON != 'undefined' && eggJSON.length > 0){
+            var parsed=JSON.parse(eggJSON)
+            for(var key in parsed){
+                var id = parseInt(key)
+                if(active.indexOf(key) == -1){
+                    active.push(parseInt(key));
+                }
+            }
+            all.filter(function(a){
+                if(active.indexOf(a) == -1){
+                    inactive.push(a);
+                }
+            })
+            res.setHeader('Content-Type', 'application/json');
+
+            if(inactive.length > 0){
+                res.write(JSON.stringify(inactive));
+            }else{
+                res.write(false);
+
+            }
+        }else{
+            res.write(false);
+        }  
+        res.end();
+        
+    }else if (req.url == "/eegData") {
 
         res.setHeader('Content-Type', 'application/json');
         res.write((typeof eggJSON != 'undefined' ? eggJSON : 'false'))
