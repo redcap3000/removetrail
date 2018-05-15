@@ -104,7 +104,9 @@
 	    <button class="btn_toggle" id="btn_connections" onClick="toggle('connections')">Connections</button>
 
 	   	<button class="btn_toggle" id="btn_siriwave" onClick="toggle('siriwave')">Siriwave</button>
-	  
+	     
+	    <button class="btn_toggle" id="btn_inactiveSites" title="Reload page to re-enable" onClick="hideInactiveSites()">Inactive Sites</button>
+	
 	   	<!--<button style="float:right" onClick='toggleQuakeTimeline()'>Toggle Quake Timeframe</button>-->
 
 	</div>
@@ -163,6 +165,8 @@
  		<p>Connections attempts to match adjacent EGG sites that have the same color coded value in real time. Its not very fast and scans one level deep so its not common to see all points match or all colors represented.</p>
  		<h2>Chakra Locations</h2>
  		<p>Chakra Locations are based on my personal research from sites that are no longer online completed over a year ago, their locations were converted to be usable with google maps so their accuracy is questionable.</p>
+ 		<h2>Inactive Sites</h2>
+ 		<p>This feature will hide the inactive sites. Due to limitations within google maps, my patience they may be shown again by reloading the page.</p>
  		<button onClick="toggleInfo()">Close</button>
 
  	</div>
@@ -258,13 +262,75 @@
 		    }
 			});
 	}
-	
+	hideInactiveSites = function(){
+		if(typeof eegLocations != 'undefined' ){
+			inactiveSites = [];
+			inactiveMarkers = {};
+			  $.ajax({
+		 		url: '/inactiveEgg', 
+		 		success: function(result){
+		 				result.filter(function(site,i){
+		 					if(typeof eegLocations[site] != 'undefined'){
+		 						//inactiveMarkers[site] = eegLocations[site];
+		 				
+								eegLocations[site].setMap(null);
+								eegLocations[site] = undefined;
+								//inactiveSites.push(site+'');
+							}
+
+		 				});
+		 				toggleStates['inactiveSites'] = false
+		 				document.getElementById("btn_inactiveSites").disabled = true;
+
+		 			}
+		 		})
+			//eegLocations = undefined;
+		}
+		
+	}
+
+	showInactiveSites = function(){
+		// this doesnt work. you can refresh the page for now.... animations freeze.... 
+		// probably need to stop the main ajax egg data feed and refresh it because
+		// its not detecting the  previously cleared out marker
+		$.ajax({
+		 	url: '/eegSites', 
+		 	success: function(result){
+		 		var markers = JSON.parse(result);
+			    eegMarkers = [];
+	    		eegLocations = {};
+		    	markers.filter(function(o,i){
+		    		var parsedId = o.id.split('-');
+		    		parsedId = parsedId[0];
+
+		    		if(inactiveSites.indexOf(parsedId) > -1){
+		    			var location = {
+		    				lat : parseFloat(o.lat),
+		    				lon : parseFloat(o.lng)
+		    			};
+		    			eegLocations[parsedId]= 
+		    				new google.maps.Marker(
+		    					{
+						        	position: {lat: location.lat, lng: location.lon},
+									map: map, title:  o.number,
+									icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, scale: 2}
+								})
+		    				toggleStates['inactiveSites'] = true
+
+		    		}
+		    	})
+		    	inactiveSites = undefined
+		    }
+		})
+	}
+
 	  $.ajax({
 		 	url: '/eegSites', success: function(result){
 		 		var markers = JSON.parse(result);
 			    eegMarkers = [];
 	    		eegLocations = {};
 		    	markers.filter(function(o,i){
+		    		console.log(o)
 		    		var location = {
 		    			lat : parseFloat(o.lat),
 		    			lon : parseFloat(o.lng)
@@ -279,14 +345,26 @@
 
 		    		if(i == markers.length -1){
 		    			// the last one
+		    			// keep track of 'inactive sites'
+		    			// hide inactive sites by default
+		    		
 		    			var theUrl = '/eegData';
 		    			setInterval(function(){
 		        		 $.ajax({
 		        		 	url: theUrl, success: function(result){
+		        		 		//console.log(result)
 						        //$("#div1").html(result);
+						        /*
+						        if(toggleStates['inactiveSites'] && typeof inactiveSites != 'undefined' && inactiveSites.length > 0){
+						        	showInactiveSites();
+
+						        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
+						        	hideInactiveSites();
+						        }*/
 						        for(var key in result){
 						        	if(typeof eegLocations[key] != "undefined"){
 						        		// get old location to swap out?
+						        		//console.log(typeof key)
 						        		var oldPos = {lat : eegLocations[key].position.lat(), lng : eegLocations[key].position.lng()};
 						        		eegLocations[key].setMap(null);
 						        		var animation;
@@ -339,8 +417,9 @@
 											SW.setAmplitude(amplitudeMap[animation])
 										    SW.setSpeed(speedMap[animation])
 										}
-						        	}else{
-						        		;
+						        	}else if(typeof inactiveMarkers != 'undefined' && typeof inactiveMarkers[key] != 'undefined'){
+						        		// wtf???
+						        		// need to eventually address this toggle issue.... 
 						        	}
 						      
 						        }
@@ -1086,7 +1165,8 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  		'fires' : false,
  		'quakes' : true,
  		'connections' : false,
- 		'siriwave' : false
+ 		'siriwave' : false,
+ 		'inactiveSites' : false
  	}
  	quakeInterval = setInterval(function(){console.log('q interval');queryQuakes()},1000 * 60)
  	queryQuakes()
@@ -1094,7 +1174,7 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  	fetchVisibleEEG = function(){
  		visibleEEG = []
  		for(var eeg in eegLocations){
-			if( map.getBounds().contains(eegLocations[eeg].getPosition()) ){
+			if( typeof eegLocations[eeg] != 'undefined' && eegLocations[eeg] && map.getBounds().contains(eegLocations[eeg].getPosition()) ){
 		        // code for showing your object, associated with markers[i]
 		        visibleEEG.push(eegLocations[eeg])
 

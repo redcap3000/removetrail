@@ -265,6 +265,7 @@ function handleRequest(req, res) {
         var inactive = [];
         var all = [];
         var active = [];
+        res.setHeader('Content-Type', 'application/json');
         for(var key in markers){
                all.push(parseInt(markers[key].id.split('-')[0]))
         }
@@ -281,7 +282,7 @@ function handleRequest(req, res) {
                     inactive.push(a);
                 }
             })
-            res.setHeader('Content-Type', 'application/json');
+ 
 
             if(inactive.length > 0){
                 res.write(JSON.stringify(inactive));
