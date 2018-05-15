@@ -104,6 +104,8 @@
 	    <button class="btn_toggle" id="btn_connections" onClick="toggle('connections')">Connections</button>
 
 	   	<button class="btn_toggle" id="btn_siriwave" onClick="toggle('siriwave')">Siriwave</button>
+
+	   	<button class="btn_toggle" id="btn_legends" onClick="toggle('legends')">Siriwave</button>
 	     
 	    <button class="btn_toggle" id="btn_inactiveSites" title="Reload page to re-enable" onClick="hideInactiveSites()">Inactive Sites</button>
 	
@@ -134,7 +136,7 @@
  	<div id="legend" class='legend'><h3>Map Markers</h3></div>
  	
  	<div id="legend3" style="display:none;" class='legend'><h3>Chakra Colors</h3></div>
- 	<div id="about" style="width:55%;display:none;" class='legend'>
+ 	<div id="about" style="width:55%;display:none;" class='legend_info'>
  		<h1>Remove Trail</h1>
  		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> displayed as a animated point on a map (where the RNG is stationed) along
  			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
@@ -145,7 +147,7 @@
 
  		<h2>CPU Intensive</h2>
  		<p> This visualization can be CPU/memory intensive, warning. To improve speed zoom in on various parts of the map, 
- 		and do not use the 'Connections' feature if your computer is from the last ceuntry.</p>
+ 		and do not use the 'Connections' feature if your computer is from the last ceuntry. <b> Hiding inactive sites signfigantly improves performance</b></p>
 
  		<h3>Why?</h3>
  		<p>Removetrail is a continuation of a much older and discontinued project called 'Trail.' I am fascinated with randomness, but am also fascinated with the little I know about quantum physics, so one of
@@ -155,7 +157,7 @@
  		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
  		<button onClick="toggleAbout()">Close</button>
  	</div>
- 	<div id="info" style="width:55%;display:none;" class='legend'>
+ 	<div id="info" style="width:55%;display:none;" class='legend_info'>
  		<h1>More Information</h1>
  		<h2>Source Code</h2>
  		<p>Removetrail is an open source project hosted on <a href="https://github.com/redcap3000/removetrail" alt='removetrail'>github.</a> Its messy. Thank you for your understanding.</p>
