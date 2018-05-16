@@ -222,23 +222,6 @@ function handleRequest(req, res) {
     //console.log(req.url);
     if (req.url == '/favicon.ico') {
         res.end();
-    } else if (req.url[1] == 'm') {
-        var token = req.url.split("=");
-        var filename = "mobile.html";
-        fs.readFile(filename, "binary", function(err, file) {
-            if (err) {
-                res.writeHead(500, {
-                    "Content-Type": "text/plain"
-                });
-                res.write(err + "\n");
-                res.end();
-                return;
-            }
-
-            res.writeHead(200);
-            res.write(file, "binary");
-            res.end();
-        });
     } else if (req.url == "/eegMarkers") {
         // request xml file on server .. or locally probably
 
@@ -372,11 +355,14 @@ function handleRequest(req, res) {
             res.write(file, "binary");
             res.end();
         });
-    }
-    else {
+    } else {
         // public access
-
+        var token = req.url.split("/");
         var filename = "main.html";
+
+        if(token[1] == 'min'){
+            filename = "minimal.html";
+        }
         fs.readFile(filename, "utf8", function(err, file) {
             if (err) {
                 res.writeHead(500, {

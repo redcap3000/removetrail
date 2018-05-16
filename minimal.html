@@ -1,0 +1,621 @@
+<html>
+<head>
+	<title>reMoveTrail</title>
+	   <script src="https://maps.googleapis.com/maps/api/js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	   <style>
+	   body{
+	   	background-color:gray;
+	   }
+
+	   .legend,.legend_info {
+	   	min-width:120px;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+        overflow-x:auto;
+        max-height:40%;
+      }
+      .legend h3 {
+        margin-top: 0;
+      }
+      .legend img {
+        vertical-align: middle;
+      }
+      /* siriwave related*/
+
+
+
+      		#title {
+			font-size: 120px;
+			font-weight: 100;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+		h1, h2, h3 {
+			font-weight: 100;
+		}
+		#panel {
+			font-size: 14px;
+		}
+		#panel input {
+			display: block;
+			margin: 0 auto;
+			width: 300px;
+			margin-bottom: 40px;
+		}
+		.container {
+			display: inline-block;
+			width: 400px;
+			margin: 0;
+			position: relative;
+		}
+		.container > img {
+			width: 100%;
+		}
+		.container .iphone-display {
+			background: #111;
+			background-size: cover;
+			position: absolute;
+			left: 68px;
+			right: 73px;
+			top: 127px;
+			bottom: 142px;
+		}
+		.subcontainer {
+			width: 259px;
+			height: 80px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 20px;
+		}
+		#controls button{
+			float:right;
+			clear:both;
+			width:120px;
+			height:50px;
+			font-size:16px;
+		}
+		#controls{
+	   	margin-left:1em;
+	   	margin-bottom:1em;
+	   	}
+	   </style>
+
+</head>
+<body>
+
+   <div id="controls">
+
+   		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
+
+   	
+	   	<!--<button style="float:right" onClick='toggleQuakeTimeline()'>Toggle Quake Timeframe</button>-->
+
+	</div>
+    <div id="map_canvas" class="ui-corner-all" style="z-index: 200000000 !IMPORTANT; width:100%;height:100%"></div>
+ 
+ 	</div>
+
+ 
+
+ 	<div id="legend2" class='legend'><h3>EGG Color Values</h3></div>
+
+ 	<div id="legend" class='legend'><h3>Map Markers</h3></div>
+ 	
+ 	<div id="about" style="width:55%;display:none;" class='legend_info'>
+ 		<h1>Remove Trail</h1>
+ 		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> displayed as a animated point on a map (where the RNG is stationed) along
+ 			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
+ 			are places of interest such as universities and places of worship in addition to color coded (to the zodiac) chakra points.
+
+ 		<h2>Whats an RNG</h2>
+ 		<p>RNG stands for 'Random Number Generator' and is a specialized device that generates streams of random numbers.</p>
+
+ 		<h2>CPU Intensive</h2>
+ 		<p> This visualization can be CPU/memory intensive, warning. To improve speed zoom in on various parts of the map, 
+ 		and do not use the 'Connections' feature if your computer is from the last ceuntry. <b> Hiding inactive sites signfigantly improves performance</b></p>
+
+ 		<h3>Why?</h3>
+ 		<p>Removetrail is a continuation of a much older and discontinued project called 'Trail.' I am fascinated with randomness, but am also fascinated with the little I know about quantum physics, so one of
+ 		my personal uses of this applications is primary for event predictions, but could be used as a platform to test various quantum phenomon</p>
+
+ 		<h3>The future?</h3>
+ 		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
+ 		<button onClick="toggleAbout()">Close</button>
+ 	</div>
+ 	
+
+<script>
+// self executing function here
+
+(function() {
+	
+	
+	cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
+					 'CERN LHC Point 2' : [46.250839, 6.021515],
+					 'CERN LHC Point 3' : [46.277450, 6.012687],
+					 'CERN LHC Point 4' : [46.304269, 6.037311],
+					 'CERN LHC Point 5' : [46.310071, 6.077340],
+					 'CERN LHC Point 6' : [46.293415, 6.111510],
+					 'CERN LHC Point 7' : [46.266307, 6.114354],
+					 'CERN LHC Point 8' : [46.241716, 6.096901]}
+
+	quakeTimeline = 'quake'
+    trackedQuakes = {};
+    // this isnt working very well .... 
+
+	toggleAbout= function(){
+		var about = document.getElementById('about')
+		toggle('about')
+		if(about.style.display != 'none'){
+			document.getElementById('about').style.display = 'none'
+		}else{
+			document.getElementById('about').style.display = 'block'
+		}
+	}
+
+	  map = {};
+	 
+	hideInactiveSites = function(){
+		if(typeof eegLocations != 'undefined' ){
+			inactiveSites = [];
+			inactiveMarkers = {};
+			  $.ajax({
+		 		url: '/inactiveEgg', 
+		 		success: function(result){
+		 				result.filter(function(site,i){
+		 					if(typeof eegLocations[site] != 'undefined'){
+		 						//inactiveMarkers[site] = eegLocations[site];
+		 				
+								eegLocations[site].setMap(null);
+								eegLocations[site] = undefined;
+								//inactiveSites.push(site+'');
+							}
+
+		 				});
+		 				toggleStates['inactiveSites'] = false
+
+		 			}
+		 		})
+			//eegLocations = undefined;
+		}
+		
+	}
+
+
+	  $.ajax({
+		 	url: '/eegSites', success: function(result){
+		 		var markers = JSON.parse(result);
+			    eegMarkers = [];
+	    		eegLocations = {};
+		    	markers.filter(function(o,i){
+		    		console.log(o)
+		    		var location = {
+		    			lat : parseFloat(o.lat),
+		    			lon : parseFloat(o.lng)
+		    		};
+		    		var parsedId = o.id.split('-');
+		    		parsedId = parsedId[0];
+		    		eegLocations[parsedId]= new google.maps.Marker({
+						        			    position: {lat: location.lat, lng: location.lon},
+											    map: map, title:  o.number,
+											    icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, scale: 2}
+						        			});
+
+		    		if(i == markers.length -1){
+		    			//hideInactiveSites()
+		    			// the last one
+		    			// keep track of 'inactive sites'
+		    			// hide inactive sites by default
+		    		
+		    			var theUrl = '/eegData';
+		    			setInterval(function(){
+		        		 $.ajax({
+		        		 	url: theUrl, success: function(result){
+		        		 		//console.log(result)
+						        //$("#div1").html(result);
+						        /*
+						        if(toggleStates['inactiveSites'] && typeof inactiveSites != 'undefined' && inactiveSites.length > 0){
+						        	showInactiveSites();
+
+						        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
+						        	hideInactiveSites();
+						        }*/
+						        for(var key in result){
+						        	if(typeof eegLocations[key] != "undefined" && typeof eegLocations[key].position != 'undefined'){
+						        		// get old location to swap out?
+						        		//console.log(typeof key)
+						        		var oldPos = {lat : eegLocations[key].position.lat(), lng : eegLocations[key].position.lng()};
+						        		eegLocations[key].setMap(null);
+						        		var animation;
+						        		/*
+						        		100-103 green, 
+						        		103-107 yellowish green, 
+						        		107-114, reddish yellow, 
+						        		114 and greater, red
+										97-100 green, 
+										93-197 bluish-green, 
+										86-83 blue, 
+										86 and smaller, purplish or dark blue
+						        		*/
+						        		eggValue = result[key]
+						        		if(eggValue > 100 && eggValue < 103){	
+						        			animation = 'green';
+						        		}else if(eggValue >  102 && eggValue < 108){
+						        			animation = 'yellowgreen';
+						        		}else if(eggValue > 107 && eggValue < 115){
+						        			// redish yellow
+						        			animation = '#ECB176';
+						        		}else if(eggValue > 114 && eggValue < 146){
+						        			animation = 'red';
+						        		}else if(eggValue < 101 && eggValue > 96){
+						        			animation = 'green';
+						        		}else if(eggValue > 89 && eggValue < 98 ){
+						        			animation = '#0d98ba';
+						        		}else if(eggValue < 90 && eggValue > 82){
+						        			animation = 'blue'
+						        		}else if(eggValue < 83){
+						        			animation = 'darkblue'
+						        		}else{
+						        			// error???
+						        			console.log("Error value : " + eggValue)
+						        			animation = 'pink'
+						        		}
+						        		eegLocations[key] = new google.maps.Marker({
+									    	position: oldPos,
+										    map: map,
+										    icon: {
+										      path: google.maps.SymbolPath.CIRCLE,
+										      scale: 4,
+										      strokeColor: animation
+										    }
+										  });
+										
+										if(toggleStates['siriwave'] && typeof SW != 'undefined'){
+											SW.setAmplitude(amplitudeMap[animation])
+										    SW.setSpeed(speedMap[animation])
+										}
+						        	}else if(typeof inactiveMarkers != 'undefined' && typeof inactiveMarkers[key] != 'undefined'){
+						        		// wtf???
+						        		// need to eventually address this toggle issue.... 
+						        	}
+						      
+						        }
+				
+						    }
+						})},1000);
+						
+		    		}
+    		})
+		}
+	});
+
+	setToggleStates=function(){
+		// this needs a bit of work... 
+		//var 
+		var disabledButtons = ['btn_about']
+
+		for(var i =0 ; i < disabledButtons.length; i++){
+			var button = document.getElementById(disabledButtons[i])
+			button.style.background =  "gray";
+			button.style.color =  "white";
+			//document.getElementById(disabledButtons[i]).css = true;
+		}
+		
+	}
+	setToggleStates();
+	var styles = [
+	  {
+	    "featureType": "poi",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "poi",
+	    "elementType": "geometry",
+	    "stylers": [
+	      { "invert_lightness": true },
+	      { "color": "#d9eada" },
+	      { "visibility": "on" }
+	    ]
+	  },{
+	    "featureType": "road.local",
+	    "stylers": [
+	      { "invert_lightness": true },
+	      { "color": "#808080" },
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "transit.line",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "transit.station",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "landscape.natural.landcover",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "road.highway",
+	    "elementType": "labels",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "road.arterial",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "administrative",
+	    "stylers": [
+	      { "visibility": "off" }
+	    ]
+	  },{
+	    "featureType": "poi.place_of_worship",
+	    "stylers": [
+	      { "weight": 1.1 },
+	      { "visibility": "on" },
+	      { "invert_lightness": true }
+	    ]
+	  },{
+	    "featureType": "poi.medical",
+	    "stylers": [
+	      { "visibility": "on" },
+	      { "invert_lightness": true },
+	      { "weight": 1.5 }
+	    ]
+	  },{
+	    "featureType": "water",
+	    "stylers": [
+	      { "visibility": "simplified" }
+	    ]
+	  }
+	];
+	var styledMap = new google.maps.StyledMapType(styles,
+	    {name: "Styled Map"});
+
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+      center: {lat: 0, lng: 0},
+      zoom: 3
+	  //mapTypeId: google.maps.MapTypeId.ROADMAP,
+    });
+
+    map.mapTypes.set('map_style', styledMap);
+  	map.setMapTypeId('map_style');
+
+
+
+// ledgend, need to do f/r for references of eeg to change to egg 
+	  var iconBase = 'https://developers.google.com/maps/documentation/javascript/images/';
+        var icons = {
+          eeg: {
+            name: 'EGG Site',
+            icon: iconBase + 'symbol_circle.png'
+          },
+          eegDisabled: {
+            name: 'Inactive EGG Site',
+            icon: iconBase + 'symbol_back_close.png'
+          },
+          chakra: {
+            name: 'Chakra',
+            icon: iconBase + 'symbol_fore_open.png'
+          }
+        };
+	 var legend = document.getElementById('legend');
+        for (var key in icons) {
+        	var type = icons[key]
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+
+
+
+
+
+        var colors ={
+        	'0' : {
+        		name : "> 100",
+        		color : 'green'
+        	},
+        	'1' : {
+        		name : "> 102",
+        		color : 'yellowgreen'
+        	},
+        	'2' : {
+        		name : "> 107",
+        		color : '#ECB176'
+        	},
+        	'3' : {
+        		name : "> 114",
+        		color : 'red'
+        	},
+        	'4' : {
+        		name : "< 101",
+        		color : 'green'
+        	},
+            '5' : {
+        		name : "> 89",
+        		color : '#0d98ba'
+        	},
+			'6' : {
+        		name : "> 82",
+        		color : 'blue'
+        	},
+        	'7' : {
+        		name : "< 83",
+        		color : 'darkblue'
+        	},
+        	'-1' : {
+        		name :"Errant Value",
+        		color : 'pink'
+        	}
+        }
+
+        var legend2 = document.getElementById('legend2')
+        for(var key in colors){
+        	var type = colors[key]
+        	var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+
+          div.innerHTML = '<div style="float:left;clear:both"><div style="width:25px;height:25px;float:left;background-color:'+type.color+'"></div>&nbsp;' + name+'</div>';
+          legend2.appendChild(div);
+        }
+
+       
+        var controls = document.getElementById('controls')
+        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(controls)
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend2);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('about'))
+	   
+
+
+
+    //map.controls[google.maps.ControlPosition.RIGHT_TOP] =[document.getElementById('div1')];
+    // https://fsapps.nwcg.gov/afm/googleearth.php
+    chakraMarkers = []
+
+    cernPoints = []
+    showCERNPoints = function(){
+    	for(var key in cernLHCPoints){
+    		var point = cernLHCPoints[key]
+    		var location = {
+		    			lat : parseFloat(point[0]),
+		    			lon : parseFloat(point[1])
+		    		};
+		    		//var parsedId = o.id[0].split('-');
+		    		//parsedId = parsedId[0];
+		    		cernPoints.push(new google.maps.Marker({
+						        			    position: {lat: location.lat, lng: location.lon},
+											    map: map, title: key,
+											    icon: { path: google.maps.SymbolPath.CIRCLE, scale: 2}
+						        			}))
+    	}
+
+
+
+
+cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
+					 'CERN LHC Point 2' : [46.250839, 6.021515],
+					 'CERN LHC Point 3' : [46.277450, 6.012687],
+					 'CERN LHC Point 4' : [46.304269, 6.037311],
+					 'CERN LHC Point 5' : [46.310071, 6.077340],
+					 'CERN LHC Point 6' : [46.293415, 6.111510],
+					 'CERN LHC Point 7' : [46.266307, 6.114354],
+					 'CERN LHC Point 8' : [46.241716, 6.096901]}
+
+
+
+    	 var cernSquare1 = [
+          {lat: 46.234745, lng: 6.053495},
+          {lat: 46.277450, lng: 6.012687},
+          {lat: 46.310071, lng: 6.077340},
+          {lat: 46.266307, lng: 6.114354},
+          {lat: 46.234745, lng: 6.053495}
+        ];
+
+
+    	 var cernSquare2 = [
+          {lat: 46.250839, lng: 6.021515},
+          {lat: 46.304269, lng: 6.037311},
+          {lat: 46.293415, lng: 6.111510},
+          {lat: 46.241716, lng: 6.096901},
+          {lat: 46.250839, lng: 6.021515}
+        ];
+        var cernSquare1Line = new google.maps.Polyline({
+          path: cernSquare1,
+          geodesic: true,
+          strokeColor: 'red',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        var cernSquare2Line = new google.maps.Polyline({
+          path: cernSquare2,
+          geodesic: true,
+          strokeColor: 'green',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        cernSquare1Line.setMap(map)
+
+        cernSquare2Line.setMap(map)
+    }
+    showCERNPoints();
+	// this is inefficent. reloads the json each time toggle on occurs ?
+
+    /*
+      var kmlUrl = 'https://removetrail.herokuapp.com/fire.kml';
+		var kmlOptions = {
+		  suppressInfoWindows: false,
+		  preserveViewport: false
+		};
+		var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+		kmlLayer.setMap(map);
+		console.log(kmlLayer);
+	*/
+
+ 	toggleStates = {
+ 		'about' : false,
+
+ 		'inactiveSites' : false
+ 	}
+ 
+
+ 	// check if the values have similar values then draw poly line connecting them...
+ 	lines = []
+
+ 	getToggleState=function(el){
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			return toggleStates[el]
+ 		}else{
+ 			// hmmm .... 
+ 			return undefined
+ 		}
+ 	}
+ 	toggle = function(el){
+ 		console.log(el)
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			var newState =  !toggleStates[el]
+ 			toggleStates[el] = newState
+
+ 			switch(el) {
+ 				case 'about' :
+			 		var button = document.getElementById('btn_about')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+			 }
+ 			
+ 		}
+ 		
+ 	}
+	quakeWindows = {};
+	
+
+
+})();
+</script>
+		
+</body>
