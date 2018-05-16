@@ -293,58 +293,6 @@
     map.mapTypes.set('map_style', styledMap);
   	map.setMapTypeId('map_style');
 
-        var colors ={
-        	'0' : {
-        		name : "> 100",
-        		color : 'green'
-        	},
-        	'1' : {
-        		name : "> 102",
-        		color : 'yellowgreen'
-        	},
-        	'2' : {
-        		name : "> 107",
-        		color : '#ECB176'
-        	},
-        	'3' : {
-        		name : "> 114",
-        		color : 'red'
-        	},
-        	'4' : {
-        		name : "< 101",
-        		color : 'green'
-        	},
-            '5' : {
-        		name : "> 89",
-        		color : '#0d98ba'
-        	},
-			'6' : {
-        		name : "> 82",
-        		color : 'blue'
-        	},
-        	'7' : {
-        		name : "< 83",
-        		color : 'darkblue'
-        	},
-        	'-1' : {
-        		name :"Errant Value",
-        		color : 'pink'
-        	}
-        }
-        var legend2 = document.getElementById('legend2')
-        for(var key in colors){
-        	var type = colors[key]
-        	var name = type.name;
-          var icon = type.icon;
-          var div = document.createElement('div');
-
-          div.innerHTML = '<div style="float:left;clear:both"><div style="width:25px;height:25px;float:left;background-color:'+type.color+'"></div>&nbsp;' + name+'</div>';
-          legend2.appendChild(div);
-        }
-       
-        map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend2);
-
-	quakeWindows = {};
 	google.maps.event.addListenerOnce(map, 'idle', function(){
     	indexInactiveSites()
 	});
