@@ -362,6 +362,8 @@ function handleRequest(req, res) {
 
         if(token[1] == 'min'){
             filename = "minimal.html";
+        }else if(token[1] == 'min_arc'){
+            filename = "minimal_arc.html"
         }
         fs.readFile(filename, "utf8", function(err, file) {
             if (err) {
