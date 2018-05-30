@@ -91,9 +91,12 @@
 
    <div id="controls">
    		<iframe id="iframe" src="http://global-mind.org/gcpdot/gcp.html" height="48" width="48" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="z-index:10000;"></iframe>
+
    		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
 
    		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
+
+   		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
 
 	   	<button class="btn_toggle" id="btn_chakra" onClick="toggle('chakras')">Chakras</button>
 
@@ -183,7 +186,6 @@
 // self executing function here
 
 (function() {
-	
 	
 	cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
 					 'CERN LHC Point 2' : [46.250839, 6.021515],
@@ -325,14 +327,34 @@
 		    }
 		})
 	}
+	var oscMap = {
+		'green' : 'sine',
+		'yellowgreen' : 'triangle',
+		'#ECB176' : 'sine',
+		'red' : 'triangle',
+		'#0d98ba' : 'sine',
+		'blue' : 'sine',
+		'darkblue' : 'triangle',
+		'pink' : 'sine'
+	}
+	var oscFreqMultiplierMap = {
+		'green' : 1.25,
+		'yellowgreen' : 1.25,
+		'#ECB176' : 1.5,
+		'red' : 1.15,
+		'#0d98ba' : 1.05,
+		'blue' : 1.5,
+		'darkblue' : 1.05,
+		'pink' : .25
 
+	}
 	  $.ajax({
 		 	url: '/eegSites', success: function(result){
 		 		var markers = JSON.parse(result);
 			    eegMarkers = [];
 	    		eegLocations = {};
 		    	markers.filter(function(o,i){
-		    		console.log(o)
+		    		
 		    		var location = {
 		    			lat : parseFloat(o.lat),
 		    			lon : parseFloat(o.lng)
@@ -351,6 +373,8 @@
 		    			// hide inactive sites by default
 		    		
 		    			var theUrl = '/eegData';
+		    			context = new (window.AudioContext || window.webkitAudioContext)();
+								
 		    			setInterval(function(){
 		        		 $.ajax({
 		        		 	url: theUrl, success: function(result){
@@ -363,6 +387,21 @@
 						        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
 						        	hideInactiveSites();
 						        }*/
+						       if(toggleStates['audio'] && typeof context != 'undefined'){
+									if(context.state == 'closed'){
+										// reopen
+										context = new (window.AudioContext || window.webkitAudioContext)();
+					
+									}
+									osc = context.createOscillator(); // instantiate an oscillator
+									osc.start();
+								}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
+									//context.stop()
+									osc.stop(context.currentTime)
+									osc.disconnect()
+									context.close()
+
+								}
 						        for(var key in result){
 						        	if(typeof eegLocations[key] != "undefined"){
 						        		// get old location to swap out?
@@ -419,6 +458,34 @@
 											SW.setAmplitude(amplitudeMap[animation])
 										    SW.setSpeed(speedMap[animation])
 										}
+										if(toggleStates['audio'] && typeof context != 'undefined'){
+											if(context.state != 'running'){
+		  										context.resume().then(() => {
+												    console.log('Playback resumed successfully');
+												  });
+	  										}else{
+	  											osc.type = oscMap[animation]
+	  											//'sine'; // this is the default - also square, sawtooth, triangle
+
+												if (eggValue) {
+													//console.log(amplitudeMap[animation])
+												    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
+													osc.connect(context.destination); // connect it to the destination
+													 // start the oscillator
+													 // stop 2 seconds after the current time
+
+	  											}else{
+	  												// not finite
+													//osc.stop(context.currentTime + 2);
+	  												//console.log(amplitudeMap[animation])
+	  												//console.log(animation)
+	  											}
+	  										}
+										}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running'){
+											osc.stop();
+											//context.pause();
+											//context.currentTime =0;
+										}
 						        	}else if(typeof inactiveMarkers != 'undefined' && typeof inactiveMarkers[key] != 'undefined'){
 						        		// wtf???
 						        		// need to eventually address this toggle issue.... 
@@ -437,7 +504,7 @@
 	setToggleStates=function(){
 		// this needs a bit of work... 
 		//var 
-		var disabledButtons = ['btn_about','btn_info','btn_chakra','btn_fires','btn_connections','btn_siriwave']
+		var disabledButtons = ['btn_about','btn_info','btn_audio','btn_chakra','btn_fires','btn_connections','btn_siriwave']
 
 		for(var i =0 ; i < disabledButtons.length; i++){
 			var button = document.getElementById(disabledButtons[i])
@@ -990,6 +1057,7 @@ if (typeof define === 'function' && define.amd) {
 			'yellowgreen' : 0.3,
 			'#ECB176' : 0.4,
 			'#0d98ba' : 0.5,
+			'red' : 0.6,
 			'blue' : 0.9,
 			'darkblue' : 1
 		}
@@ -999,6 +1067,7 @@ if (typeof define === 'function' && define.amd) {
 			'yellowgreen' : 0.5,
 			'#ECB176' : 0.4,
 			'#0d98ba' : 0.3,
+			'red' : 0.6,
 			'blue' : 0.2,
 			'darkblue' : 0.1
 		}
@@ -1163,6 +1232,7 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  	toggleStates = {
  		'about' : false,
  		'info' : false,
+ 		'audio' : false,
  		'chakras' : false,
  		'fires' : false,
  		'quakes' : true,
@@ -1267,6 +1337,17 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  			switch(el) {
  				case 'about' :
 			 		var button = document.getElementById('btn_about')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+			 	case 'audio' :
+			 		var button = document.getElementById('btn_audio')
 			 
 			 		if(newState){
 			 			button.style.background =  "white";
