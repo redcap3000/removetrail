@@ -395,6 +395,9 @@
 									}
 									osc = context.createOscillator(); // instantiate an oscillator
 									osc.start();
+								
+
+
 								}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
 									//context.stop()
 									osc.stop(context.currentTime)
@@ -473,8 +476,12 @@
 													osc.connect(context.destination); // connect it to the destination
 													 // start the oscillator
 													 // stop 2 seconds after the current time
-
+													 osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime);
+	  												
 	  											}else{
+	  												console.log('detune')
+	  												//console.log(eggValue)
+	  												osc.detune.setValueAtTime(100, context.currentTime);
 	  												// not finite
 													//osc.stop(context.currentTime + 2);
 	  												//console.log(amplitudeMap[animation])
