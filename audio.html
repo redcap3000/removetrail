@@ -153,14 +153,14 @@
 		'pink' : 'sine'
 	}
 	var oscFreqMultiplierMap = {
-		'green' : 1.25,
-		'yellowgreen' : 1.25,
-		'#ECB176' : 1.5,
-		'red' : 1.15,
-		'#0d98ba' : 1.05,
-		'blue' : 1.5,
-		'darkblue' : 1.05,
-		'pink' : .25
+		'green' : .25,
+		'yellowgreen' : .3,
+		'#ECB176' : .35,
+		'red' : .40,
+		'#0d98ba' : .45,
+		'blue' : .50,
+		'darkblue' : .55,
+		'pink' : 1
 
 	}
 	  
@@ -245,8 +245,8 @@
 							if (eggValue) {
 								//console.log(amplitudeMap[animation])
 							    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
-								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + .001);
-									
+								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + 2);
+								osc.stop(context.currentTime + 3);		
 								osc.connect(context.destination); // connect it to the destination
 								 // start the oscillator
 								 // stop 2 seconds after the current time
@@ -255,9 +255,11 @@
 									console.log('detune')
 									//console.log(eggValue)
 									osc.detune.setValueAtTime(100, context.currentTime + .001);
+									osc.stop(context.currentTime + .002);		
+
 									osc.connect(context.destination);
 									// not finite
-								//osc.stop(context.currentTime + 2);
+									//osc.stop(context.currentTime + 2);
 									//console.log(amplitudeMap[animation])
 									//console.log(animation)
 								}
