@@ -53,7 +53,6 @@ function queryEgg(seconds){
         "&gzip=no";
         var response = {};
         response.data = [];
-        console.log(endpoint)
         request(endpoint, function(error, response, body) {
             if (!error && response.statusCode == 200) {
                 body = body.split('\n');
@@ -364,6 +363,9 @@ function handleRequest(req, res) {
             filename = "minimal.html";
         }else if(token[1] == 'min_arc'){
             filename = "minimal_arc.html"
+        }else if(token[1] == 'audio'){
+            filename = "audio.html"
+
         }
         fs.readFile(filename, "utf8", function(err, file) {
             if (err) {

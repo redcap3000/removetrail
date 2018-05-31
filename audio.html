@@ -1,0 +1,374 @@
+<html>
+<head>
+	<title>reMoveTrail</title>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	   <style>
+	   body{
+	   	background-color:gray;
+	   }
+
+	  
+      /* siriwave related*/
+
+
+
+      		#title {
+			font-size: 120px;
+			font-weight: 100;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+		h1, h2, h3 {
+			font-weight: 100;
+		}
+		
+		.container .iphone-display {
+			background: #111;
+			background-size: cover;
+			position: absolute;
+			left: 68px;
+			right: 73px;
+			top: 127px;
+			bottom: 142px;
+		}
+		.subcontainer {
+			width: 259px;
+			height: 80px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 20px;
+		}
+		#controls button{
+			float:right;
+			clear:both;
+			width:120px;
+			height:50px;
+			font-size:16px;
+		}
+		#controls{
+	   	margin-left:1em;
+	   	margin-bottom:1em;
+	   	}
+	   </style>
+
+</head>
+<body>
+
+   <div id="controls">
+
+   		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
+
+
+   		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
+
+   		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
+
+
+	</div>
+ 
+
+
+
+ 	
+ 	<div id="about" style="width:55%;display:none;" class='legend_info'>
+ 		<h1>Remove Trail - Audio</h1>
+ 		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> displayed as a animated point on a map (where the RNG is stationed) along
+ 			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
+ 			are places of interest such as universities and places of worship in addition to color coded (to the zodiac) chakra points.
+
+ 		<h2>Whats an RNG</h2>
+ 		<p>RNG stands for 'Random Number Generator' and is a specialized device that generates streams of random numbers.</p>
+
+ 		<h2>CPU Intensive</h2>
+ 		<p> This visualization can be CPU/memory intensive, warning. To improve speed zoom in on various parts of the map, 
+ 		and do not use the 'Connections' feature if your computer is from the last ceuntry. <b> Hiding inactive sites signfigantly improves performance</b></p>
+
+ 		<h3>Why?</h3>
+ 		<p>Removetrail is a continuation of a much older and discontinued project called 'Trail.' I am fascinated with randomness, but am also fascinated with the little I know about quantum physics, so one of
+ 		my personal uses of this applications is primary for event predictions, but could be used as a platform to test various quantum phenomon</p>
+
+ 		<h3>The future?</h3>
+ 		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
+ 		<button onClick="toggleAbout()">Close</button>
+ 	</div>
+ 	<div id="info" style="width:55%;display:none;" class='legend_info'>
+ 		<h1>More Information</h1>
+ 		<h2>Source Code</h2>
+ 		<p>Removetrail is an open source project hosted on <a href="https://github.com/redcap3000/removetrail" alt='removetrail'>github.</a> Its messy. Thank you for your understanding.</p>
+ 		<h2>Audio</h2>
+ 		<p>The siriwave is a basic interpretation of the scale of colors to manipulate speed and amplitude of the line per EGG site and uses this <a href="https://github.com/kopiro/siriwavejs" alt="Siriwave Repo">repository</a></p>
+ 		<h2>Connections</h2>
+ 		<p>Connections attempts to match adjacent EGG sites that have the same color coded value in real time. Its not very fast and scans one level deep so its not common to see all points match or all colors represented.</p>
+ 		<h2>Chakra Locations</h2>
+ 		<p>Chakra Locations are based on my personal research from sites that are no longer online completed over a year ago, their locations were converted to be usable with google maps so their accuracy is questionable.</p>
+ 		<h2>Inactive Sites</h2>
+ 		<p>This feature will hide the inactive sites. Due to limitations within google maps, my patience they may be shown again by reloading the page.</p>
+ 		<button onClick="toggleInfo()">Close</button>
+
+ 	</div>
+
+<script>
+// self executing function here
+
+(function() {
+	
+	 	toggleStates = {
+ 		'about' : false,
+ 		'info' : false,
+ 		'audio' : false,
+ 		
+ 	}
+	toggleAbout= function(){
+		var about = document.getElementById('about')
+		toggle('about')
+		if(about.style.display != 'none'){
+			document.getElementById('about').style.display = 'none'
+		}else{
+			document.getElementById('about').style.display = 'block'
+		}
+	}
+	toggleInfo= function(){
+		var about = document.getElementById('info')
+		toggle('info')
+		if(about.style.display != 'none'){
+			document.getElementById('info').style.display = 'none'
+		}else{
+			document.getElementById('info').style.display = 'block'
+		}
+	}
+
+	
+
+	
+	var oscMap = {
+		'green' : 'sine',
+		'yellowgreen' : 'triangle',
+		'#ECB176' : 'sine',
+		'red' : 'triangle',
+		'#0d98ba' : 'sine',
+		'blue' : 'sine',
+		'darkblue' : 'triangle',
+		'pink' : 'sine'
+	}
+	var oscFreqMultiplierMap = {
+		'green' : 1.25,
+		'yellowgreen' : 1.25,
+		'#ECB176' : 1.5,
+		'red' : 1.15,
+		'#0d98ba' : 1.05,
+		'blue' : 1.5,
+		'darkblue' : 1.05,
+		'pink' : .25
+
+	}
+	  $.ajax({
+		 	url: '/eegSites', success: function(result){
+		 		var markers = JSON.parse(result);
+			    eegMarkers = [];
+	    		eegLocations = {};
+		    	markers.filter(function(o,i){
+		    		
+		    		
+
+		    		if(i == markers.length -1){
+		    			// the last one
+		    			// keep track of 'inactive sites'
+		    			// hide inactive sites by default
+		    		
+		    			var theUrl = '/eegData';
+		    			context = new (window.AudioContext || window.webkitAudioContext)();
+								
+		    			setInterval(function(){
+		        		 $.ajax({
+		        		 	url: theUrl, success: function(result){
+		        
+		        		 	
+		        		 		
+						        //$("#div1").html(result);
+						        /*
+						        if(toggleStates['inactiveSites'] && typeof inactiveSites != 'undefined' && inactiveSites.length > 0){
+						        	showInactiveSites();
+
+						        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
+						        	hideInactiveSites();
+						        }*/
+						       if(toggleStates['audio'] && typeof context != 'undefined'){
+									if(context.state == 'closed'){
+										// reopen
+										context = new (window.AudioContext || window.webkitAudioContext)();
+					
+									}
+									osc = context.createOscillator(); // instantiate an oscillator
+									osc.start();
+								
+
+
+								}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
+									//context.stop()
+									osc.stop(context.currentTime)
+									osc.disconnect()
+									context.close()
+
+								}
+						        for(var key in result){
+						        		// get old location to swap out?
+						        		//console.log(typeof key)
+						        	
+						        		/*
+						        		100-103 green, 
+						        		103-107 yellowish green, 
+						        		107-114, reddish yellow, 
+						        		114 and greater, red
+										97-100 green, 
+										93-197 bluish-green, 
+										86-83 blue, 
+										86 and smaller, purplish or dark blue
+						        		*/
+						        		eggValue = result[key]
+						        		if(eggValue > 100 && eggValue < 103){	
+						        			animation = 'green';
+						        		}else if(eggValue >  102 && eggValue < 108){
+						        			animation = 'yellowgreen';
+						        		}else if(eggValue > 107 && eggValue < 115){
+						        			// redish yellow
+						        			animation = '#ECB176';
+						        		}else if(eggValue > 114 && eggValue < 146){
+						        			animation = 'red';
+						        		}else if(eggValue < 101 && eggValue > 96){
+						        			animation = 'green';
+						        		}else if(eggValue > 89 && eggValue < 98 ){
+						        			animation = '#0d98ba';
+						        		}else if(eggValue < 90 && eggValue > 82){
+						        			animation = 'blue'
+						        		}else if(eggValue < 83){
+						        			animation = 'darkblue'
+						        		}else{
+						        			// error???
+						        			console.log("Error value : " + eggValue)
+						        			animation = 'pink'
+						        		}
+										
+										if(toggleStates['audio'] && typeof context != 'undefined'){
+											if(context.state != 'running'){
+		  										context.resume().then(() => {
+												    console.log('Playback resumed successfully');
+												  });
+	  										}else{
+	  											osc.type = oscMap[animation]
+	  											//'sine'; // this is the default - also square, sawtooth, triangle
+
+												if (eggValue) {
+													//console.log(amplitudeMap[animation])
+												    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
+													osc.connect(context.destination); // connect it to the destination
+													 // start the oscillator
+													 // stop 2 seconds after the current time
+													 osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime);
+	  												
+	  											}else{
+	  												console.log('detune')
+	  												//console.log(eggValue)
+	  												osc.detune.setValueAtTime(100, context.currentTime);
+	  												// not finite
+													//osc.stop(context.currentTime + 2);
+	  												//console.log(amplitudeMap[animation])
+	  												//console.log(animation)
+	  											}
+	  										}
+										}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running' && typeof osc != 'undefined'){
+											osc.stop();
+											//context.pause();
+											//context.currentTime =0;
+										}
+						        	}
+						      
+				
+						    }
+						})},1000);
+						
+		    		}
+    		})
+		}
+	});
+
+	setToggleStates=function(){
+		// this needs a bit of work... 
+		//var 
+		var disabledButtons = ['btn_about','btn_info','btn_audio']
+
+		for(var i =0 ; i < disabledButtons.length; i++){
+			var button = document.getElementById(disabledButtons[i])
+			button.style.background =  "gray";
+			button.style.color =  "white";
+			//document.getElementById(disabledButtons[i]).css = true;
+		}
+		
+	}
+	setToggleStates();
+	
+	
+ 	
+ 	getToggleState=function(el){
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			return toggleStates[el]
+ 		}else{
+ 			// hmmm .... 
+ 			return undefined
+ 		}
+ 	}
+ 	toggle = function(el){
+ 		console.log(el)
+ 		if(typeof toggleStates[el] != 'undefined'){
+ 			var newState =  !toggleStates[el]
+ 			toggleStates[el] = newState
+
+ 			switch(el) {
+ 			
+ 				case 'about' :
+			 		var button = document.getElementById('btn_about')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+			 	case 'audio' :
+			 		var button = document.getElementById('btn_audio')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+			 	case 'info' :
+			 		var button = document.getElementById('btn_info')
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+			 		break;
+ 				
+			    default:
+			        return false
+			}
+ 		
+ 		}
+ 		
+ 	}
+
+
+})();
+</script>
+		
+</body>
