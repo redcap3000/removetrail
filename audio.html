@@ -114,7 +114,7 @@
 
 (function() {
 	
-	 	toggleStates = {
+	 toggleStates = {
  		'about' : false,
  		'info' : false,
  		'audio' : false,
@@ -163,135 +163,116 @@
 		'pink' : .25
 
 	}
-	  $.ajax({
-		 	url: '/eegSites', success: function(result){
-		 		var markers = JSON.parse(result);
-			    eegMarkers = [];
-	    		eegLocations = {};
-		    	markers.filter(function(o,i){
-		    		
-		    		
+	  
+	var theUrl = '/eegData';
+	context = new (window.AudioContext || window.webkitAudioContext)();
+			
+	setInterval(function(){
+	 $.ajax({
+	 	url: theUrl, success: function(result){
+	 		
+	        //$("#div1").html(result);
+	        /*
+	        if(toggleStates['inactiveSites'] && typeof inactiveSites != 'undefined' && inactiveSites.length > 0){
+	        	showInactiveSites();
 
-		    		if(i == markers.length -1){
-		    			// the last one
-		    			// keep track of 'inactive sites'
-		    			// hide inactive sites by default
-		    		
-		    			var theUrl = '/eegData';
-		    			context = new (window.AudioContext || window.webkitAudioContext)();
-								
-		    			setInterval(function(){
-		        		 $.ajax({
-		        		 	url: theUrl, success: function(result){
-		        
-		        		 	
-		        		 		
-						        //$("#div1").html(result);
-						        /*
-						        if(toggleStates['inactiveSites'] && typeof inactiveSites != 'undefined' && inactiveSites.length > 0){
-						        	showInactiveSites();
+	        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
+	        	hideInactiveSites();
+	        }*/
+	       if(toggleStates['audio'] && typeof context != 'undefined'){
+				if(context.state == 'closed'){
+					// reopen
+					context = new (window.AudioContext || window.webkitAudioContext)();
 
-						        }else if(!toggleStates['inactiveSites'] && ( typeof inactiveSites == 'undefined' || inactiveSites.length === 0 )){
-						        	hideInactiveSites();
-						        }*/
-						       if(toggleStates['audio'] && typeof context != 'undefined'){
-									if(context.state == 'closed'){
-										// reopen
-										context = new (window.AudioContext || window.webkitAudioContext)();
+				}
+				osc = context.createOscillator(); // instantiate an oscillator
+				osc.start();
+			
+			}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
+				//context.stop()
+				osc.stop(context.currentTime)
+				osc.disconnect()
+				context.close()
+
+			}
+	        for(var key in result){
+	        		// get old location to swap out?
+	        		//console.log(typeof key)
+	        	
+	        		/*
+	        		100-103 green, 
+	        		103-107 yellowish green, 
+	        		107-114, reddish yellow, 
+	        		114 and greater, red
+					97-100 green, 
+					93-197 bluish-green, 
+					86-83 blue, 
+					86 and smaller, purplish or dark blue
+	        		*/
+	        		eggValue = result[key]
+	        		if(eggValue > 100 && eggValue < 103){	
+	        			animation = 'green';
+	        		}else if(eggValue >  102 && eggValue < 108){
+	        			animation = 'yellowgreen';
+	        		}else if(eggValue > 107 && eggValue < 115){
+	        			// redish yellow
+	        			animation = '#ECB176';
+	        		}else if(eggValue > 114 && eggValue < 146){
+	        			animation = 'red';
+	        		}else if(eggValue < 101 && eggValue > 96){
+	        			animation = 'green';
+	        		}else if(eggValue > 89 && eggValue < 98 ){
+	        			animation = '#0d98ba';
+	        		}else if(eggValue < 90 && eggValue > 82){
+	        			animation = 'blue'
+	        		}else if(eggValue < 83){
+	        			animation = 'darkblue'
+	        		}else{
+	        			// error???
+	        			console.log("Error value : " + eggValue)
+	        			animation = 'pink'
+	        		}
 					
-									}
-									osc = context.createOscillator(); // instantiate an oscillator
-									osc.start();
+					if(toggleStates['audio'] && typeof context != 'undefined'){
+						if(context.state != 'running'){
+								context.resume().then(() => {
+							    console.log('Playback resumed successfully');
+							  });
+							}else{
+								osc.type = oscMap[animation]
+								//'sine'; // this is the default - also square, sawtooth, triangle
+
+							if (eggValue) {
+								//console.log(amplitudeMap[animation])
+							    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
+								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + .001);
+									
+								osc.connect(context.destination); // connect it to the destination
+								 // start the oscillator
+								 // stop 2 seconds after the current time
 								
-
-
-								}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
-									//context.stop()
-									osc.stop(context.currentTime)
-									osc.disconnect()
-									context.close()
-
+								}else{
+									console.log('detune')
+									//console.log(eggValue)
+									osc.detune.setValueAtTime(100, context.currentTime + .001);
+									osc.connect(context.destination);
+									// not finite
+								//osc.stop(context.currentTime + 2);
+									//console.log(amplitudeMap[animation])
+									//console.log(animation)
 								}
-						        for(var key in result){
-						        		// get old location to swap out?
-						        		//console.log(typeof key)
-						        	
-						        		/*
-						        		100-103 green, 
-						        		103-107 yellowish green, 
-						        		107-114, reddish yellow, 
-						        		114 and greater, red
-										97-100 green, 
-										93-197 bluish-green, 
-										86-83 blue, 
-										86 and smaller, purplish or dark blue
-						        		*/
-						        		eggValue = result[key]
-						        		if(eggValue > 100 && eggValue < 103){	
-						        			animation = 'green';
-						        		}else if(eggValue >  102 && eggValue < 108){
-						        			animation = 'yellowgreen';
-						        		}else if(eggValue > 107 && eggValue < 115){
-						        			// redish yellow
-						        			animation = '#ECB176';
-						        		}else if(eggValue > 114 && eggValue < 146){
-						        			animation = 'red';
-						        		}else if(eggValue < 101 && eggValue > 96){
-						        			animation = 'green';
-						        		}else if(eggValue > 89 && eggValue < 98 ){
-						        			animation = '#0d98ba';
-						        		}else if(eggValue < 90 && eggValue > 82){
-						        			animation = 'blue'
-						        		}else if(eggValue < 83){
-						        			animation = 'darkblue'
-						        		}else{
-						        			// error???
-						        			console.log("Error value : " + eggValue)
-						        			animation = 'pink'
-						        		}
-										
-										if(toggleStates['audio'] && typeof context != 'undefined'){
-											if(context.state != 'running'){
-		  										context.resume().then(() => {
-												    console.log('Playback resumed successfully');
-												  });
-	  										}else{
-	  											osc.type = oscMap[animation]
-	  											//'sine'; // this is the default - also square, sawtooth, triangle
+							}
+					}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running' && typeof osc != 'undefined'){
+						osc.stop();
+						//context.pause();
+						//context.currentTime =0;
+					}
+	        	}
+	      
 
-												if (eggValue) {
-													//console.log(amplitudeMap[animation])
-												    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
-													osc.connect(context.destination); // connect it to the destination
-													 // start the oscillator
-													 // stop 2 seconds after the current time
-													 osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime);
-	  												
-	  											}else{
-	  												console.log('detune')
-	  												//console.log(eggValue)
-	  												osc.detune.setValueAtTime(100, context.currentTime);
-	  												// not finite
-													//osc.stop(context.currentTime + 2);
-	  												//console.log(amplitudeMap[animation])
-	  												//console.log(animation)
-	  											}
-	  										}
-										}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running' && typeof osc != 'undefined'){
-											osc.stop();
-											//context.pause();
-											//context.currentTime =0;
-										}
-						        	}
-						      
-				
-						    }
-						})},1000);
+	    }
+	})},1000);
 						
-		    		}
-    		})
-		}
-	});
 
 	setToggleStates=function(){
 		// this needs a bit of work... 
