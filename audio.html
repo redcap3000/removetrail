@@ -84,12 +84,23 @@
 			<legend>Presets!</legend>
 			<button onClick="loadPresetOscMulti('default')">default</button>
 			<button onClick="loadPresetOscMulti('singingBowls')">singingBowls</button>
+			<button onClick="loadPresetOscMulti('solar')">solar</button>
 
 		</fieldset>
 	<fieldset>
-		<legend>Oscillator Sample Length - Seconds</legend>
-		<input id="oscSampleLength" style="background-color:black;" type="number" value="3" step=".25" min="2">
-		<button onClick="updateOscSampleLength()">Update</button>
+		<legend>Oscillator </legend>
+		<fieldset>
+			<legend>Sample Length - Seconds</legend>
+
+			<input id="oscSampleLength" style="background-color:black;" type="number" value="3" step=".25" min="2">
+			<button onClick="updateOscSampleLength()">Update</button>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>Detune</legend>
+			<input id="oscDetune" type="checkbox" checked=true>
+		</fieldset>
+		
 		
 	</fieldset>
 	<fieldset>
@@ -104,7 +115,6 @@
 		<input id="oscFreMulti_7" style="background-color:pink;" type="number" value="1" step=".05"/>
 		<br/>
 		<button onClick="updateOscMulti()">Update</button>
-		<button onClick="resetOscMulti()">Reset</button>
 
 	</fieldset>
 	</div>
@@ -154,6 +164,9 @@
 (function() {
 		
 	sampleLength = 3
+
+	detuneOffsetLength = 1
+
 	 toggleStates = {
  		'about' : false,
  		'info' : false,
@@ -185,10 +198,13 @@
 
 	oscMultiPresets = {
 		"default" : [
-		.25, .3, .35, .40, .45, .50, .55, 1, 3
+		.25, .3, .35, .40, .45, .50, .55, 1, 3,true
 		],
 		"singingBowls" : [
-			3,0.6,.35,2,.45,.5,4,1,30
+			3,0.6,.35,2,.45,.5,4,1,30,true
+		],
+		"solar" : [
+			3,0.23,.48,2,.45,.73,4,1,8,false
 		]
 	}
 	updateOscSampleLength=function(){
@@ -199,12 +215,10 @@
 	}
 	loadPresetOscMulti=function(preset){
 		if(typeof oscMultiPresets[preset] != 'undefined'){
-		console.log(preset)
 
 	 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7']
 	 		var oscMap = ['green','yellowgreen','#ECB176','red','#0d98ba','blue','darkblue','pink']
 	 		oscInputs.filter(function(o,i){
-	 			console.log(o)
 	 			document.getElementById(o).value =  oscMultiPresets[preset][i]
 	 			
 	 		})
@@ -213,6 +227,15 @@
 	 		document.getElementById('oscSampleLength').value = oscMultiPresets[preset][8]
 	 		updateOscSampleLength()
 	 		updateOscMulti()
+	 		if(typeof oscMultiPresets[preset][9] != 'undefined'){
+	 			// adjust detune
+	 			if(!oscMultiPresets[preset][9]){
+	 				document.getElementById('oscDetune').checked = false
+	 			}else{
+	 				document.getElementById('oscDetune').checked = true
+
+	 			}
+	 		}
  		}
  	}
  	updateOscMulti=function(){
@@ -350,7 +373,10 @@
 								//console.log(oscFreqMultiplierMap[animation] + animation)
 								//console.log(amplitudeMap[animation])
 							    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
-								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + (sampleLength - 1));
+							    var detuneSetting = document.getElementById("oscDetune").checked
+							    if(detuneSetting){
+									osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + (sampleLength - detuneOffsetLength));
+								}
 								osc.stop(context.currentTime + sampleLength);		
 								osc.connect(context.destination); // connect it to the destination
 								 // start the oscillator
