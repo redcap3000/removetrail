@@ -6,9 +6,18 @@
 	   <style>
 	   body{
 	   	background-color:gray;
+	   	color:white;
 	   }
-
-	  
+	   legend{
+	   	font-size:28px;
+	   	padding:.15em;
+	   }
+	   fieldset{
+	   	padding:1em;
+	   }
+	  button{
+	  	margin:1em;
+	  }
       /* siriwave related*/
 
 
@@ -23,40 +32,21 @@
 			font-weight: 100;
 		}
 		
-		.container .iphone-display {
-			background: #111;
-			background-size: cover;
-			position: absolute;
-			left: 68px;
-			right: 73px;
-			top: 127px;
-			bottom: 142px;
-		}
-		.subcontainer {
-			width: 259px;
-			height: 80px;
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 20px;
-		}
-		#controls button{
-			float:right;
-			clear:both;
+
+		#controls button,#settings button{
+			
 			width:120px;
 			height:50px;
 			font-size:16px;
 		}
 		#controls{
-	   	margin-left:1em;
-	   	margin-bottom:1em;
+	   	margin:1em;
 	   	}
 	   	#settings input{
 	   		float:left;
-	   		clear:both;
 	   		color:white;
 	   		border:none;
-	   		margin-bottom:1em;
+	   		margin:1em;
 	   		font-size:18px;
 	   		width:80px;
 	   		height:60px;
@@ -64,19 +54,50 @@
 	   	}
 	   	#settings button{
 	   		float:left;
-	   		clear:both;
 	   		font-size:18px;
 	   	}
 	   </style>
 
 </head>
 <body>
+ 	<div id="about" style="width:55%;display:none;" class='legend_info'>
+ 		<h1>Remove Trail - Audio</h1>
+ 		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> as an input to power Javascript Web Audio based oscillators.</p> 
 
-   <div id="controls">
+ 		<h2>Whats an RNG</h2>
+ 		<p>RNG stands for 'Random Number Generator' and is a specialized device that generates streams of random numbers.</p>
+
+ 		<h2>CPU Intensive</h2>
+ 		<p> This application can be CPU/memory intensive.  <b> Reducing the oscillator sample length can increase performance</b></p>
+
+ 		<h2>How to start</h2>
+ 		<p>Press the 'Audio' button in the top right hand corner to start/stop sound</p>
+
+ 		<h2>Adjustments</h2>
+ 		<h3>Oscilator Sample Length</h3>
+ 		<p> This is the length of time the oscillator will output a sound, this value must be greater than 2. Per each dataset there are around 15-25 manipulations to the oscillator so a cascade of sounds will output each second.</p>
+
+ 		<h3>EGG Range Multipliers</h3>
+ 		<p> You can adjust the multiplier that is used in conjuction with the RNG site data to manipulate the hertz value fed into the oscillator, press update to activate the entered values. The detune option uses the same value and subtracts 1 (second) from the oscillator sample length, this can be toggled on or off. The colors refer to a scale that is given to ranges of values, but the final hertz value is based on the actual number from the RNG site multiplied by these values</p>
+
+
+ 		<h2>Presets</h2>
+ 		<p>Pressing these buttons will update fields with the preset and should begin to take affect within a second, if the audio button has been pressed, otherwise it will activate once audio playback is running</p>
+
+ 		<button onClick="toggleAbout()">Close</button>
+ 	</div>
+ 	<div id="info" style="width:55%;display:none;" class='legend_info'>
+ 		<h1>More Information</h1>
+ 		<h2>Source Code</h2>
+ 		<p>Removetrail is an open source project hosted on <a href="https://github.com/redcap3000/removetrail" alt='removetrail'>github.</a> Its messy. Thank you for your understanding.</p>
+ 		
+ 		<button onClick="toggleInfo()">Close</button>
+
+ 	</div>
+    <div id="controls">
+   		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
    		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
    		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
-   		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
-
 	</div>
  	<h2>Click 'Audio' to begin/stop playback</h2>
 	<div id="settings">
@@ -121,42 +142,7 @@
 
 
  	
- 	<div id="about" style="width:55%;display:none;" class='legend_info'>
- 		<h1>Remove Trail - Audio</h1>
- 		<p>A project that uses realtime, to the second, RNG data from the <a href="http://global-mind.org">Global Consciousness project</a> displayed as a animated point on a map (where the RNG is stationed) along
- 			with other useful information such as a real time earthquake feed provided by USGS, and a map of the latest 'signfigant' fire events in the United States. Also, marked by default,
- 			are places of interest such as universities and places of worship in addition to color coded (to the zodiac) chakra points.
 
- 		<h2>Whats an RNG</h2>
- 		<p>RNG stands for 'Random Number Generator' and is a specialized device that generates streams of random numbers.</p>
-
- 		<h2>CPU Intensive</h2>
- 		<p> This visualization can be CPU/memory intensive, warning. To improve speed zoom in on various parts of the map, 
- 		and do not use the 'Connections' feature if your computer is from the last ceuntry. <b> Hiding inactive sites signfigantly improves performance</b></p>
-
- 		<h3>Why?</h3>
- 		<p>Removetrail is a continuation of a much older and discontinued project called 'Trail.' I am fascinated with randomness, but am also fascinated with the little I know about quantum physics, so one of
- 		my personal uses of this applications is primary for event predictions, but could be used as a platform to test various quantum phenomon</p>
-
- 		<h3>The future?</h3>
- 		<p>I see this turning into an anonymous multiuser web application where statistics of the active viewers are co-related to the behaviors of the RNG's, and potentially to act as a record keeper to notate interesting combinations of events, or to let anonymous users tag these events for others to discover.</p>
- 		<button onClick="toggleAbout()">Close</button>
- 	</div>
- 	<div id="info" style="width:55%;display:none;" class='legend_info'>
- 		<h1>More Information</h1>
- 		<h2>Source Code</h2>
- 		<p>Removetrail is an open source project hosted on <a href="https://github.com/redcap3000/removetrail" alt='removetrail'>github.</a> Its messy. Thank you for your understanding.</p>
- 		<h2>Audio</h2>
- 		<p>The siriwave is a basic interpretation of the scale of colors to manipulate speed and amplitude of the line per EGG site and uses this <a href="https://github.com/kopiro/siriwavejs" alt="Siriwave Repo">repository</a></p>
- 		<h2>Connections</h2>
- 		<p>Connections attempts to match adjacent EGG sites that have the same color coded value in real time. Its not very fast and scans one level deep so its not common to see all points match or all colors represented.</p>
- 		<h2>Chakra Locations</h2>
- 		<p>Chakra Locations are based on my personal research from sites that are no longer online completed over a year ago, their locations were converted to be usable with google maps so their accuracy is questionable.</p>
- 		<h2>Inactive Sites</h2>
- 		<p>This feature will hide the inactive sites. Due to limitations within google maps, my patience they may be shown again by reloading the page.</p>
- 		<button onClick="toggleInfo()">Close</button>
-
- 	</div>
 
 <script>
 // self executing function here
