@@ -42,7 +42,7 @@ function queryEgg(seconds){
         thePast.setSeconds(today.getSeconds() - seconds);
         var endpoint = "http://www.global-mind.org/cgi-bin/eggdatareq.pl?z=1&year=" + 
         (thePast.getYear() + 1900) + 
-        "&month=" + thePast.getMonth() + 
+        "&month=" + (thePast.getMonth() + 1) + 
         "&day=" + thePast.getDate() + 
         "&stime=" + thePast.getHours() + 
         ":" + thePast.getMinutes() + 
@@ -53,7 +53,7 @@ function queryEgg(seconds){
         "&gzip=no";
         var response = {};
         response.data = [];
-
+        console.log(endpoint)
         request(endpoint, function(error, response, body) {
             if (!error && response.statusCode == 200) {
                 body = body.split('\n');
