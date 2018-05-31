@@ -83,8 +83,14 @@
 
 
 	</div>
- 
+ 	<h2>Click 'Audio' to begin/stop playback</h2>
 	<div id="settings">
+		<fieldset>
+			<legend>Presets!</legend>
+			<button onClick="loadPresetOscMulti('default')">default</button>
+			<button onClick="loadPresetOscMulti('singingBowls')">singingBowls</button>
+
+		</fieldset>
 	<fieldset>
 		<legend>Oscillator Sample Length - Seconds</legend>
 		<input id="oscSampleLength" style="background-color:black;" type="number" value="3" step=".25" min="2">
@@ -181,12 +187,39 @@
 		.55,
 		1
 	]
+
+	oscMultiPresets = {
+		"default" : [
+		.25, .3, .35, .40, .45, .50, .55, 1, 3
+		],
+		"singingBowls" : [
+			3,0.6,.35,2,.45,.5,4,1,30
+		]
+	}
 	updateOscSampleLength=function(){
 		var newSampleLength = document.getElementById('oscSampleLength').value
 		if(newSampleLength && !isNaN(newSampleLength)){
 			sampleLength = parseFloat(newSampleLength)
 		}
 	}
+	loadPresetOscMulti=function(preset){
+		if(typeof oscMultiPresets[preset] != 'undefined'){
+		console.log(preset)
+
+	 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7']
+	 		var oscMap = ['green','yellowgreen','#ECB176','red','#0d98ba','blue','darkblue','pink']
+	 		oscInputs.filter(function(o,i){
+	 			console.log(o)
+	 			document.getElementById(o).value =  oscMultiPresets[preset][i]
+	 			
+	 		})
+	 		sampleLength = 
+	 		// update oscillator sample input
+	 		document.getElementById('oscSampleLength').value = oscMultiPresets[preset][8]
+	 		updateOscSampleLength()
+	 		updateOscMulti()
+ 		}
+ 	}
  	updateOscMulti=function(){
  		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7']
  		var oscMap = ['green','yellowgreen','#ECB176','red','#0d98ba','blue','darkblue','pink']
