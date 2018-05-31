@@ -109,6 +109,7 @@
 
 											  $.ajax({
 		 	url: '/eegSites', success: function(result){
+
 		 		var markers = JSON.parse(result);
 			    eegMarkers = [];
 	    		eegLocations = {};
@@ -133,54 +134,86 @@
 		    			setInterval(function(){
 		        		 $.ajax({
 		        		 	url: theUrl, success: function(result){
-		        		 		
-						        for(var key in result){
-						        	if(typeof eegLocations[key] != "undefined" && typeof eegLocations[key].position != 'undefined'){
-						        		// get old location to swap out?
-						        		//console.log(typeof key)
-						        		var oldPos = {lat : eegLocations[key].position.lat(), lng : eegLocations[key].position.lng()};
-						        		eegLocations[key].setMap(null);
-						        		var animation;
-				
-						        		eggValue = result[key]
-						        		if(eggValue > 100 && eggValue < 103){	
-						        			animation = 'green';
-						        		}else if(eggValue >  102 && eggValue < 108){
-						        			animation = 'yellowgreen';
-						        		}else if(eggValue > 107 && eggValue < 115){
-						        			// redish yellow
-						        			animation = '#ECB176';
-						        		}else if(eggValue > 114 && eggValue < 146){
-						        			animation = 'red';
-						        		}else if(eggValue < 101 && eggValue > 96){
-						        			animation = 'green';
-						        		}else if(eggValue > 89 && eggValue < 98 ){
-						        			animation = '#0d98ba';
-						        		}else if(eggValue < 90 && eggValue > 82){
-						        			animation = 'blue'
-						        		}else if(eggValue < 83){
-						        			animation = 'darkblue'
-						        		}else{
-						        			// error???
-						        			animation = 'pink'
-						        		}
-						        		eegLocations[key] = new google.maps.Marker({
-									    	position: oldPos,
-										    map: map,
-										    icon: {
-										      path: google.maps.SymbolPath.CIRCLE,
-										      scale: 3,
-										      strokeColor: animation
-										    }
-										  });
-						        	}else if(typeof inactiveMarkers != 'undefined' && typeof inactiveMarkers[key] != 'undefined'){
-						        		// wtf???
-						        		// need to eventually address this toggle issue.... 
-						        	}
-						      
-						        }
-						        fetchVisibleEEG()
-				
+		        		 		if (Object.keys(result).length === 0) {
+								  // "empty" object
+								  console.log("No eeg data")
+								  // fallback 
+								  	// for when the api isn't responding 
+						    		eegMLocations = [];
+								  markers.filter(function(o2,i2){
+								  	var location = {
+						    			lat : parseFloat(o2.lat),
+						    			lon : parseFloat(o2.lng)
+						    		};
+								  	var parsedId2 = o2.id.split('-');
+						    		parsedId2 = parsedId2[0];
+						    		if(typeof eegMLocations[parsedId2] == 'undefined'){
+									  	eegMLocations[parsedId2]= new google.maps.Marker({
+							        			    position: {lat: location.lat, lng: location.lon},
+												    map: map, title:  o2.number,
+												    icon: { path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, scale: 1}
+							        	});
+								  	}
+
+								  })
+								}else{
+									if(typeof eegMLocations != 'undefined' && eegMLocations.length > 0){
+										// clear them out first
+										for(var mi = 0; mi < eegMLocations.length; mi++){
+											if(eegMLocations[mi] != 'undefined'){
+												eegMLocations[mi].setMap(null)
+												eegMLocations[mi] = undefined
+											}
+										}
+										eegMLocations = []
+									}
+							        for(var key in result){
+							        	if(typeof eegLocations[key] != "undefined" && typeof eegLocations[key].position != 'undefined'){
+							        		// get old location to swap out?
+							        		//console.log(typeof key)
+							        		var oldPos = {lat : eegLocations[key].position.lat(), lng : eegLocations[key].position.lng()};
+							        		eegLocations[key].setMap(null);
+							        		var animation;
+					
+							        		eggValue = result[key]
+							        		if(eggValue > 100 && eggValue < 103){	
+							        			animation = 'green';
+							        		}else if(eggValue >  102 && eggValue < 108){
+							        			animation = 'yellowgreen';
+							        		}else if(eggValue > 107 && eggValue < 115){
+							        			// redish yellow
+							        			animation = '#ECB176';
+							        		}else if(eggValue > 114 && eggValue < 146){
+							        			animation = 'red';
+							        		}else if(eggValue < 101 && eggValue > 96){
+							        			animation = 'green';
+							        		}else if(eggValue > 89 && eggValue < 98 ){
+							        			animation = '#0d98ba';
+							        		}else if(eggValue < 90 && eggValue > 82){
+							        			animation = 'blue'
+							        		}else if(eggValue < 83){
+							        			animation = 'darkblue'
+							        		}else{
+							        			// error???
+							        			animation = 'pink'
+							        		}
+							        		eegLocations[key] = new google.maps.Marker({
+										    	position: oldPos,
+											    map: map,
+											    icon: {
+											      path: google.maps.SymbolPath.CIRCLE,
+											      scale: 3,
+											      strokeColor: animation
+											    }
+											  });
+							        	}else if(typeof inactiveMarkers != 'undefined' && typeof inactiveMarkers[key] != 'undefined'){
+							        		// wtf???
+							        		// need to eventually address this toggle issue.... 
+							        	}
+							      
+							        }
+							        fetchVisibleEEG()
+								}
 						    }
 						})},1000);
 						
