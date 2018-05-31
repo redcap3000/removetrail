@@ -94,6 +94,8 @@
 
    		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
 
+   		<button class="btn_toggle" id="btn_legends" onClick="toggle('legends')">Legends</button>
+
    		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
 
    		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
@@ -488,7 +490,7 @@
 	  												//console.log(animation)
 	  											}
 	  										}
-										}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running'){
+										}else if(!toggleStates['audio'] && typeof context != 'undefined' && context.state == 'running' && typeof osc != 'undefined'){
 											osc.stop();
 											//context.pause();
 											//context.currentTime =0;
@@ -1044,6 +1046,10 @@ if (typeof define === 'function' && define.amd) {
     //map.controls[google.maps.ControlPosition.LEFT_TOP] =[document.getElementById("controls")];
 	    map.controls[google.maps.ControlPosition.LEFT_CENTER] =[document.getElementById("iframe")];
 
+	    // next hide legends by default
+	    //document.getElementById("legend2").style="display:none;"
+	    //document.getElementById("legend").style="display:none;"
+
 
 	   
 
@@ -1238,6 +1244,7 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  	}
  	toggleStates = {
  		'about' : false,
+ 		'legends' : true,
  		'info' : false,
  		'audio' : false,
  		'chakras' : false,
@@ -1342,6 +1349,36 @@ cernLHCPoints = { 'CERN LHC Point 1' : [46.234745, 6.053495],
  			toggleStates[el] = newState
 
  			switch(el) {
+ 				case 'legends' :
+	 				var legends = ['legend','legend2','legend3'];
+	 				var button = document.getElementById('btn_legends')
+				 	if(newState){
+				 		button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+					legends.filter(function(l){
+		 				 var x = document.getElementById(l);
+		 				 if(l == 'legend3'){
+		 				 	if(toggleStates['chakras']){
+		 				 		if (x.style.display === "none") {
+						        	x.style.display = "block";
+							    } else {
+						    	    x.style.display = "none";
+						    	}
+		 				 	}
+		 				 }else{
+	 					 	console.log(x)
+						    if (x.style.display === "none") {
+						        x.style.display = "block";
+						    } else {
+					    	    x.style.display = "none";
+					    	}
+					    }
+	 				})
+ 					break;
  				case 'about' :
 			 		var button = document.getElementById('btn_about')
 			 
