@@ -33,7 +33,7 @@
 		}
 		
 
-		#controls button,#settings button{
+		button{
 			
 			width:120px;
 			height:50px;
@@ -52,9 +52,20 @@
 	   		height:60px;
 	   		padding:10px;
 	   	}
+	   	#io input{
+	   		color:white;
+	   		background-color: black;
+	   		border:none;
+	   		margin:1em;
+	   		font-size:18px;
+	   	}
 	   	#settings button{
 	   		float:left;
 	   		font-size:18px;
+	   	}
+	   	textarea{
+	   		width:300px;
+	   		font-size:24px;
 	   	}
 	   </style>
 
@@ -84,6 +95,9 @@
  		<h2>Presets</h2>
  		<p>Pressing these buttons will update fields with the preset and should begin to take affect within a second, if the audio button has been pressed, otherwise it will activate once audio playback is running</p>
 
+ 		<h2>I/O</h2>
+ 		<p>You may load and save settings here. Enter a title for your settings and press save, the textarea below will have your setting that you may copy and paste for later use.</p>
+
  		<button onClick="toggleAbout()">Close</button>
  	</div>
  	<div id="info" style="width:55%;display:none;" class='legend_info'>
@@ -94,10 +108,30 @@
  		<button onClick="toggleInfo()">Close</button>
 
  	</div>
+
+ 	<div id="io" style="display:none;">
+		<fieldset>
+			<legend>Load Preset</legend>
+			<textarea id="input">
+			</textarea>
+			<br/>
+			<button onClick="loadPreset()">Load</button>
+
+		</fieldset>
+		<fieldset>
+			<legend>Save Preset</legend>
+			<input id="presetTitle" type='text' placeholder="Preset Title">
+			<button onClick="savePreset()">Save</button>
+			<br/>
+			<textarea id="output">&nbsp;</textarea>
+
+		</fieldset>
+	</div>
     <div id="controls">
    		<button class="btn_toggle" id="btn_audio" onClick="toggle('audio')" >Audio</button>
    		<button class="btn_toggle" id = "btn_about" onClick="toggleAbout()">About</button>
    		<button class="btn_toggle" id="btn_info" onClick="toggleInfo()">Info</button>
+   		<button class="btn_toggle" id="btn_io" onClick="toggleIO()">I/O</button>
 	</div>
  	<h2>Click 'Audio' to begin/stop playback</h2>
 	<div id="settings">
@@ -155,6 +189,7 @@
 
 	 toggleStates = {
  		'about' : false,
+ 		'io' : false,
  		'info' : false,
  		'audio' : false,
  		
@@ -222,6 +257,67 @@
 
 	 			}
 	 		}
+	 		updateOscSampleLength()
+	 		updateOscMulti()
+ 		}
+ 	}
+ 	savePreset=function(){
+ 		title = document.getElementById("presetTitle").value
+ 		if(title.trim() != ''){
+	 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7','oscSampleLength']
+	 		var r = ['test']
+	 		oscInputs.filter(function(o,i){
+	 			r.push(document.getElementById(o).value)
+	 		})
+	 		r.push(document.getElementById('oscDetune').checked)
+
+	 		document.getElementById("output").value = r.join(',')
+
+ 		}else{
+ 			alert("Enter title please")
+ 		}
+ 	}
+ 	loadPreset=function(input){
+ 		//input = 'myPreset,3,0.6,.35,2,.45,.5,4,1,30,true'
+ 		input = document.getElementById("input")
+ 		if(input && typeof input.value != 'undefined' && input.value.trim() != ''){
+ 			input = input.value.split(',')
+	 		var title = input.shift()
+	 		input = input.map(function(o,i){
+	 			var num = o.trim()
+	 			if(num != 'true' && num != 'false'){
+
+	 				return parseFloat(num)
+	 			}else{
+	 				return num;
+	 			}
+	 		})
+	 		console.log(input)
+	 		if(input.length == 10){
+	 			var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7','oscSampleLength','oscDetune']
+		 			oscInputs.filter(function(o,i){
+	 				if(i < 9){
+	 					document.getElementById(o).value = input[i]
+			 		}else if(i == 9){
+
+			 			console.log(input[i])
+		 				if(input[i] == 'true'){
+		 					document.getElementById("oscDetune").checked = true
+
+		 				}else{
+		 					document.getElementById("oscDetune").checked = false
+
+		 				}
+
+			 			console.log("setting detune to " + o)
+			 		}
+			 	})
+
+	 		}else{
+	 			alert("Preset not formed properly")
+	 		}
+ 		}else{
+ 			alert("Nothing to load")
  		}
  	}
  	updateOscMulti=function(){
@@ -262,7 +358,15 @@
 			document.getElementById('info').style.display = 'block'
 		}
 	}
-
+	toggleIO= function(){
+		var io = document.getElementById('io')
+		toggle('io')
+		if(io.style.display != 'none'){
+			document.getElementById('io').style.display = 'none'
+		}else{
+			document.getElementById('io').style.display = 'block'
+		}
+	}
 
 	
 	var oscMap = {
@@ -396,7 +500,7 @@
 	setToggleStates=function(){
 		// this needs a bit of work... 
 		//var 
-		var disabledButtons = ['btn_about','btn_info','btn_audio']
+		var disabledButtons = ['btn_about','btn_info','btn_audio','btn_io']
 
 		for(var i =0 ; i < disabledButtons.length; i++){
 			var button = document.getElementById(disabledButtons[i])
@@ -437,6 +541,17 @@
 						button.style.color =  "white";
 			 		}
 			 		break;
+			 	case 'io':
+				 	var button = document.getElementById('btn_io')
+			 
+			 		if(newState){
+			 			button.style.background =  "white";
+						button.style.color =  "black";
+			 		}else{
+			 			button.style.background =  "gray";
+						button.style.color =  "white";
+			 		}
+				 	break;
 			 	case 'audio' :
 			 		var button = document.getElementById('btn_audio')
 			 
