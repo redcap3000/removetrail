@@ -51,6 +51,22 @@
 	   	margin-left:1em;
 	   	margin-bottom:1em;
 	   	}
+	   	#settings input{
+	   		float:left;
+	   		clear:both;
+	   		color:white;
+	   		border:none;
+	   		margin-bottom:1em;
+	   		font-size:18px;
+	   		width:60px;
+	   		height:60px;
+	   		padding:10px;
+	   	}
+	   	#settings button{
+	   		float:left;
+	   		clear:both;
+	   		font-size:18px;
+	   	}
 	   </style>
 
 </head>
@@ -68,7 +84,29 @@
 
 	</div>
  
+	<div id="settings">
+	<fieldset>
+		<legend>Oscillator Sample Length - Seconds</legend>
+		<input id="oscSampleLength" style="background-color:black;" type="number" value="3" step=".25" min="2">
+		<button onClick="updateOscSampleLength()">Update</button>
+		
+	</fieldset>
+	<fieldset>
+		<legend>Oscillator Multipliers</legend>
+		<input id="oscFreMulti_0" style="background-color:green;" type="number" value=".25" step=".05"/>
+		<input id="oscFreMulti_1" style="background-color:yellowgreen;" type="number" value=".3" step=".05"/>
+		<input id="oscFreMulti_2" style="background-color:#ECB176;" type="number" value=".35" step=".05"/>
+		<input id="oscFreMulti_3" style="background-color:red;" type="number" value=".4" step=".05" />
+		<input id="oscFreMulti_4" style="background-color:#0d98ba;" type="number" value=".45" step=".05"/>
+		<input id="oscFreMulti_5" style="background-color:blue;" type="number" value=".5" step=".05" />
+		<input id="oscFreMulti_6" style="background-color:darkblue;" type="number" value=".55" step=".05"/>
+		<input id="oscFreMulti_7" style="background-color:pink;" type="number" value="1" step=".05"/>
+		<br/>
+		<button onClick="updateOscMulti()">Update</button>
+		<button onClick="resetOscMulti()">Reset</button>
 
+	</fieldset>
+	</div>
 
 
  	
@@ -113,12 +151,61 @@
 // self executing function here
 
 (function() {
-	
+		
+	sampleLength = 3
 	 toggleStates = {
  		'about' : false,
  		'info' : false,
  		'audio' : false,
  		
+ 	}
+ 	// default
+ 	oscFreqMultiplierMap = {
+		'green' : .25,
+		'yellowgreen' : .3,
+		'#ECB176' : .35,
+		'red' : .40,
+		'#0d98ba' : .45,
+		'blue' : .50,
+		'darkblue' : .55,
+		'pink' : 1
+
+	}
+	oscFreqDefaults = [
+		.25,
+		.3,
+		.35,
+		.40,
+		.45,
+		.50,
+		.55,
+		1
+	]
+	updateOscSampleLength=function(){
+		var newSampleLength = document.getElementById('oscSampleLength').value
+		if(newSampleLength && !isNaN(newSampleLength)){
+			sampleLength = parseFloat(newSampleLength)
+		}
+	}
+ 	updateOscMulti=function(){
+ 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7']
+ 		var oscMap = ['green','yellowgreen','#ECB176','red','#0d98ba','blue','darkblue','pink']
+ 		oscInputs.filter(function(o,i){
+ 			var osc = document.getElementById(o).value
+ 			var oscKey = oscMap[i]
+ 			if(osc && !isNaN(osc)){
+ 				oscFreqMultiplierMap[oscKey] = osc
+ 			}
+ 		})
+ 	}
+ 	resetOscMulti=function(){
+ 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7']
+ 		var oscMap = ['green','yellowgreen','#ECB176','red','#0d98ba','blue','darkblue','pink']
+ 		oscInputs.filter(function(o,i){
+ 			var osc = document.getElementById(o).value
+ 			osc = oscFreqDefaults[i]
+ 		})
+ 		updateOscMulti()
  	}
 	toggleAbout= function(){
 		var about = document.getElementById('about')
@@ -139,7 +226,6 @@
 		}
 	}
 
-	
 
 	
 	var oscMap = {
@@ -152,17 +238,7 @@
 		'darkblue' : 'triangle',
 		'pink' : 'sine'
 	}
-	var oscFreqMultiplierMap = {
-		'green' : .25,
-		'yellowgreen' : .3,
-		'#ECB176' : .35,
-		'red' : .40,
-		'#0d98ba' : .45,
-		'blue' : .50,
-		'darkblue' : .55,
-		'pink' : 1
-
-	}
+	
 	  
 	var theUrl = '/eegData';
 	context = new (window.AudioContext || window.webkitAudioContext)();
@@ -243,10 +319,11 @@
 								//'sine'; // this is the default - also square, sawtooth, triangle
 
 							if (eggValue) {
+								//console.log(oscFreqMultiplierMap[animation] + animation)
 								//console.log(amplitudeMap[animation])
 							    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
-								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + 2);
-								osc.stop(context.currentTime + 3);		
+								osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + (sampleLength - 1));
+								osc.stop(context.currentTime + sampleLength);		
 								osc.connect(context.destination); // connect it to the destination
 								 // start the oscillator
 								 // stop 2 seconds after the current time
