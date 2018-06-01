@@ -147,7 +147,7 @@
 			<button onClick="loadPresetOscMulti('default')">default</button>
 			<button onClick="loadPresetOscMulti('singingBowls')">singingBowls</button>
 			<button onClick="loadPresetOscMulti('solar')">solar</button>
-
+  			<button onClick="loadPresetOscMulti('growl')">growl</button>
 		</fieldset>
 	<fieldset>
 		<legend>Oscillator </legend>
@@ -238,6 +238,9 @@
 		],
 		"solar" : [
 			3,0.23,.48,2,.45,.73,4,1,8,false,true
+		],
+		'growl' : [
+			3,1.6,1.35,0,2.2,3,4,1,15,false,true
 		]
 	}
 	updateOscSampleLength=function(){
@@ -286,7 +289,7 @@
  		title = document.getElementById("presetTitle").value
  		if(title.trim() != ''){
 	 		var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7','oscSampleLength']
-	 		var r = ['test']
+	 		var r = [title]
 	 		oscInputs.filter(function(o,i){
 	 			r.push(document.getElementById(o).value)
 	 		})
