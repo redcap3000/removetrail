@@ -460,8 +460,8 @@
 				context.close()
 
 			}
-			var real = []
-			var imag = []
+			var real = new Float32Array(4);
+			var imag = new Float32Array(4);
 		
 
 		
@@ -527,17 +527,17 @@
 								if(waveSetting){
 									// this could use some exploration
 									// i really have no idea what i'm doing here
+									real[0] = eggValue/oscFreqMultiplierMap[animation];
+									real[1] = 0;
+									real[2] = oscFreqMultiplierMap[animation];
+									real[3] = 1;
+									imag[0] = 0;
+									imag[1] = oscFreqMultiplierMap[animation] * eggValue;
+									imag[2] = eggValue;
+									imag[3] = 0;
 									var wave = context.createPeriodicWave(
-													[	eggValue/oscFreqMultiplierMap[animation],
-														0,
-														oscFreqMultiplierMap[animation],
-														1
-													], 
-													[	0,
-														oscFreqMultiplierMap[animation] * eggValue,
-														eggValue,
-														0
-													]
+													real, 
+													imag
 									);
 									osc.setPeriodicWave(wave);
 
