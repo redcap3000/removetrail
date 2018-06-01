@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
 	<title>reMoveTrail</title>
 	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -452,8 +454,12 @@
 					// reopen
 					context = new (window.AudioContext || window.webkitAudioContext)();
 
+					gainNode = context.createGain();
+
 				}
 				osc = context.createOscillator(); // instantiate an oscillator
+
+
 				osc.start();
 			
 			}else if(!toggleStates['audio'] && typeof context != 'undefined' && typeof osc != 'undefined' && context.state != 'closed'){
@@ -506,7 +512,9 @@
 	        			console.log("Error value : " + eggValue)
 	        			animation = 'pink'
 	        		}
-					
+	        		if(typeof gainNode != 'undefined'){
+						gainNode.gain.setTargetAtTime(0, context.currentTime, 0.015)
+					}
 					if(toggleStates['audio'] && typeof context != 'undefined'){
 						if(context.state != 'running'){
 								context.resume().then(() => {
@@ -520,13 +528,16 @@
 							if (eggValue) {
 								//console.log(oscFreqMultiplierMap[animation] + animation)
 								//console.log(amplitudeMap[animation])
-							    osc.frequency.value = eggValue/ oscFreqMultiplierMap[animation]; // Hz
+								// avoiding strange 'isfinine floating point value warning in firefox'
+							    osc.frequency.value = parseFloat(eggValue/ oscFreqMultiplierMap[animation]) + .0001; // Hz
+							    console.log(eggValue/ oscFreqMultiplierMap[animation])
 							    var detuneSetting = document.getElementById("oscDetune").checked
 							    if(detuneSetting){
 									osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + (sampleLength - detuneOffsetLength));
 								}
 
 								var waveSetting = 	document.getElementById("oscWave").checked
+								console.log(waveSetting)
 								if(waveSetting){
 									// this could use some exploration
 									// i really have no idea what i'm doing here
@@ -548,9 +559,12 @@
 									osc.type = oscMap[animation]
 								}
 
-
-								osc.connect(context.destination); // connect it to the destination
 							
+						
+								
+								osc.connect(context.destination); // connect it to the destination
+								//compressor.connect(context.destination)
+								//osc.connect
 
 								osc.stop(context.currentTime + sampleLength);		
 								 // start the oscillator
@@ -559,10 +573,12 @@
 								}else{
 									console.log('detune')
 									//console.log(eggValue)
-									osc.detune.setValueAtTime(100, context.currentTime + .001);
-									osc.stop(context.currentTime + .002);		
+									if(detuneSetting){
+										osc.detune.setValueAtTime(100, context.currentTime + .001);
+										osc.stop(context.currentTime + .002);		
 
-									osc.connect(context.destination);
+										osc.connect(context.destination);
+									}
 									// not finite
 									//osc.stop(context.currentTime + 2);
 									//console.log(amplitudeMap[animation])
