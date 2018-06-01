@@ -88,6 +88,13 @@
  		<h3>Oscilator Sample Length</h3>
  		<p> This is the length of time the oscillator will output a sound, this value must be greater than 2. Per each dataset there are around 15-25 manipulations to the oscillator so a cascade of sounds will output each second.</p>
 
+ 		<h3>Detune</h3>
+ 		<p> A <a href="https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune">feature</a> of the Javascript web audio kit, applys the same hertz frequency and one second less than the osscilator's sample length</p>
+
+ 		<h3>Perodic Wave</h3>
+ 		<p>Another <a href="https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/setPeriodicWave">feature</a> used because its' present. Permits the fashining of a custom sine wave. Will probably make sound transitions smoother</p>
+
+
  		<h3>EGG Range Multipliers</h3>
  		<p> You can adjust the multiplier that is used in conjuction with the RNG site data to manipulate the hertz value fed into the oscillator, press update to activate the entered values. The detune option uses the same value and subtracts 1 (second) from the oscillator sample length, this can be toggled on or off. The colors refer to a scale that is given to ranges of values, but the final hertz value is based on the actual number from the RNG site multiplied by these values</p>
 
@@ -155,7 +162,12 @@
 			<legend>Detune</legend>
 			<input id="oscDetune" type="checkbox" checked=true>
 		</fieldset>
-		
+		<br/>
+		<fieldset>
+			<legend>Periodic Wave</legend>
+			<input id="oscWave" type="checkbox" checked=true>
+		</fieldset>
+
 		
 	</fieldset>
 	<fieldset>
@@ -219,13 +231,13 @@
 
 	oscMultiPresets = {
 		"default" : [
-		.25, .3, .35, .40, .45, .50, .55, 1, 3,true
+		.25, .3, .35, .40, .45, .50, .55, 1, 3,true,true
 		],
 		"singingBowls" : [
-			3,0.6,.35,2,.45,.5,4,1,30,true
+			3,0.6,.35,2,.45,.5,4,1,30,true,true
 		],
 		"solar" : [
-			3,0.23,.48,2,.45,.73,4,1,8,false
+			3,0.23,.48,2,.45,.73,4,1,8,false,true
 		]
 	}
 	updateOscSampleLength=function(){
@@ -257,6 +269,15 @@
 
 	 			}
 	 		}
+	 		if(typeof oscMultiPresets[preset][10] != 'undefined'){
+	 			// adjust detune
+	 			if(!oscMultiPresets[preset][10]){
+	 				document.getElementById('oscWave').checked = false
+	 			}else{
+	 				document.getElementById('oscWave').checked = true
+
+	 			}
+	 		}
 	 		updateOscSampleLength()
 	 		updateOscMulti()
  		}
@@ -270,6 +291,7 @@
 	 			r.push(document.getElementById(o).value)
 	 		})
 	 		r.push(document.getElementById('oscDetune').checked)
+	 		r.push(document.getElementById('oscWave').checked)
 
 	 		document.getElementById("output").value = r.join(',')
 
@@ -293,8 +315,8 @@
 	 			}
 	 		})
 	 		console.log(input)
-	 		if(input.length == 10){
-	 			var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7','oscSampleLength','oscDetune']
+	 		if(input.length == 11){
+	 			var oscInputs = ['oscFreMulti_0','oscFreMulti_1','oscFreMulti_2','oscFreMulti_3','oscFreMulti_4','oscFreMulti_5','oscFreMulti_6','oscFreMulti_7','oscSampleLength','oscDetune','oscWave']
 		 			oscInputs.filter(function(o,i){
 	 				if(i < 9){
 	 					document.getElementById(o).value = input[i]
@@ -310,6 +332,15 @@
 		 				}
 
 			 			console.log("setting detune to " + o)
+			 		}else if(i == 10){
+						console.log(input[i])
+		 				if(input[i] == 'true'){
+		 					document.getElementById("oscWave").checked = true
+
+		 				}else{
+		 					document.getElementById("oscWave").checked = false
+
+		 				}			 			
 			 		}
 			 	})
 
@@ -367,7 +398,24 @@
 			document.getElementById('io').style.display = 'block'
 		}
 	}
+	periodicWaveForm=function(real,imag,frequency,duration){
+		if(typeof duration == 'undefined'){
+			duration = 3
+		}
+		var ac = new AudioContext();
+		var osc = ac.createOscillator();
 
+		var wave = ac.createPeriodicWave(real, imag);
+
+		osc.setPeriodicWave(wave);
+
+		osc.frequency.value = frequency; // Hz
+							   
+		osc.connect(ac.destination);
+
+		osc.start();
+		osc.stop(20);
+	}
 	
 	var oscMap = {
 		'green' : 'sine',
@@ -412,6 +460,12 @@
 				context.close()
 
 			}
+			var real = []
+			var imag = []
+		
+
+		
+
 	        for(var key in result){
 	        		// get old location to swap out?
 	        		//console.log(typeof key)
@@ -456,7 +510,8 @@
 							    console.log('Playback resumed successfully');
 							  });
 							}else{
-								osc.type = oscMap[animation]
+
+								//osc.type = oscMap[animation]
 								//'sine'; // this is the default - also square, sawtooth, triangle
 
 							if (eggValue) {
@@ -467,8 +522,34 @@
 							    if(detuneSetting){
 									osc.detune.setValueAtTime(oscFreqMultiplierMap[animation] * eggValue, context.currentTime + (sampleLength - detuneOffsetLength));
 								}
-								osc.stop(context.currentTime + sampleLength);		
+
+								var waveSetting = 	document.getElementById("oscWave").checked
+								if(waveSetting){
+									// this could use some exploration
+									// i really have no idea what i'm doing here
+									var wave = context.createPeriodicWave(
+													[	eggValue/oscFreqMultiplierMap[animation],
+														0,
+														oscFreqMultiplierMap[animation],
+														1
+													], 
+													[	0,
+														oscFreqMultiplierMap[animation] * eggValue,
+														eggValue,
+														0
+													]
+									);
+									osc.setPeriodicWave(wave);
+
+								}else{
+									osc.type = oscMap[animation]
+								}
+
+
 								osc.connect(context.destination); // connect it to the destination
+							
+
+								osc.stop(context.currentTime + sampleLength);		
 								 // start the oscillator
 								 // stop 2 seconds after the current time
 								
